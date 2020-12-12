@@ -28,7 +28,7 @@ const sqlConfig={
 		database: 'HermesTV'
 	}; 
 
-console.log('Server started on port 3000');
+console.log(`Server started on port ${process.env.PORT || 8081}`);
 
 app.get('/',(req,res)=>{
 	res.send(`<h1>Гермес-ТВ</h1>
@@ -77,7 +77,7 @@ app.post('/test-action',async (req,res)=>{
 	res.send(`${req.body.activationToggle?'активировали':'деактивировали'} объект с типом ${req.body.objectType} и id ${req.body.id}`);
 })
 
-httpServer.listen(8081);
-httpsServer.listen(3000);
+httpServer.listen(process.env.PORT || 8081);
+httpsServer.listen(process.env.PORT || 3000);
 
 //app.listen(process.env.PORT || 8081); 
