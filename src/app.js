@@ -28,7 +28,12 @@ const sqlConfig={
 		database: 'HermesTV'
 	}; 
 
-console.log('Server started!');
+console.log('Server started on port 3000');
+
+app.get('/',(req,res)=>{
+	res.send(`<h1>Гермес-ТВ</h1>
+	<div>Cайт сейчас находится на реконструкции но мы надеемся уже к КОМКОНу удивить наших зрителей</div>`);
+})
 
 app.get('/test',async (req,res)=>{
 	
