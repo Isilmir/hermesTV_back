@@ -17,7 +17,7 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
-const httpServer = http.createServer(app);
+//const httpServer = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
 
 
@@ -28,7 +28,9 @@ const sqlConfig={
 		database: 'HermesTV'
 	}; 
 
-console.log(`Server started on port ${process.env.PORT || 8081}`);
+const PORT = process.env.PORT || 3000	
+	
+//console.log(`Server started on port ${process.env.PORT || 8081}`);
 
 app.get('/',(req,res)=>{
 	res.send(`<h1>Гермес-ТВ</h1>
@@ -77,7 +79,9 @@ app.post('/test-action',async (req,res)=>{
 	res.send(`${req.body.activationToggle?'активировали':'деактивировали'} объект с типом ${req.body.objectType} и id ${req.body.id}`);
 })
 
-httpServer.listen(process.env.PORT || 8081);
-httpsServer.listen(process.env.PORT || 3000);
+//app.listen(PORT,()=>console.log(`Listening on port ${PORT}`))
+
+//httpServer.listen(process.env.PORT || 8081);
+httpsServer.listen(PORT,()=>console.log(`Listening on port ${PORT}`));
 
 //app.listen(process.env.PORT || 8081); 
