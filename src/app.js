@@ -51,7 +51,7 @@ app.get('/pg/get-objects',(req,res)=>{
 	client.connect();
 	client.query('SELECT qr,active FROM hermestv.objects;', (err, result) => {
 	  if (err) throw err;
-	  res.send(result);
+	  res.send(result.rows);
 	  client.end();
 	});
 })
