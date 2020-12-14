@@ -36,9 +36,7 @@ const PORT = process.env.PORT || 5000
 
 app.get('/',(req,res)=>{
 	res.send(`<h1>Гермес-ТВ</h1>
-	<div>Cайт сейчас находится на реконструкции но мы надеемся уже к КОМКОНу удивить наших зрителей</div>
-	<br>
-	<div>${process.env.DATABASE_URL}</div>`);
+	<div>Cайт сейчас находится на реконструкции но мы надеемся уже к КОМКОНу удивить наших зрителей</div>`);
 })
 
 app.get('/pg/get-objects',(req,res)=>{
@@ -96,6 +94,23 @@ app.post('/test-action',async (req,res)=>{
 	const result = await sql.query(query);
 	
 	res.send(`${req.body.activationToggle?'активировали':'деактивировали'} объект с типом ${req.body.objectType} и id ${req.body.id}`);
+})
+
+app.post('/pg/activation',async (req,res)=>{
+	
+	const client = new Client({
+	  connectionString: process.env.DATABASE_URL,
+	  ssl: {
+		rejectUnauthorized: false
+	  }
+	});
+	let query =`UPDATE hermestv.objects o set active=${req.body.activationToggle?'TRUE':'FALSE'} from hermestv.objectTypes ot where ot.id=o.typeId and o.id=${req.body.id} and ot.name='${req.body.objectType}';`
+	client.connect();
+	client.query(query, (err, result) => {
+	  if (err) throw err;
+	  res.send(`${req.body.activationToggle?'активировали':'деактивировали'} объект с типом ${req.body.objectType} и id ${req.body.id}`);
+	  client.end();
+	});
 })
 
 app.listen(PORT,()=>console.log(`Listening on port ${PORT}`))
