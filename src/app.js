@@ -49,9 +49,9 @@ app.get('/pg/get-objects',(req,res)=>{
 	  }
 	});
 	client.connect();
-	client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+	client.query('SELECT qr,active FROM hermestv.objects;', (err, result) => {
 	  if (err) throw err;
-	  res.send(res);
+	  res.send(result);
 	  client.end();
 	});
 })
