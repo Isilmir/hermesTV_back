@@ -6,6 +6,8 @@ const sql = require('mssql');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
+const { Client } = require('pg');
+
 
 
 const privateKey  = fs.readFileSync('src/sslcert/35442480_localhost.key', 'utf8');
@@ -37,6 +39,21 @@ app.get('/',(req,res)=>{
 	<div>Cайт сейчас находится на реконструкции но мы надеемся уже к КОМКОНу удивить наших зрителей</div>
 	<br>
 	<div>${process.env.DATABASE_URL}</div>`);
+})
+
+app.get('/pg/get-objects',(req,res)=>{
+	const client = new Client({
+	  connectionString: process.env.DATABASE_URL,
+	  ssl: {
+		rejectUnauthorized: false
+	  }
+	});
+	client.connect();
+	client.query('SELECT table_schema,table_name FROM information_schema.tables;', (err, res) => {
+	  if (err) throw err;
+	  res.send(res);
+	  client.end();
+	});
 })
 
 app.get('/test',async (req,res)=>{
