@@ -97,7 +97,7 @@ app.post('/test-action',async (req,res)=>{
 })
 
 app.post('/pg/activation',async (req,res)=>{
-	
+	console.dir(req.body);
 	const client = new Client({
 	  connectionString: process.env.DATABASE_URL,
 	  ssl: {
@@ -105,6 +105,7 @@ app.post('/pg/activation',async (req,res)=>{
 	  }
 	});
 	let query =`UPDATE hermestv.objects o set active=${req.body.activationToggle?'TRUE':'FALSE'} from hermestv.objectTypes ot where ot.id=o.typeId and o.id=${req.body.id} and ot.name='${req.body.objectType}';`
+	console.log(query);
 	client.connect();
 	client.query(query, (err, result) => {
 	  if (err) throw err;
