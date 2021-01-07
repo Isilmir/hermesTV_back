@@ -1,0 +1,2444 @@
+[
+	{
+		"CharacterId": 42849,
+		"UpdatedAt": "2019-09-13T19:03:05.807",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42849/"
+	},
+	{
+		"CharacterId": 42850,
+		"UpdatedAt": "2019-09-16T11:24:21.5",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42850/"
+	},
+	{
+		"CharacterId": 42851,
+		"UpdatedAt": "2020-11-30T08:54:56.887",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42851/"
+	},
+	{
+		"CharacterId": 42852,
+		"UpdatedAt": "2019-09-16T11:10:00.477",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42852/"
+	},
+	{
+		"CharacterId": 42853,
+		"UpdatedAt": "2019-09-15T09:50:44.677",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42853/"
+	},
+	{
+		"CharacterId": 42854,
+		"UpdatedAt": "2019-09-24T09:32:40.26",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42854/"
+	},
+	{
+		"CharacterId": 42855,
+		"UpdatedAt": "2019-09-16T11:13:01.027",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42855/"
+	},
+	{
+		"CharacterId": 42856,
+		"UpdatedAt": "2019-09-24T11:03:50.933",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42856/"
+	},
+	{
+		"CharacterId": 42857,
+		"UpdatedAt": "2019-09-24T09:35:55.35",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42857/"
+	},
+	{
+		"CharacterId": 42858,
+		"UpdatedAt": "2019-09-24T09:38:14.887",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42858/"
+	},
+	{
+		"CharacterId": 42859,
+		"UpdatedAt": "2019-09-24T09:38:57.087",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42859/"
+	},
+	{
+		"CharacterId": 42860,
+		"UpdatedAt": "2020-01-20T12:34:20.29",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42860/"
+	},
+	{
+		"CharacterId": 42861,
+		"UpdatedAt": "2019-09-11T19:33:34.163",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42861/"
+	},
+	{
+		"CharacterId": 42862,
+		"UpdatedAt": "2019-09-11T19:33:52.68",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42862/"
+	},
+	{
+		"CharacterId": 42863,
+		"UpdatedAt": "2019-09-14T13:24:44.227",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42863/"
+	},
+	{
+		"CharacterId": 42864,
+		"UpdatedAt": "2019-09-16T10:23:51.36",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42864/"
+	},
+	{
+		"CharacterId": 42865,
+		"UpdatedAt": "2019-09-24T09:45:42.657",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42865/"
+	},
+	{
+		"CharacterId": 42866,
+		"UpdatedAt": "2019-09-14T08:40:23.99",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42866/"
+	},
+	{
+		"CharacterId": 42867,
+		"UpdatedAt": "2019-09-13T18:59:29.99",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42867/"
+	},
+	{
+		"CharacterId": 42868,
+		"UpdatedAt": "2019-09-16T12:30:00.263",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42868/"
+	},
+	{
+		"CharacterId": 42869,
+		"UpdatedAt": "2019-09-24T09:58:03.457",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42869/"
+	},
+	{
+		"CharacterId": 42872,
+		"UpdatedAt": "2019-09-14T16:58:58.437",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42872/"
+	},
+	{
+		"CharacterId": 42873,
+		"UpdatedAt": "2019-10-03T13:22:04.387",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42873/"
+	},
+	{
+		"CharacterId": 42896,
+		"UpdatedAt": "2019-09-15T09:50:02.13",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42896/"
+	},
+	{
+		"CharacterId": 42898,
+		"UpdatedAt": "2019-09-14T17:21:48.927",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42898/"
+	},
+	{
+		"CharacterId": 42899,
+		"UpdatedAt": "2019-09-16T09:12:57.803",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42899/"
+	},
+	{
+		"CharacterId": 42900,
+		"UpdatedAt": "2020-05-04T11:38:55.897",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42900/"
+	},
+	{
+		"CharacterId": 42901,
+		"UpdatedAt": "2019-09-25T10:11:34.643",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42901/"
+	},
+	{
+		"CharacterId": 42902,
+		"UpdatedAt": "2020-11-30T09:26:40.15",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42902/"
+	},
+	{
+		"CharacterId": 42903,
+		"UpdatedAt": "2019-11-04T16:55:58.95",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42903/"
+	},
+	{
+		"CharacterId": 42904,
+		"UpdatedAt": "2019-09-16T09:13:59.167",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42904/"
+	},
+	{
+		"CharacterId": 42905,
+		"UpdatedAt": "2019-09-25T10:11:03.393",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42905/"
+	},
+	{
+		"CharacterId": 42906,
+		"UpdatedAt": "2020-02-04T10:28:34.977",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42906/"
+	},
+	{
+		"CharacterId": 42907,
+		"UpdatedAt": "2019-10-01T10:48:18.647",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42907/"
+	},
+	{
+		"CharacterId": 42908,
+		"UpdatedAt": "2019-10-01T14:57:24.677",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42908/"
+	},
+	{
+		"CharacterId": 42909,
+		"UpdatedAt": "2019-09-13T18:51:04.88",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42909/"
+	},
+	{
+		"CharacterId": 42911,
+		"UpdatedAt": "2019-09-16T10:53:38.473",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42911/"
+	},
+	{
+		"CharacterId": 42912,
+		"UpdatedAt": "2020-12-03T19:42:30.203",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42912/"
+	},
+	{
+		"CharacterId": 42913,
+		"UpdatedAt": "2019-09-16T19:10:54.35",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42913/"
+	},
+	{
+		"CharacterId": 42914,
+		"UpdatedAt": "2020-12-03T19:11:24.367",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42914/"
+	},
+	{
+		"CharacterId": 42915,
+		"UpdatedAt": "2019-09-15T12:12:53.423",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42915/"
+	},
+	{
+		"CharacterId": 42916,
+		"UpdatedAt": "2019-09-15T12:11:01.403",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42916/"
+	},
+	{
+		"CharacterId": 42917,
+		"UpdatedAt": "2020-03-02T14:08:53.803",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42917/"
+	},
+	{
+		"CharacterId": 42919,
+		"UpdatedAt": "2019-09-14T15:31:19.297",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42919/"
+	},
+	{
+		"CharacterId": 42920,
+		"UpdatedAt": "2019-09-27T12:44:24.31",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42920/"
+	},
+	{
+		"CharacterId": 42921,
+		"UpdatedAt": "2020-01-21T07:44:45.953",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42921/"
+	},
+	{
+		"CharacterId": 42922,
+		"UpdatedAt": "2019-09-25T11:37:02.587",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42922/"
+	},
+	{
+		"CharacterId": 42923,
+		"UpdatedAt": "2019-10-01T11:02:27.63",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42923/"
+	},
+	{
+		"CharacterId": 42924,
+		"UpdatedAt": "2020-11-30T09:45:39.317",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42924/"
+	},
+	{
+		"CharacterId": 42925,
+		"UpdatedAt": "2020-01-14T15:44:31.453",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42925/"
+	},
+	{
+		"CharacterId": 42954,
+		"UpdatedAt": "2019-09-16T11:33:16.247",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42954/"
+	},
+	{
+		"CharacterId": 42955,
+		"UpdatedAt": "2019-09-17T14:14:19.267",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42955/"
+	},
+	{
+		"CharacterId": 42956,
+		"UpdatedAt": "2019-09-14T10:12:12.59",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42956/"
+	},
+	{
+		"CharacterId": 42957,
+		"UpdatedAt": "2019-09-14T13:43:18.657",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42957/"
+	},
+	{
+		"CharacterId": 42958,
+		"UpdatedAt": "2019-09-27T12:30:55.283",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42958/"
+	},
+	{
+		"CharacterId": 42959,
+		"UpdatedAt": "2019-11-26T19:33:32.993",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42959/"
+	},
+	{
+		"CharacterId": 42960,
+		"UpdatedAt": "2019-09-26T21:07:05.417",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42960/"
+	},
+	{
+		"CharacterId": 42961,
+		"UpdatedAt": "2019-09-26T21:08:34.273",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42961/"
+	},
+	{
+		"CharacterId": 42962,
+		"UpdatedAt": "2019-09-12T10:32:42.49",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42962/"
+	},
+	{
+		"CharacterId": 42963,
+		"UpdatedAt": "2019-10-12T16:27:01.483",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42963/"
+	},
+	{
+		"CharacterId": 42964,
+		"UpdatedAt": "2020-01-29T11:45:20.71",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42964/"
+	},
+	{
+		"CharacterId": 42966,
+		"UpdatedAt": "2020-05-04T12:33:12.887",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42966/"
+	},
+	{
+		"CharacterId": 42967,
+		"UpdatedAt": "2019-09-12T10:51:16.813",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42967/"
+	},
+	{
+		"CharacterId": 42968,
+		"UpdatedAt": "2020-03-17T13:32:48.817",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42968/"
+	},
+	{
+		"CharacterId": 42969,
+		"UpdatedAt": "2020-03-17T13:47:50.177",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42969/"
+	},
+	{
+		"CharacterId": 42970,
+		"UpdatedAt": "2020-03-17T13:54:25.877",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42970/"
+	},
+	{
+		"CharacterId": 42971,
+		"UpdatedAt": "2019-09-12T11:01:25.443",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42971/"
+	},
+	{
+		"CharacterId": 42972,
+		"UpdatedAt": "2019-09-12T11:02:16.977",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42972/"
+	},
+	{
+		"CharacterId": 42973,
+		"UpdatedAt": "2019-09-12T11:03:18.557",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42973/"
+	},
+	{
+		"CharacterId": 42974,
+		"UpdatedAt": "2020-03-06T18:53:59.867",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42974/"
+	},
+	{
+		"CharacterId": 42975,
+		"UpdatedAt": "2020-05-04T12:36:02.877",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42975/"
+	},
+	{
+		"CharacterId": 42976,
+		"UpdatedAt": "2019-09-12T11:09:57.177",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42976/"
+	},
+	{
+		"CharacterId": 42977,
+		"UpdatedAt": "2020-02-17T13:35:14.69",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42977/"
+	},
+	{
+		"CharacterId": 42978,
+		"UpdatedAt": "2019-09-12T11:14:01.2",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42978/"
+	},
+	{
+		"CharacterId": 42979,
+		"UpdatedAt": "2019-09-12T11:15:13.393",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42979/"
+	},
+	{
+		"CharacterId": 42980,
+		"UpdatedAt": "2019-09-12T11:16:14.853",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42980/"
+	},
+	{
+		"CharacterId": 42981,
+		"UpdatedAt": "2019-09-13T18:36:10.147",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42981/"
+	},
+	{
+		"CharacterId": 42982,
+		"UpdatedAt": "2019-09-14T09:07:03.267",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42982/"
+	},
+	{
+		"CharacterId": 42983,
+		"UpdatedAt": "2019-09-17T09:41:23.897",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42983/"
+	},
+	{
+		"CharacterId": 42984,
+		"UpdatedAt": "2019-09-17T09:42:19.407",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42984/"
+	},
+	{
+		"CharacterId": 42985,
+		"UpdatedAt": "2019-09-17T09:45:00.78",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42985/"
+	},
+	{
+		"CharacterId": 42987,
+		"UpdatedAt": "2020-05-18T12:22:20.537",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42987/"
+	},
+	{
+		"CharacterId": 42988,
+		"UpdatedAt": "2020-03-25T16:44:39.727",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42988/"
+	},
+	{
+		"CharacterId": 42989,
+		"UpdatedAt": "2019-09-17T09:10:35.867",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42989/"
+	},
+	{
+		"CharacterId": 42997,
+		"UpdatedAt": "2019-09-17T09:47:22.28",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42997/"
+	},
+	{
+		"CharacterId": 42998,
+		"UpdatedAt": "2019-09-17T09:48:22.243",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42998/"
+	},
+	{
+		"CharacterId": 42999,
+		"UpdatedAt": "2019-09-17T09:56:22.803",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/42999/"
+	},
+	{
+		"CharacterId": 43000,
+		"UpdatedAt": "2019-09-17T10:07:29.993",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43000/"
+	},
+	{
+		"CharacterId": 43001,
+		"UpdatedAt": "2019-09-17T09:57:09.55",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43001/"
+	},
+	{
+		"CharacterId": 43002,
+		"UpdatedAt": "2019-09-17T10:16:22.007",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43002/"
+	},
+	{
+		"CharacterId": 43004,
+		"UpdatedAt": "2019-09-14T09:31:43.027",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43004/"
+	},
+	{
+		"CharacterId": 43005,
+		"UpdatedAt": "2019-09-14T09:33:20.747",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43005/"
+	},
+	{
+		"CharacterId": 43006,
+		"UpdatedAt": "2019-09-13T18:59:03.23",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43006/"
+	},
+	{
+		"CharacterId": 43007,
+		"UpdatedAt": "2019-09-24T13:56:40.377",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43007/"
+	},
+	{
+		"CharacterId": 43008,
+		"UpdatedAt": "2019-09-14T12:09:01.087",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43008/"
+	},
+	{
+		"CharacterId": 43009,
+		"UpdatedAt": "2019-09-13T19:04:33.957",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43009/"
+	},
+	{
+		"CharacterId": 43010,
+		"UpdatedAt": "2020-05-04T10:51:24.027",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43010/"
+	},
+	{
+		"CharacterId": 43011,
+		"UpdatedAt": "2019-09-14T09:34:15.03",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43011/"
+	},
+	{
+		"CharacterId": 43012,
+		"UpdatedAt": "2019-09-14T18:57:02.637",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43012/"
+	},
+	{
+		"CharacterId": 43013,
+		"UpdatedAt": "2019-09-14T09:29:36.097",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43013/"
+	},
+	{
+		"CharacterId": 43014,
+		"UpdatedAt": "2020-09-29T17:10:23.33",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43014/"
+	},
+	{
+		"CharacterId": 43015,
+		"UpdatedAt": "2019-09-12T14:28:15.987",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43015/"
+	},
+	{
+		"CharacterId": 43017,
+		"UpdatedAt": "2019-09-12T14:30:27.707",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43017/"
+	},
+	{
+		"CharacterId": 43024,
+		"UpdatedAt": "2019-09-14T11:03:13.833",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43024/"
+	},
+	{
+		"CharacterId": 43025,
+		"UpdatedAt": "2019-09-13T18:51:59.357",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43025/"
+	},
+	{
+		"CharacterId": 43026,
+		"UpdatedAt": "2019-09-14T11:47:37.457",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43026/"
+	},
+	{
+		"CharacterId": 43027,
+		"UpdatedAt": "2019-09-14T08:34:32.353",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43027/"
+	},
+	{
+		"CharacterId": 43028,
+		"UpdatedAt": "2019-09-14T09:09:07.597",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43028/"
+	},
+	{
+		"CharacterId": 43029,
+		"UpdatedAt": "2019-09-16T12:51:55.943",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43029/"
+	},
+	{
+		"CharacterId": 43030,
+		"UpdatedAt": "2019-09-14T08:37:17.293",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43030/"
+	},
+	{
+		"CharacterId": 43031,
+		"UpdatedAt": "2019-09-14T08:30:17.543",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43031/"
+	},
+	{
+		"CharacterId": 43032,
+		"UpdatedAt": "2019-09-15T19:59:06.527",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43032/"
+	},
+	{
+		"CharacterId": 43033,
+		"UpdatedAt": "2019-09-14T11:49:31.203",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43033/"
+	},
+	{
+		"CharacterId": 43034,
+		"UpdatedAt": "2019-09-14T11:50:31.62",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43034/"
+	},
+	{
+		"CharacterId": 43035,
+		"UpdatedAt": "2019-09-14T08:44:18.297",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43035/"
+	},
+	{
+		"CharacterId": 43036,
+		"UpdatedAt": "2019-09-14T12:35:14.123",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43036/"
+	},
+	{
+		"CharacterId": 43037,
+		"UpdatedAt": "2019-09-14T19:16:47.603",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43037/"
+	},
+	{
+		"CharacterId": 43038,
+		"UpdatedAt": "2019-10-01T09:38:52.27",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43038/"
+	},
+	{
+		"CharacterId": 43041,
+		"UpdatedAt": "2020-03-20T12:02:31.25",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43041/"
+	},
+	{
+		"CharacterId": 43043,
+		"UpdatedAt": "2019-09-16T19:04:24.137",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43043/"
+	},
+	{
+		"CharacterId": 43044,
+		"UpdatedAt": "2019-09-14T12:27:26.113",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43044/"
+	},
+	{
+		"CharacterId": 43045,
+		"UpdatedAt": "2019-09-14T13:42:13.01",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43045/"
+	},
+	{
+		"CharacterId": 43046,
+		"UpdatedAt": "2019-09-14T13:55:56.753",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43046/"
+	},
+	{
+		"CharacterId": 43047,
+		"UpdatedAt": "2020-11-30T10:27:18.593",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43047/"
+	},
+	{
+		"CharacterId": 43048,
+		"UpdatedAt": "2019-09-14T15:34:40.387",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43048/"
+	},
+	{
+		"CharacterId": 43049,
+		"UpdatedAt": "2019-09-14T11:06:59.677",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43049/"
+	},
+	{
+		"CharacterId": 43050,
+		"UpdatedAt": "2019-10-10T12:16:22.453",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43050/"
+	},
+	{
+		"CharacterId": 43051,
+		"UpdatedAt": "2019-09-14T13:44:54.523",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43051/"
+	},
+	{
+		"CharacterId": 43052,
+		"UpdatedAt": "2019-12-02T14:43:35.9",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43052/"
+	},
+	{
+		"CharacterId": 43053,
+		"UpdatedAt": "2020-11-30T10:28:04.81",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43053/"
+	},
+	{
+		"CharacterId": 43054,
+		"UpdatedAt": "2019-10-01T09:50:42.163",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43054/"
+	},
+	{
+		"CharacterId": 43055,
+		"UpdatedAt": "2020-02-05T10:08:08.47",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43055/"
+	},
+	{
+		"CharacterId": 43056,
+		"UpdatedAt": "2019-09-14T17:34:30.19",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43056/"
+	},
+	{
+		"CharacterId": 43057,
+		"UpdatedAt": "2019-09-14T11:46:04.113",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43057/"
+	},
+	{
+		"CharacterId": 43058,
+		"UpdatedAt": "2019-10-01T09:49:47.91",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43058/"
+	},
+	{
+		"CharacterId": 43059,
+		"UpdatedAt": "2019-09-14T19:34:26.403",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43059/"
+	},
+	{
+		"CharacterId": 43060,
+		"UpdatedAt": "2019-09-14T11:46:53.533",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43060/"
+	},
+	{
+		"CharacterId": 43061,
+		"UpdatedAt": "2020-01-14T16:37:33.673",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43061/"
+	},
+	{
+		"CharacterId": 43062,
+		"UpdatedAt": "2020-01-14T16:00:00.503",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43062/"
+	},
+	{
+		"CharacterId": 43063,
+		"UpdatedAt": "2020-01-14T15:48:29.263",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43063/"
+	},
+	{
+		"CharacterId": 43064,
+		"UpdatedAt": "2019-09-14T17:41:52.25",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43064/"
+	},
+	{
+		"CharacterId": 43065,
+		"UpdatedAt": "2020-11-30T10:34:48.953",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43065/"
+	},
+	{
+		"CharacterId": 43066,
+		"UpdatedAt": "2019-09-14T17:42:53.057",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43066/"
+	},
+	{
+		"CharacterId": 43067,
+		"UpdatedAt": "2019-09-14T09:47:00.81",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43067/"
+	},
+	{
+		"CharacterId": 43068,
+		"UpdatedAt": "2019-10-01T09:48:08.797",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43068/"
+	},
+	{
+		"CharacterId": 43069,
+		"UpdatedAt": "2019-09-14T09:49:02.297",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43069/"
+	},
+	{
+		"CharacterId": 43070,
+		"UpdatedAt": "2019-09-14T09:49:52.193",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43070/"
+	},
+	{
+		"CharacterId": 43072,
+		"UpdatedAt": "2019-09-14T13:47:02.237",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43072/"
+	},
+	{
+		"CharacterId": 43073,
+		"UpdatedAt": "2019-09-15T19:36:02.943",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43073/"
+	},
+	{
+		"CharacterId": 43074,
+		"UpdatedAt": "2019-09-14T13:50:32.92",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43074/"
+	},
+	{
+		"CharacterId": 43075,
+		"UpdatedAt": "2019-10-01T16:01:33.497",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43075/"
+	},
+	{
+		"CharacterId": 43076,
+		"UpdatedAt": "2019-10-01T09:38:04.257",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43076/"
+	},
+	{
+		"CharacterId": 43077,
+		"UpdatedAt": "2019-09-14T15:24:15.357",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43077/"
+	},
+	{
+		"CharacterId": 43078,
+		"UpdatedAt": "2019-09-14T15:22:41.207",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43078/"
+	},
+	{
+		"CharacterId": 43079,
+		"UpdatedAt": "2019-09-13T10:58:17.577",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43079/"
+	},
+	{
+		"CharacterId": 43080,
+		"UpdatedAt": "2019-09-16T08:42:28.757",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43080/"
+	},
+	{
+		"CharacterId": 43081,
+		"UpdatedAt": "2019-09-13T10:59:23.387",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43081/"
+	},
+	{
+		"CharacterId": 43082,
+		"UpdatedAt": "2019-09-14T13:34:16.833",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43082/"
+	},
+	{
+		"CharacterId": 43083,
+		"UpdatedAt": "2019-09-13T11:03:54.007",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43083/"
+	},
+	{
+		"CharacterId": 43084,
+		"UpdatedAt": "2019-10-12T14:13:05.493",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43084/"
+	},
+	{
+		"CharacterId": 43085,
+		"UpdatedAt": "2020-05-18T14:08:36.807",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43085/"
+	},
+	{
+		"CharacterId": 43086,
+		"UpdatedAt": "2019-10-01T13:38:54.373",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43086/"
+	},
+	{
+		"CharacterId": 43087,
+		"UpdatedAt": "2020-11-17T11:27:44.773",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43087/"
+	},
+	{
+		"CharacterId": 43088,
+		"UpdatedAt": "2019-09-15T12:38:49.157",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43088/"
+	},
+	{
+		"CharacterId": 43089,
+		"UpdatedAt": "2019-09-14T15:48:11.56",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43089/"
+	},
+	{
+		"CharacterId": 43090,
+		"UpdatedAt": "2019-11-02T16:46:01.233",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43090/"
+	},
+	{
+		"CharacterId": 43091,
+		"UpdatedAt": "2019-10-07T13:24:31.427",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43091/"
+	},
+	{
+		"CharacterId": 43092,
+		"UpdatedAt": "2019-12-18T10:50:53.083",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43092/"
+	},
+	{
+		"CharacterId": 43093,
+		"UpdatedAt": "2019-09-14T20:23:33.563",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43093/"
+	},
+	{
+		"CharacterId": 43094,
+		"UpdatedAt": "2019-09-13T18:37:28.393",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43094/"
+	},
+	{
+		"CharacterId": 43095,
+		"UpdatedAt": "2019-09-15T19:37:18.49",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43095/"
+	},
+	{
+		"CharacterId": 43096,
+		"UpdatedAt": "2019-09-17T12:18:13.94",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43096/"
+	},
+	{
+		"CharacterId": 43098,
+		"UpdatedAt": "2019-09-14T18:51:14.303",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43098/"
+	},
+	{
+		"CharacterId": 43099,
+		"UpdatedAt": "2019-09-13T19:06:40.437",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43099/"
+	},
+	{
+		"CharacterId": 43100,
+		"UpdatedAt": "2019-10-10T13:59:16.407",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43100/"
+	},
+	{
+		"CharacterId": 43101,
+		"UpdatedAt": "2019-09-17T13:33:27.447",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43101/"
+	},
+	{
+		"CharacterId": 43102,
+		"UpdatedAt": "2019-09-14T19:03:12.973",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43102/"
+	},
+	{
+		"CharacterId": 43103,
+		"UpdatedAt": "2019-09-14T11:13:17.8",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43103/"
+	},
+	{
+		"CharacterId": 43104,
+		"UpdatedAt": "2019-11-26T19:45:15.927",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43104/"
+	},
+	{
+		"CharacterId": 43105,
+		"UpdatedAt": "2019-09-14T09:02:25.947",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43105/"
+	},
+	{
+		"CharacterId": 43106,
+		"UpdatedAt": "2019-11-26T20:17:40.61",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43106/"
+	},
+	{
+		"CharacterId": 43107,
+		"UpdatedAt": "2019-09-13T19:01:04.53",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43107/"
+	},
+	{
+		"CharacterId": 43109,
+		"UpdatedAt": "2019-09-14T16:37:59.257",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43109/"
+	},
+	{
+		"CharacterId": 43110,
+		"UpdatedAt": "2019-09-13T19:05:21.89",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43110/"
+	},
+	{
+		"CharacterId": 43111,
+		"UpdatedAt": "2019-09-14T15:43:20.41",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43111/"
+	},
+	{
+		"CharacterId": 43112,
+		"UpdatedAt": "2019-12-17T19:06:29.247",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43112/"
+	},
+	{
+		"CharacterId": 43113,
+		"UpdatedAt": "2019-09-14T15:45:37.95",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43113/"
+	},
+	{
+		"CharacterId": 43114,
+		"UpdatedAt": "2019-09-14T15:46:49.14",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43114/"
+	},
+	{
+		"CharacterId": 43115,
+		"UpdatedAt": "2019-09-14T09:03:47.773",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43115/"
+	},
+	{
+		"CharacterId": 43117,
+		"UpdatedAt": "2019-09-13T11:58:50.047",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43117/"
+	},
+	{
+		"CharacterId": 43118,
+		"UpdatedAt": "2019-12-10T16:08:07.93",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43118/"
+	},
+	{
+		"CharacterId": 43119,
+		"UpdatedAt": "2019-09-13T12:00:10.157",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43119/"
+	},
+	{
+		"CharacterId": 43120,
+		"UpdatedAt": "2020-03-20T20:25:28.183",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43120/"
+	},
+	{
+		"CharacterId": 43143,
+		"UpdatedAt": "2019-09-14T18:42:20.19",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43143/"
+	},
+	{
+		"CharacterId": 43185,
+		"UpdatedAt": "2019-09-15T19:11:19.143",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43185/"
+	},
+	{
+		"CharacterId": 43186,
+		"UpdatedAt": "2019-09-15T20:34:49.213",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43186/"
+	},
+	{
+		"CharacterId": 43189,
+		"UpdatedAt": "2019-09-16T08:01:37.357",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43189/"
+	},
+	{
+		"CharacterId": 43190,
+		"UpdatedAt": "2019-09-16T08:02:27.91",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43190/"
+	},
+	{
+		"CharacterId": 43191,
+		"UpdatedAt": "2019-09-16T09:05:04.867",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43191/"
+	},
+	{
+		"CharacterId": 43192,
+		"UpdatedAt": "2019-12-17T14:48:57.427",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43192/"
+	},
+	{
+		"CharacterId": 43193,
+		"UpdatedAt": "2019-09-16T10:16:54.897",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43193/"
+	},
+	{
+		"CharacterId": 43194,
+		"UpdatedAt": "2019-09-15T21:05:16.567",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43194/"
+	},
+	{
+		"CharacterId": 43230,
+		"UpdatedAt": "2019-10-02T12:19:19.387",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43230/"
+	},
+	{
+		"CharacterId": 43231,
+		"UpdatedAt": "2019-09-16T08:30:34.303",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43231/"
+	},
+	{
+		"CharacterId": 43232,
+		"UpdatedAt": "2019-09-16T08:17:08.597",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43232/"
+	},
+	{
+		"CharacterId": 43233,
+		"UpdatedAt": "2019-10-02T12:20:24.5",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43233/"
+	},
+	{
+		"CharacterId": 43234,
+		"UpdatedAt": "2020-03-17T16:01:03.987",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43234/"
+	},
+	{
+		"CharacterId": 43236,
+		"UpdatedAt": "2019-09-25T09:59:24.627",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43236/"
+	},
+	{
+		"CharacterId": 43237,
+		"UpdatedAt": "2019-09-16T11:09:09.53",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43237/"
+	},
+	{
+		"CharacterId": 43249,
+		"UpdatedAt": "2019-09-16T12:17:56.67",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43249/"
+	},
+	{
+		"CharacterId": 43264,
+		"UpdatedAt": "2019-09-16T14:19:11.13",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43264/"
+	},
+	{
+		"CharacterId": 43265,
+		"UpdatedAt": "2019-09-24T15:35:44.127",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43265/"
+	},
+	{
+		"CharacterId": 43266,
+		"UpdatedAt": "2019-09-24T15:34:52.627",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43266/"
+	},
+	{
+		"CharacterId": 43267,
+		"UpdatedAt": "2019-09-25T09:17:43.833",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43267/"
+	},
+	{
+		"CharacterId": 43268,
+		"UpdatedAt": "2019-09-24T15:33:39.183",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43268/"
+	},
+	{
+		"CharacterId": 43270,
+		"UpdatedAt": "2019-10-10T12:17:02.31",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43270/"
+	},
+	{
+		"CharacterId": 43313,
+		"UpdatedAt": "2019-09-17T13:13:20.95",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43313/"
+	},
+	{
+		"CharacterId": 43314,
+		"UpdatedAt": "2019-10-10T13:27:24.57",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43314/"
+	},
+	{
+		"CharacterId": 43315,
+		"UpdatedAt": "2020-01-31T08:37:06.733",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43315/"
+	},
+	{
+		"CharacterId": 43607,
+		"UpdatedAt": "2019-09-24T09:59:50.94",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43607/"
+	},
+	{
+		"CharacterId": 43608,
+		"UpdatedAt": "2019-09-24T10:03:35.26",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43608/"
+	},
+	{
+		"CharacterId": 43609,
+		"UpdatedAt": "2019-09-24T10:07:46.213",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43609/"
+	},
+	{
+		"CharacterId": 43634,
+		"UpdatedAt": "2019-09-25T09:24:10.457",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43634/"
+	},
+	{
+		"CharacterId": 43635,
+		"UpdatedAt": "2019-09-25T09:26:18.683",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43635/"
+	},
+	{
+		"CharacterId": 43636,
+		"UpdatedAt": "2019-09-25T09:28:22.66",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43636/"
+	},
+	{
+		"CharacterId": 43638,
+		"UpdatedAt": "2020-11-19T19:58:15.163",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43638/"
+	},
+	{
+		"CharacterId": 43713,
+		"UpdatedAt": "2019-09-26T20:04:05.337",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43713/"
+	},
+	{
+		"CharacterId": 43714,
+		"UpdatedAt": "2020-11-30T09:14:26.58",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43714/"
+	},
+	{
+		"CharacterId": 43715,
+		"UpdatedAt": "2019-09-26T20:06:49.363",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43715/"
+	},
+	{
+		"CharacterId": 43738,
+		"UpdatedAt": "2019-09-27T12:21:07.007",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43738/"
+	},
+	{
+		"CharacterId": 43739,
+		"UpdatedAt": "2019-09-27T12:27:23.637",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43739/"
+	},
+	{
+		"CharacterId": 43740,
+		"UpdatedAt": "2019-09-27T12:43:13.457",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43740/"
+	},
+	{
+		"CharacterId": 43741,
+		"UpdatedAt": "2019-09-27T12:53:29.583",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43741/"
+	},
+	{
+		"CharacterId": 43834,
+		"UpdatedAt": "2019-10-01T09:58:29.773",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43834/"
+	},
+	{
+		"CharacterId": 43835,
+		"UpdatedAt": "2020-11-30T10:38:45.14",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43835/"
+	},
+	{
+		"CharacterId": 43836,
+		"UpdatedAt": "2019-10-01T10:37:33.38",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43836/"
+	},
+	{
+		"CharacterId": 43840,
+		"UpdatedAt": "2019-10-01T10:46:20.047",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43840/"
+	},
+	{
+		"CharacterId": 43841,
+		"UpdatedAt": "2019-10-01T10:47:18.667",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43841/"
+	},
+	{
+		"CharacterId": 43854,
+		"UpdatedAt": "2019-10-01T12:33:06.137",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43854/"
+	},
+	{
+		"CharacterId": 43855,
+		"UpdatedAt": "2019-10-01T12:33:56.657",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43855/"
+	},
+	{
+		"CharacterId": 43858,
+		"UpdatedAt": "2019-10-01T13:37:44.927",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43858/"
+	},
+	{
+		"CharacterId": 43859,
+		"UpdatedAt": "2019-10-10T13:25:25.773",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43859/"
+	},
+	{
+		"CharacterId": 43860,
+		"UpdatedAt": "2019-12-17T15:36:33.89",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43860/"
+	},
+	{
+		"CharacterId": 43883,
+		"UpdatedAt": "2020-01-14T15:58:58.22",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43883/"
+	},
+	{
+		"CharacterId": 43885,
+		"UpdatedAt": "2019-10-02T10:34:10.473",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43885/"
+	},
+	{
+		"CharacterId": 43886,
+		"UpdatedAt": "2019-10-05T14:37:25.88",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43886/"
+	},
+	{
+		"CharacterId": 43887,
+		"UpdatedAt": "2019-10-07T10:50:01.88",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43887/"
+	},
+	{
+		"CharacterId": 43888,
+		"UpdatedAt": "2019-10-02T11:18:56.083",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43888/"
+	},
+	{
+		"CharacterId": 43889,
+		"UpdatedAt": "2019-10-24T12:51:50.917",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43889/"
+	},
+	{
+		"CharacterId": 43890,
+		"UpdatedAt": "2019-10-12T14:25:00.99",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43890/"
+	},
+	{
+		"CharacterId": 43891,
+		"UpdatedAt": "2019-10-02T11:20:57.33",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43891/"
+	},
+	{
+		"CharacterId": 43892,
+		"UpdatedAt": "2019-10-28T11:08:40.587",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43892/"
+	},
+	{
+		"CharacterId": 43927,
+		"UpdatedAt": "2019-10-05T14:36:00.817",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/43927/"
+	},
+	{
+		"CharacterId": 44007,
+		"UpdatedAt": "2019-10-10T14:19:48.033",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44007/"
+	},
+	{
+		"CharacterId": 44105,
+		"UpdatedAt": "2019-10-10T13:17:39.797",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44105/"
+	},
+	{
+		"CharacterId": 44150,
+		"UpdatedAt": "2019-10-10T11:33:38.89",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44150/"
+	},
+	{
+		"CharacterId": 44151,
+		"UpdatedAt": "2019-10-10T11:34:47",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44151/"
+	},
+	{
+		"CharacterId": 44152,
+		"UpdatedAt": "2019-10-10T11:35:45.143",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44152/"
+	},
+	{
+		"CharacterId": 44153,
+		"UpdatedAt": "2019-10-10T11:54:06.287",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44153/"
+	},
+	{
+		"CharacterId": 44154,
+		"UpdatedAt": "2019-10-10T12:05:31.397",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44154/"
+	},
+	{
+		"CharacterId": 44155,
+		"UpdatedAt": "2019-10-10T12:49:41.5",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44155/"
+	},
+	{
+		"CharacterId": 44156,
+		"UpdatedAt": "2019-11-26T19:42:20.84",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44156/"
+	},
+	{
+		"CharacterId": 44157,
+		"UpdatedAt": "2020-11-30T10:57:13.127",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44157/"
+	},
+	{
+		"CharacterId": 44158,
+		"UpdatedAt": "2019-10-10T12:58:15.647",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44158/"
+	},
+	{
+		"CharacterId": 44159,
+		"UpdatedAt": "2019-10-24T10:29:29.42",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44159/"
+	},
+	{
+		"CharacterId": 44160,
+		"UpdatedAt": "2019-11-26T19:46:44.68",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44160/"
+	},
+	{
+		"CharacterId": 44161,
+		"UpdatedAt": "2020-03-17T11:15:36.327",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44161/"
+	},
+	{
+		"CharacterId": 44162,
+		"UpdatedAt": "2019-10-10T13:11:47.847",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44162/"
+	},
+	{
+		"CharacterId": 44163,
+		"UpdatedAt": "2019-10-10T13:40:31.83",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44163/"
+	},
+	{
+		"CharacterId": 44164,
+		"UpdatedAt": "2019-10-10T13:42:25.25",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44164/"
+	},
+	{
+		"CharacterId": 44165,
+		"UpdatedAt": "2019-10-10T13:46:18.91",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44165/"
+	},
+	{
+		"CharacterId": 44166,
+		"UpdatedAt": "2019-10-10T13:57:30.793",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44166/"
+	},
+	{
+		"CharacterId": 44167,
+		"UpdatedAt": "2019-10-10T13:58:57.69",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44167/"
+	},
+	{
+		"CharacterId": 44169,
+		"UpdatedAt": "2019-10-12T10:44:20.427",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44169/"
+	},
+	{
+		"CharacterId": 44170,
+		"UpdatedAt": "2020-01-15T11:35:10.99",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44170/"
+	},
+	{
+		"CharacterId": 44172,
+		"UpdatedAt": "2019-10-10T14:25:40.703",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44172/"
+	},
+	{
+		"CharacterId": 44173,
+		"UpdatedAt": "2019-10-10T14:30:50.39",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44173/"
+	},
+	{
+		"CharacterId": 44223,
+		"UpdatedAt": "2019-10-24T12:12:58.893",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44223/"
+	},
+	{
+		"CharacterId": 44224,
+		"UpdatedAt": "2019-10-24T12:13:25.18",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44224/"
+	},
+	{
+		"CharacterId": 44225,
+		"UpdatedAt": "2019-10-24T12:13:54.887",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44225/"
+	},
+	{
+		"CharacterId": 44226,
+		"UpdatedAt": "2019-10-12T13:46:31.56",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44226/"
+	},
+	{
+		"CharacterId": 44228,
+		"UpdatedAt": "2019-10-24T12:11:51.28",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44228/"
+	},
+	{
+		"CharacterId": 44229,
+		"UpdatedAt": "2020-03-17T16:02:21.287",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44229/"
+	},
+	{
+		"CharacterId": 44230,
+		"UpdatedAt": "2019-10-12T13:56:15.357",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44230/"
+	},
+	{
+		"CharacterId": 44231,
+		"UpdatedAt": "2019-10-12T13:58:14.25",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44231/"
+	},
+	{
+		"CharacterId": 44232,
+		"UpdatedAt": "2019-10-12T13:59:52.457",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44232/"
+	},
+	{
+		"CharacterId": 44233,
+		"UpdatedAt": "2019-10-12T14:08:22.58",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44233/"
+	},
+	{
+		"CharacterId": 44234,
+		"UpdatedAt": "2019-10-12T14:18:32.073",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44234/"
+	},
+	{
+		"CharacterId": 44235,
+		"UpdatedAt": "2019-10-12T14:20:49.343",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44235/"
+	},
+	{
+		"CharacterId": 44236,
+		"UpdatedAt": "2019-10-12T14:23:31.307",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44236/"
+	},
+	{
+		"CharacterId": 44237,
+		"UpdatedAt": "2019-10-12T14:30:04.42",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44237/"
+	},
+	{
+		"CharacterId": 44243,
+		"UpdatedAt": "2019-10-12T15:08:44.523",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44243/"
+	},
+	{
+		"CharacterId": 44244,
+		"UpdatedAt": "2019-10-12T15:11:17.44",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44244/"
+	},
+	{
+		"CharacterId": 44245,
+		"UpdatedAt": "2019-10-12T15:30:00.457",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44245/"
+	},
+	{
+		"CharacterId": 44247,
+		"UpdatedAt": "2019-10-12T15:50:52.533",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44247/"
+	},
+	{
+		"CharacterId": 44248,
+		"UpdatedAt": "2019-10-12T15:58:57.463",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44248/"
+	},
+	{
+		"CharacterId": 44249,
+		"UpdatedAt": "2019-10-12T16:09:32.157",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44249/"
+	},
+	{
+		"CharacterId": 44250,
+		"UpdatedAt": "2019-11-04T16:38:36.443",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44250/"
+	},
+	{
+		"CharacterId": 44251,
+		"UpdatedAt": "2019-10-12T16:16:26.21",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44251/"
+	},
+	{
+		"CharacterId": 44551,
+		"UpdatedAt": "2019-10-17T11:39:01.407",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44551/"
+	},
+	{
+		"CharacterId": 44552,
+		"UpdatedAt": "2019-10-24T12:10:36.387",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44552/"
+	},
+	{
+		"CharacterId": 44555,
+		"UpdatedAt": "2019-10-17T11:57:50.167",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44555/"
+	},
+	{
+		"CharacterId": 44556,
+		"UpdatedAt": "2019-10-17T12:03:10.233",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44556/"
+	},
+	{
+		"CharacterId": 44557,
+		"UpdatedAt": "2019-10-17T12:04:13.37",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44557/"
+	},
+	{
+		"CharacterId": 44558,
+		"UpdatedAt": "2020-02-03T07:33:57.587",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44558/"
+	},
+	{
+		"CharacterId": 44559,
+		"UpdatedAt": "2020-02-04T09:53:22.797",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44559/"
+	},
+	{
+		"CharacterId": 44561,
+		"UpdatedAt": "2019-10-22T16:03:11.803",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44561/"
+	},
+	{
+		"CharacterId": 44562,
+		"UpdatedAt": "2019-10-17T14:15:53.893",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44562/"
+	},
+	{
+		"CharacterId": 44563,
+		"UpdatedAt": "2020-03-19T09:37:33.6",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44563/"
+	},
+	{
+		"CharacterId": 44564,
+		"UpdatedAt": "2020-04-03T16:50:47.05",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44564/"
+	},
+	{
+		"CharacterId": 44565,
+		"UpdatedAt": "2019-10-24T12:03:46.123",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44565/"
+	},
+	{
+		"CharacterId": 44566,
+		"UpdatedAt": "2020-02-05T09:45:16.73",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44566/"
+	},
+	{
+		"CharacterId": 44567,
+		"UpdatedAt": "2019-11-30T15:42:38.02",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44567/"
+	},
+	{
+		"CharacterId": 44568,
+		"UpdatedAt": "2019-10-24T12:05:03.22",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44568/"
+	},
+	{
+		"CharacterId": 44570,
+		"UpdatedAt": "2020-03-15T18:15:50.673",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44570/"
+	},
+	{
+		"CharacterId": 44571,
+		"UpdatedAt": "2020-03-15T18:14:24.5",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44571/"
+	},
+	{
+		"CharacterId": 44572,
+		"UpdatedAt": "2019-10-24T12:05:54.673",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44572/"
+	},
+	{
+		"CharacterId": 44573,
+		"UpdatedAt": "2019-11-04T18:56:24.78",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44573/"
+	},
+	{
+		"CharacterId": 44574,
+		"UpdatedAt": "2019-11-30T14:44:06.957",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44574/"
+	},
+	{
+		"CharacterId": 44578,
+		"UpdatedAt": "2019-10-24T12:06:34.017",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44578/"
+	},
+	{
+		"CharacterId": 44579,
+		"UpdatedAt": "2019-11-04T16:25:59.33",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44579/"
+	},
+	{
+		"CharacterId": 44580,
+		"UpdatedAt": "2019-10-17T13:33:12.647",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44580/"
+	},
+	{
+		"CharacterId": 44581,
+		"UpdatedAt": "2019-10-24T12:07:41.963",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44581/"
+	},
+	{
+		"CharacterId": 44582,
+		"UpdatedAt": "2019-11-05T14:51:41.98",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44582/"
+	},
+	{
+		"CharacterId": 44750,
+		"UpdatedAt": "2019-10-24T12:09:24.27",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44750/"
+	},
+	{
+		"CharacterId": 44832,
+		"UpdatedAt": "2019-10-24T12:50:28.773",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44832/"
+	},
+	{
+		"CharacterId": 44833,
+		"UpdatedAt": "2019-11-26T19:41:20.59",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44833/"
+	},
+	{
+		"CharacterId": 44884,
+		"UpdatedAt": "2019-10-28T11:08:10.59",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44884/"
+	},
+	{
+		"CharacterId": 44885,
+		"UpdatedAt": "2019-11-26T19:17:15.647",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44885/"
+	},
+	{
+		"CharacterId": 44887,
+		"UpdatedAt": "2019-10-31T15:22:38.107",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/44887/"
+	},
+	{
+		"CharacterId": 45116,
+		"UpdatedAt": "2019-11-30T14:41:49.72",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45116/"
+	},
+	{
+		"CharacterId": 45117,
+		"UpdatedAt": "2019-10-28T11:19:44.4",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45117/"
+	},
+	{
+		"CharacterId": 45118,
+		"UpdatedAt": "2019-10-28T11:18:35.45",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45118/"
+	},
+	{
+		"CharacterId": 45123,
+		"UpdatedAt": "2020-05-04T11:11:23.167",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45123/"
+	},
+	{
+		"CharacterId": 45124,
+		"UpdatedAt": "2020-01-13T13:56:48.38",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45124/"
+	},
+	{
+		"CharacterId": 45125,
+		"UpdatedAt": "2019-10-28T13:44:20.773",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45125/"
+	},
+	{
+		"CharacterId": 45126,
+		"UpdatedAt": "2019-10-28T13:44:38.863",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45126/"
+	},
+	{
+		"CharacterId": 45372,
+		"UpdatedAt": "2019-11-04T18:12:29.63",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45372/"
+	},
+	{
+		"CharacterId": 45373,
+		"UpdatedAt": "2019-11-04T18:16:03.083",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45373/"
+	},
+	{
+		"CharacterId": 45374,
+		"UpdatedAt": "2019-11-04T18:17:06.73",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45374/"
+	},
+	{
+		"CharacterId": 45377,
+		"UpdatedAt": "2019-11-04T18:48:13.637",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45377/"
+	},
+	{
+		"CharacterId": 45378,
+		"UpdatedAt": "2019-11-05T14:53:37.61",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45378/"
+	},
+	{
+		"CharacterId": 45379,
+		"UpdatedAt": "2019-12-17T19:34:42.093",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/45379/"
+	},
+	{
+		"CharacterId": 46547,
+		"UpdatedAt": "2020-02-28T10:49:44.5",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46547/"
+	},
+	{
+		"CharacterId": 46570,
+		"UpdatedAt": "2020-01-20T09:03:30.643",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46570/"
+	},
+	{
+		"CharacterId": 46572,
+		"UpdatedAt": "2019-11-26T18:55:32.327",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46572/"
+	},
+	{
+		"CharacterId": 46574,
+		"UpdatedAt": "2019-11-26T19:08:51.43",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46574/"
+	},
+	{
+		"CharacterId": 46576,
+		"UpdatedAt": "2019-11-26T19:01:17.377",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46576/"
+	},
+	{
+		"CharacterId": 46577,
+		"UpdatedAt": "2019-11-26T19:04:35.6",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46577/"
+	},
+	{
+		"CharacterId": 46578,
+		"UpdatedAt": "2019-11-26T19:06:51.867",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46578/"
+	},
+	{
+		"CharacterId": 46579,
+		"UpdatedAt": "2019-11-26T19:10:33.437",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46579/"
+	},
+	{
+		"CharacterId": 46581,
+		"UpdatedAt": "2019-11-26T19:22:50.98",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46581/"
+	},
+	{
+		"CharacterId": 46582,
+		"UpdatedAt": "2019-11-26T19:25:06.757",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46582/"
+	},
+	{
+		"CharacterId": 46583,
+		"UpdatedAt": "2019-11-26T19:27:21.193",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46583/"
+	},
+	{
+		"CharacterId": 46584,
+		"UpdatedAt": "2019-11-26T19:29:26.097",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46584/"
+	},
+	{
+		"CharacterId": 46585,
+		"UpdatedAt": "2019-11-26T19:32:20.87",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/46585/"
+	},
+	{
+		"CharacterId": 47298,
+		"UpdatedAt": "2019-12-10T16:03:02.423",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47298/"
+	},
+	{
+		"CharacterId": 47405,
+		"UpdatedAt": "2019-12-10T16:14:08.38",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47405/"
+	},
+	{
+		"CharacterId": 47406,
+		"UpdatedAt": "2019-12-10T16:32:28.023",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47406/"
+	},
+	{
+		"CharacterId": 47411,
+		"UpdatedAt": "2019-12-12T15:47:03.513",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47411/"
+	},
+	{
+		"CharacterId": 47741,
+		"UpdatedAt": "2020-01-14T15:45:24.55",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47741/"
+	},
+	{
+		"CharacterId": 47742,
+		"UpdatedAt": "2020-01-14T16:19:22.553",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47742/"
+	},
+	{
+		"CharacterId": 47743,
+		"UpdatedAt": "2020-01-14T15:46:56.017",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47743/"
+	},
+	{
+		"CharacterId": 47751,
+		"UpdatedAt": "2019-12-17T19:30:05.577",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/47751/"
+	},
+	{
+		"CharacterId": 48502,
+		"UpdatedAt": "2020-01-14T15:39:34.197",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48502/"
+	},
+	{
+		"CharacterId": 48515,
+		"UpdatedAt": "2020-01-14T16:30:39.997",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48515/"
+	},
+	{
+		"CharacterId": 48516,
+		"UpdatedAt": "2020-01-14T16:29:02.493",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48516/"
+	},
+	{
+		"CharacterId": 48517,
+		"UpdatedAt": "2020-01-14T16:31:31.413",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48517/"
+	},
+	{
+		"CharacterId": 48549,
+		"UpdatedAt": "2020-01-15T09:45:36.237",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48549/"
+	},
+	{
+		"CharacterId": 48550,
+		"UpdatedAt": "2020-01-15T09:59:23.777",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48550/"
+	},
+	{
+		"CharacterId": 48551,
+		"UpdatedAt": "2020-01-15T09:55:37.18",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48551/"
+	},
+	{
+		"CharacterId": 48552,
+		"UpdatedAt": "2020-01-15T10:00:21.487",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48552/"
+	},
+	{
+		"CharacterId": 48553,
+		"UpdatedAt": "2020-01-15T09:59:51.96",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48553/"
+	},
+	{
+		"CharacterId": 48555,
+		"UpdatedAt": "2020-01-20T09:22:51.657",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48555/"
+	},
+	{
+		"CharacterId": 48556,
+		"UpdatedAt": "2020-01-15T11:30:29.62",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48556/"
+	},
+	{
+		"CharacterId": 48709,
+		"UpdatedAt": "2020-02-28T10:54:49.493",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/48709/"
+	},
+	{
+		"CharacterId": 49032,
+		"UpdatedAt": "2020-05-04T11:33:40.98",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/49032/"
+	},
+	{
+		"CharacterId": 49270,
+		"UpdatedAt": "2020-02-04T10:28:19.157",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/49270/"
+	},
+	{
+		"CharacterId": 49952,
+		"UpdatedAt": "2020-02-25T10:27:16.06",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/49952/"
+	},
+	{
+		"CharacterId": 50115,
+		"UpdatedAt": "2020-02-29T17:19:52.467",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50115/"
+	},
+	{
+		"CharacterId": 50764,
+		"UpdatedAt": "2020-03-16T15:38:59.303",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50764/"
+	},
+	{
+		"CharacterId": 50792,
+		"UpdatedAt": "2020-03-17T13:29:31.02",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50792/"
+	},
+	{
+		"CharacterId": 50795,
+		"UpdatedAt": "2020-03-18T10:05:03.247",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50795/"
+	},
+	{
+		"CharacterId": 50797,
+		"UpdatedAt": "2020-03-18T10:10:43.903",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50797/"
+	},
+	{
+		"CharacterId": 50798,
+		"UpdatedAt": "2020-03-18T11:18:28.293",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50798/"
+	},
+	{
+		"CharacterId": 50800,
+		"UpdatedAt": "2020-03-18T11:26:38.517",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50800/"
+	},
+	{
+		"CharacterId": 50821,
+		"UpdatedAt": "2020-03-20T11:40:58.543",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50821/"
+	},
+	{
+		"CharacterId": 50822,
+		"UpdatedAt": "2020-03-20T11:55:35.317",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50822/"
+	},
+	{
+		"CharacterId": 50823,
+		"UpdatedAt": "2020-03-20T11:57:53.883",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50823/"
+	},
+	{
+		"CharacterId": 50824,
+		"UpdatedAt": "2020-03-20T11:59:37.587",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50824/"
+	},
+	{
+		"CharacterId": 50829,
+		"UpdatedAt": "2020-03-20T19:42:19.7",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50829/"
+	},
+	{
+		"CharacterId": 50830,
+		"UpdatedAt": "2020-03-20T19:45:55.257",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50830/"
+	},
+	{
+		"CharacterId": 50831,
+		"UpdatedAt": "2020-03-20T19:48:45.61",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50831/"
+	},
+	{
+		"CharacterId": 50832,
+		"UpdatedAt": "2020-03-20T19:52:47.707",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50832/"
+	},
+	{
+		"CharacterId": 50833,
+		"UpdatedAt": "2020-03-20T19:56:40.707",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50833/"
+	},
+	{
+		"CharacterId": 50834,
+		"UpdatedAt": "2020-03-20T20:01:43.853",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50834/"
+	},
+	{
+		"CharacterId": 50835,
+		"UpdatedAt": "2020-03-20T20:12:57.247",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50835/"
+	},
+	{
+		"CharacterId": 50836,
+		"UpdatedAt": "2020-03-20T20:23:51.873",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50836/"
+	},
+	{
+		"CharacterId": 50837,
+		"UpdatedAt": "2020-03-20T20:30:42.147",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/50837/"
+	},
+	{
+		"CharacterId": 51590,
+		"UpdatedAt": "2020-04-27T13:30:50.413",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/51590/"
+	},
+	{
+		"CharacterId": 51662,
+		"UpdatedAt": "2020-05-04T10:42:26.53",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/51662/"
+	},
+	{
+		"CharacterId": 51663,
+		"UpdatedAt": "2020-05-04T11:27:55.947",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/51663/"
+	},
+	{
+		"CharacterId": 51664,
+		"UpdatedAt": "2020-05-04T11:37:42.02",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/51664/"
+	},
+	{
+		"CharacterId": 51665,
+		"UpdatedAt": "2020-05-04T12:24:45.597",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/51665/"
+	},
+	{
+		"CharacterId": 51666,
+		"UpdatedAt": "2020-05-04T12:41:12.277",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/51666/"
+	},
+	{
+		"CharacterId": 56761,
+		"UpdatedAt": "2020-12-11T11:28:25.457",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/56761/"
+	},
+	{
+		"CharacterId": 56762,
+		"UpdatedAt": "2020-12-11T11:30:45.137",
+		"IsActive": true,
+		"CharacterLink": "/x-game-api/642/characters/56762/"
+	}
+]

@@ -10,12 +10,12 @@ declare @json nvarchar(max),
 ,@channelTypeId int
 
 
-DECLARE cur CURSOR FOR   
+DECLARE heavyWeapons_cur CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur  
+OPEN heavyWeapons_cur  
   
-FETCH NEXT FROM cur   
+FETCH NEXT FROM heavyWeapons_cur   
 INTO @id,
 @typeId,
 @utilized,
@@ -36,11 +36,11 @@ when not matched then
 	values(source.id,(select top 1 id from dbo.objectTypes where name='heavyWeapon'),0,source.json);
 
 
-    FETCH NEXT FROM cur   
+    FETCH NEXT FROM heavyWeapons_cur   
     INTO @id,
 	@typeId,
 @utilized,
 @channelTypeId
 END   
-CLOSE cur;  
-DEALLOCATE cur;  
+CLOSE heavyWeapons_cur;  
+DEALLOCATE heavyWeapons_cur;  

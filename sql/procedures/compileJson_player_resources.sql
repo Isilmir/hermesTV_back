@@ -23,10 +23,11 @@ BEGIN
 
     -- Insert statements for procedure here
 	select @res=isnull((
-select b.id,'bjzi' as objectType,b.name,s.name as side,bct.name as bjziChannelType
+select b.id,'bjzi' as objectType,b.name,b.description,s.name as side,b.squadId as [squad.id],sq.name as [squad.name],bct.name as bjziChannelType
 from bjzi b
-join sides s on s.id=b.sideId
-join bjziChannelTypes bct on bct.id=b.bjziChannelTypeId
+left join sides s on s.id=b.sideId
+left join squads sq on sq.id=b.squadId
+left join bjziChannelTypes bct on bct.id=b.bjziChannelTypeId
 where playerid=@id for json path
 ),'[]')
 

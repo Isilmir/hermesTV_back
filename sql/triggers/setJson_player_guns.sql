@@ -27,7 +27,7 @@ INTO @id,
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
 
-exec dbo.compileJson_player_equipment @id,@json out
+exec dbo.compileJson_player_equipment @playerId,@json out
 --print @json
 
 	update top(1) players

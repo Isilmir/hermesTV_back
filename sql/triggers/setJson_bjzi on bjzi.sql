@@ -12,15 +12,16 @@ declare @json nvarchar(max),
 @description nvarchar(max),
 @utilized bit,
 @bjziChannelTypeId int,
-@deathCaseId int
+@deathCaseId int,
+@printform varchar(max)
 
 
-DECLARE cur CURSOR FOR   
+DECLARE bjzi_cur CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur  
+OPEN bjzi_cur  
   
-FETCH NEXT FROM cur   
+FETCH NEXT FROM bjzi_cur   
 INTO @id,
 @name,
 @sideId,
@@ -29,7 +30,8 @@ INTO @id,
 @description ,
 @utilized ,
 @bjziChannelTypeId ,
-@deathCaseId   
+@deathCaseId   ,
+@printform
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -46,7 +48,7 @@ when not matched then
 	values(source.id,(select top 1 id from dbo.objectTypes where name='bjzi'),0,source.json);
 
 
-    FETCH NEXT FROM cur   
+    FETCH NEXT FROM bjzi_cur   
     INTO @id,
 @name,
 @sideId,
@@ -55,9 +57,10 @@ when not matched then
 @description ,
 @utilized ,
 @bjziChannelTypeId ,
-@deathCaseId  
+@deathCaseId  ,
+@printform
 END   
-CLOSE cur;  
-DEALLOCATE cur;  
+CLOSE bjzi_cur;  
+DEALLOCATE bjzi_cur;  
 
 
