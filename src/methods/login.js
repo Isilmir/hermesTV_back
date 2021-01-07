@@ -34,6 +34,11 @@ module.exports = function (conf) {
 		//console.log()
 		sql.close();
 	//console.log(result.recordset[0]);
+		if(!result.recordset[0]){
+			res.status(404);
+			res.send('Доступ запрещен'); 
+			return;
+		}
 		let password = result.recordset[0].password;
 		//console.log(password,req.body.password);
 		if(password==req.body.password){
