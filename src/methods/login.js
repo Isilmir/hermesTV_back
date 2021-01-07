@@ -28,7 +28,7 @@ module.exports = function (conf) {
   where p.id='${req.body.user}'`);
 		}catch(e){
 			res.status(500);
-			res.send('Ошибка идентификации'); 
+			res.send(e.message); 
 			return;
 		}
 		//console.log()
