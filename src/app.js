@@ -79,7 +79,7 @@ router.get('/test',async (req,res)=>{
 	
 	await sql.connect(sqlConfig);
 	
-	const result = await sql.query(`select qr from objects`);
+	const result = await sql.query(`select qr,active from objects`);
 
 	sql.on('error',err=>console.log(err));
 	sql.close();
