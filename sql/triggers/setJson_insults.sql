@@ -9,12 +9,12 @@ declare @json nvarchar(max),
 ,@longDescription nvarchar(max)
 ,@finished bit 
 
-DECLARE cur CURSOR FOR   
+DECLARE insult_cur CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur  
+OPEN insult_cur  
   
-FETCH NEXT FROM cur   
+FETCH NEXT FROM insult_cur   
 INTO @id
 ,@description
 ,@longDescription
@@ -35,11 +35,11 @@ when not matched then
 	values(source.id,(select top 1 id from dbo.objectTypes where name='insult'),0,source.json);
 
 
-    FETCH NEXT FROM cur   
+    FETCH NEXT FROM insult_cur   
     INTO @id
 ,@description
 ,@longDescription
 ,@finished
 END   
-CLOSE cur;  
-DEALLOCATE cur;  
+CLOSE insult_cur;  
+DEALLOCATE insult_cur;  

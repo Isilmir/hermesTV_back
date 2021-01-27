@@ -1,6 +1,6 @@
-CREATE TRIGGER setJson_squad_player
+CREATE TRIGGER deleteJson_player
 on dbo.players
-AFTER insert,update
+AFTER delete
 as
 
 declare @json nvarchar(max),
@@ -17,12 +17,12 @@ declare @json nvarchar(max),
 ,@password nvarchar(255)
 ,@printForm varchar(max)
 
-DECLARE sq_pl_cur CURSOR FOR   
-SELECT * from inserted
+DECLARE players_del_cur CURSOR FOR   
+SELECT * from deleted
   
-OPEN sq_pl_cur  
+OPEN players_del_cur  
   
-FETCH NEXT FROM sq_pl_cur   
+FETCH NEXT FROM players_del_cur   
 INTO @id
 ,@name
 ,@equipment
@@ -34,19 +34,22 @@ INTO @id
 ,@updatedAt  
 ,@realName 
 ,@password 
-,@printForm 
+,@printForm
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
 
-exec dbo.compileJson_squad_members @squadId,@json out
+	delete top(1) dbo.objects
+	where id=@id and typeId = (select top 1 id from dbo.objectTypes where name='player')
+
+	exec dbo.compileJson_squad_members @squadId,@json out
 
 	update top(1) squads
 	set members=@json
 	where id=@squadId
 
 
-    FETCH NEXT FROM sq_pl_cur   
+    FETCH NEXT FROM players_del_cur   
     INTO @id
 ,@name
 ,@equipment
@@ -57,9 +60,9 @@ exec dbo.compileJson_squad_members @squadId,@json out
 ,@honor
 ,@updatedAt  
 ,@realName 
-,@password
-,@printForm 
+,@password 
+,@printForm
 
 END   
-CLOSE sq_pl_cur;  
-DEALLOCATE sq_pl_cur;  
+CLOSE players_del_cur;  
+DEALLOCATE players_del_cur;  

@@ -12,12 +12,12 @@ declare @json nvarchar(max),
 , @leaderId int
 , @exterminated bit 
 
-DECLARE cur CURSOR FOR   
+DECLARE squad_cur CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur  
+OPEN squad_cur  
   
-FETCH NEXT FROM cur   
+FETCH NEXT FROM squad_cur   
 INTO @id
 , @name
 , @sideId
@@ -41,7 +41,7 @@ when not matched then
 	values(source.id,(select top 1 id from dbo.objectTypes where name='squad'),0,source.json);
 
 
-    FETCH NEXT FROM cur   
+    FETCH NEXT FROM squad_cur   
     INTO @id
 , @name
 , @sideId
@@ -50,5 +50,5 @@ when not matched then
 , @leaderId 
 , @exterminated  
 END   
-CLOSE cur;  
-DEALLOCATE cur;  
+CLOSE squad_cur;  
+DEALLOCATE squad_cur;  

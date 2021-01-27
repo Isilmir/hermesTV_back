@@ -9,12 +9,12 @@ declare @json nvarchar(max),
 ,@channelTypeId int
 
 
-DECLARE cur CURSOR FOR   
+DECLARE humanitary_cur CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur  
+OPEN humanitary_cur  
   
-FETCH NEXT FROM cur   
+FETCH NEXT FROM humanitary_cur   
 INTO @id,
 @utilized,
 @channelTypeId
@@ -34,10 +34,10 @@ when not matched then
 	values(source.id,(select top 1 id from dbo.objectTypes where name='humanitaryCard'),0,source.json);
 
 
-    FETCH NEXT FROM cur   
+    FETCH NEXT FROM humanitary_cur   
     INTO @id,
 @utilized,
 @channelTypeId
 END   
-CLOSE cur;  
-DEALLOCATE cur;  
+CLOSE humanitary_cur;  
+DEALLOCATE humanitary_cur;  

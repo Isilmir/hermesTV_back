@@ -12,14 +12,17 @@ declare @json nvarchar(max),
 ,@sideId int
 ,@squadId int
 ,@honor int
+,@updatedAt datetime 
+,@realName nvarchar(255)
+,@password nvarchar(255)
+,@printForm varchar(max)
 
-
-DECLARE cur CURSOR FOR   
+DECLARE cur_player CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur  
+OPEN cur_player  
   
-FETCH NEXT FROM cur   
+FETCH NEXT FROM cur_player   
 INTO @id
 ,@name
 ,@equipment
@@ -28,6 +31,10 @@ INTO @id
 ,@sideId
 ,@squadId
 ,@honor
+,@updatedAt  
+,@realName 
+,@password 
+,@printForm
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -44,7 +51,7 @@ when not matched then
 	values(source.id,(select top 1 id from dbo.objectTypes where name='player'),0,source.json);
 
 
-    FETCH NEXT FROM cur   
+    FETCH NEXT FROM cur_player   
     INTO @id
 ,@name
 ,@equipment
@@ -53,6 +60,11 @@ when not matched then
 ,@sideId
 ,@squadId
 ,@honor
+,@updatedAt  
+,@realName 
+,@password 
+,@printForm
+
 END   
-CLOSE cur;  
-DEALLOCATE cur;  
+CLOSE cur_player;  
+DEALLOCATE cur_player;  

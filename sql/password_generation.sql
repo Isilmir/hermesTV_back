@@ -1,9 +1,9 @@
-CREATE TRIGGER setJson_squad_player
-on dbo.players
-AFTER insert,update
-as
+--/****** Скрипт для команды SelectTopNRows из среды SSMS  ******/
+--SELECT TOP (1000) *
+--  FROM [HermesTV].[dbo].[players]
 
-declare @json nvarchar(max),
+ -- alter table [HermesTV].[dbo].[players] add password nvarchar(255)
+ declare @pwt nvarchar(max),
 @id int
 ,@name nvarchar(255)
 ,@equipment nvarchar(max)
@@ -17,12 +17,12 @@ declare @json nvarchar(max),
 ,@password nvarchar(255)
 ,@printForm varchar(max)
 
-DECLARE sq_pl_cur CURSOR FOR   
-SELECT * from inserted
+ DECLARE cur1 CURSOR FOR   
+SELECT * from players
   
-OPEN sq_pl_cur  
+OPEN cur1  
   
-FETCH NEXT FROM sq_pl_cur   
+FETCH NEXT FROM cur1 
 INTO @id
 ,@name
 ,@equipment
@@ -34,19 +34,17 @@ INTO @id
 ,@updatedAt  
 ,@realName 
 ,@password 
-,@printForm 
+,@printForm
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
 
-exec dbo.compileJson_squad_members @squadId,@json out
-
-	update top(1) squads
-	set members=@json
-	where id=@squadId
+update top (1) players
+set password = left(lower(newid()),5)
+where id=@id
 
 
-    FETCH NEXT FROM sq_pl_cur   
+    FETCH NEXT FROM cur1   
     INTO @id
 ,@name
 ,@equipment
@@ -57,9 +55,9 @@ exec dbo.compileJson_squad_members @squadId,@json out
 ,@honor
 ,@updatedAt  
 ,@realName 
-,@password
-,@printForm 
+,@password 
+,@printForm
 
 END   
-CLOSE sq_pl_cur;  
-DEALLOCATE sq_pl_cur;  
+CLOSE cur1;  
+DEALLOCATE cur1;  

@@ -16,12 +16,12 @@ declare @json nvarchar(max),
 @date date
 
 
-DECLARE cur CURSOR FOR   
+DECLARE gold_cur CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur  
+OPEN gold_cur  
   
-FETCH NEXT FROM cur   
+FETCH NEXT FROM gold_cur   
 INTO @id,
 --@name,
 --@sideId,
@@ -48,7 +48,7 @@ when not matched then
 	values(source.id,(select top 1 id from dbo.objectTypes where name='gold'),0,source.json);
 
 
-    FETCH NEXT FROM cur   
+    FETCH NEXT FROM gold_cur   
     INTO @id,
 --@name,
 --@sideId,
@@ -60,7 +60,7 @@ when not matched then
 --@deathCaseId  ,
 @date
 END   
-CLOSE cur;  
-DEALLOCATE cur;  
+CLOSE gold_cur;  
+DEALLOCATE gold_cur;  
 
 

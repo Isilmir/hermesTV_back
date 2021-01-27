@@ -12,7 +12,8 @@ declare @json nvarchar(max),
 @description nvarchar(max),
 @utilized bit ,
 @bjziChannelTypeId int,
-@deathCaseId int 
+@deathCaseId int ,
+@printform varchar(max)
 
 DECLARE bjziscur CURSOR FOR   
 SELECT * from inserted
@@ -28,7 +29,8 @@ INTO @id,
 @description ,
 @utilized  ,
 @bjziChannelTypeId ,
-@deathCaseId 
+@deathCaseId ,
+@printform
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -37,7 +39,7 @@ exec dbo.compileJson_player_resources @playerId,@json out
 --print @json
 
 	update top(1) players
-	set resources=@json
+	set resourñes=@json
 	where id=@playerId
 
 
@@ -50,7 +52,8 @@ exec dbo.compileJson_player_resources @playerId,@json out
 @description ,
 @utilized  ,
 @bjziChannelTypeId, 
-@deathCaseId 
+@deathCaseId ,
+@printform
 END   
 CLOSE bjziscur;  
 DEALLOCATE bjziscur;  
