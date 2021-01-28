@@ -28,6 +28,8 @@ drop table if exists  hermestv..deathCaseTypes
 drop table if exists  hermestv..guns
 drop table if exists  hermestv..channelTypes
 drop table if exists  hermestv..heavyWeaponTypes
+drop table if exists  hermestv..stories
+drop table if exists  hermestv..links
 
 
 
@@ -301,6 +303,23 @@ playerId int
 								REFERENCES hermestv..players (id)
 )
 
+create table hermestv..stories(
+id int IDENTITY(1,1)
+,description nvarchar(255)
+,longDescription nvarchar(max)
+,CONSTRAINT PK_stories PRIMARY KEY NONCLUSTERED (id)
+)
+
+create table hermestv..links(
+id int IDENTITY(1,1)
+,objIdFrom int
+,objTypeFrom int
+,objIdTo int
+,objTypeTo int
+,description nvarchar(255)
+,CONSTRAINT PK_links PRIMARY KEY NONCLUSTERED (id)
+)
+
 ----Наполняем первоначальными данными
 
 --Справочники
@@ -326,6 +345,7 @@ values
 ('melee','Холодное оружие'),
 ('pyro','Пиротехника'),
 ('shield','Щит'),
+('story','Сюжет'),
 ('armor','СИБЗ')
 
 insert into hermestv..states (name,description) 
@@ -386,3 +406,22 @@ values
 (dateadd(hh,13*4,convert(datetime,'2021-08-13 20:00:00',20)),dateadd(ss,-1,dateadd(hh,14*4,convert(datetime,'2021-08-13 20:00:00',20))),(select top 1 id from hermestv..cycleTypes where name='skirmish')),
 (dateadd(hh,14*4,convert(datetime,'2021-08-13 20:00:00',20)),dateadd(ss,-1,dateadd(hh,15*4,convert(datetime,'2021-08-13 20:00:00',20))),(select top 1 id from hermestv..cycleTypes where name='ceasefire')),
 (dateadd(hh,15*4,convert(datetime,'2021-08-13 20:00:00',20)),dateadd(ss,-1,dateadd(hh,16*4,convert(datetime,'2021-08-13 20:00:00',20))),(select top 1 id from hermestv..cycleTypes where name='skirmish'))
+
+  insert into hermestv..stories (description, longDescription)
+  values('Беда Патрокла','Патрокл всегда хотел быть сильным и знаменитым как брат. Но пока у него это не очень получается'),
+  ('Яблоко афродиты','Афродита пооббещала Парису Елену за то что он отдаст ей новый айФон. А Елена оказывается была женой Менелая'),
+  ('Проблема Ахиллеса','У ахиллеса было неуязвимым все тело кроме пятки. И не дай бог кто-то об этом узнает')
+
+    insert into hermestv..links ([objIdFrom],[objTypeFrom],[objIdTo],[objTypeTo],[description])
+  values
+  ((select top 1 id from players where name='Ахилл'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Патрокл'),(select top 1 id from objecttypes where name='player'),'братья')
+  --,((select top 1 id from players where name='Ахилл'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Патрокл'),(select top 1 id from objecttypes where name='player'),'брат')
+  ,((select top 1 id from stories where description='Беда Патрокла'),(select top 1 id from objecttypes where name='story'),(select top 1 id from players where name='Патрокл'),(select top 1 id from objecttypes where name='player'),'Участвует в сюжете')
+  ,((select top 1 id from stories where description='Проблема Ахиллеса'),(select top 1 id from objecttypes where name='story'),(select top 1 id from players where name='Ахилл'),(select top 1 id from objecttypes where name='player'),'Участвует в сюжете')
+  ,((select top 1 id from stories where description='Яблоко афродиты'),(select top 1 id from objecttypes where name='story'),(select top 1 id from players where name='Елена'),(select top 1 id from objecttypes where name='player'),'Любит Париса')
+  ,((select top 1 id from stories where description='Яблоко афродиты'),(select top 1 id from objecttypes where name='story'),(select top 1 id from players where name='Парис'),(select top 1 id from objecttypes where name='player'),'Крадет елену')
+  ,((select top 1 id from stories where description='Яблоко афродиты'),(select top 1 id from objecttypes where name='story'),(select top 1 id from players where name='Менелай'),(select top 1 id from objecttypes where name='player'),'Мстит Парису за украденную жену')
+  ,((select top 1 id from players where name='Елена'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Парис'),(select top 1 id from objecttypes where name='player'),'любят друг друга')
+  ,((select top 1 id from players where name='Елена'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Менелай'),(select top 1 id from objecttypes where name='player'),'бывшие супруги')
+  ,((select top 1 id from players where name='Гектор'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Парис'),(select top 1 id from objecttypes where name='player'),'братья'),
+  ((select top 1 id from players where name='Приам'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Гектор'),(select top 1 id from objecttypes where name='player'),'отец-сын')

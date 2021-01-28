@@ -1,4 +1,5 @@
-USE [RDM_stage]
+USE [hermestv]
+drop procedure  if exists dbo.getGraph
 GO
 /****** Object:  StoredProcedure [usr].[getGraph]    Script Date: 04.08.2020 15:07:30 ******/
 SET ANSI_NULLS ON
@@ -7,92 +8,42 @@ SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
 -- Author:		Воронков Илья
--- Create date: 2019-12-16
+-- Create date: 2021-01-28
 -- Description:	Процедура выводит полный граф по одной вершине
--- 
--- UPD 2020-03-05: Добавлен входящий атрибут @deep - количество шагов вглубь графа от исходной вершины. Воронков Илья
--- UPD 2020-03-12: Добавлен входящий атрибут @straightforward - собирать ли весь граф или только по направлению вперед. Воронков Илья
+-- Пример
+-- exec dbo.getGraph 43031, 1, 9
 -- =============================================
-ALTER PROCEDURE [usr].[getGraph]
+Create PROCEDURE [dbo].[getGraph]
 	-- Add the parameters for the stored procedure here
 	@id varchar(255)
-	,@link varchar(255)
 	,@type varchar(255) = null
-	,@sys varchar(255) = null
 	,@deep int = 9
-	,@straightforward bit = 0
+	--,@straightforward bit = 0
 
 AS
 BEGIN
 ------значения для дебага
---declare @id varchar(255)='013900268045020206010000019478'--'240021262'--'013900268045020206010000019478'
---	,@link varchar(255)='mark_model_test_v2'
---	,@type varchar(255) = 'VEHICLES'--null
---	,@sys varchar(255) = null--'RSA'
+--declare @id int = 43031--2
+--	,@type int = 1--19
 --	,@deep int = 9
---	,@straightforward bit = 0
+--	--,@straightforward bit = 0
 ------
-	-- SET NOCOUNT ON added to prevent extra result sets from
-	-- interfering with SELECT statements.
-	SET NOCOUNT ON;
-
-    -- Insert statements for procedure here
-	Declare @ErrorMessage nvarchar(4000)
-	Declare @ErrorSeverity int = 16
-	Declare @ErrorState int = 1
-	Declare @ErrorNumber int = 5000
-
-	DECLARE @id_from int,@id_to int,@n int=1--,@timer datetime=getdate()
-,@query varchar(max)
-
--- Убрал проверку на повторения одного идентификатора
-/*set @query='
-declare @count varchar(max),@ErrorMessage varchar(max),@ErrorNumber int = 5000
-	select @count=count(*) from data.'+@link+' where objectid='''+@id+'''
-	if @count>1
-	begin
-		set @ErrorMessage = N''В линке обнаружено более одного типа с идентификатором ['+@id+']''	
-		raiserror(@ErrorMessage,16,1)
-		--return @ErrorNumber
-	end
-	'
-execute (@query)*/
-if object_id('tempdb..#tab') is not null drop table #tab
-create table #tab (id_from int,id_to int)
 
 
-if @straightforward=0
-	begin
-	set @query='
-	declare @type varchar(255)='+case when @type is null then 'null' else ''''+@type+'''' end+'
-	declare @sys varchar(255)='+case when @sys is null then 'null' else ''''+@sys+'''' end+'
-	insert into #tab
-	select m.NodeIDFrom as id_from,m.NodeIDto as id_to
-	from [map].['+@link+']m
-	  left join [data].['+@link+'] dfrom on m.NodeIDFrom=dfrom.NodeID
-	  left join [data].['+@link+'] dto on m.NodeIDto=dto.NodeID
-	  where (dfrom.objectid='''+@id+''' and isnull(@type,dfrom.ObjectTypeID)=dfrom.ObjectTypeID and isnull(@sys,dfrom.SystemID)=dfrom.SystemID)
-	  or (dto.objectid='''+@id+''' and isnull(@type,dto.ObjectTypeID)=dto.ObjectTypeID and isnull(@sys,dto.SystemID)=dto.SystemID)
-	'
-	end
-	else
-	begin
-	set @query='
-	declare @type varchar(255)='+case when @type is null then 'null' else ''''+@type+'''' end+'
-	declare @sys varchar(255)='+case when @sys is null then 'null' else ''''+@sys+'''' end+'
-	insert into #tab
-	select m.NodeIDFrom as id_from,m.NodeIDto as id_to
-	from [map].['+@link+']m
-	  left join [data].['+@link+'] dfrom on m.NodeIDFrom=dfrom.NodeID
-	  /*left join [data].['+@link+'] dto on m.NodeIDto=dto.NodeID*/
-	  where (dfrom.objectid='''+@id+''' and isnull(@type,dfrom.ObjectTypeID)=dfrom.ObjectTypeID and isnull(@sys,dfrom.SystemID)=dfrom.SystemID)
-	  /*or (dto.objectid='''+@id+''' and isnull(@type,dto.ObjectTypeID)=dto.ObjectTypeID and isnull(@sys,dto.SystemID)=dto.SystemID)*/
-	'
-	end
+  DECLARE @id_from int,@id_to int,@n int=1
 
 
-execute (@query)
-if object_id('tempdb..#cur') is not null drop table #cur
+  if object_id('tempdb..#tab') is not null drop table #tab
+create table #tab (id int,id_from int, type_from int,id_to int, type_to int)
+
+
+insert into #tab (id,id_from, type_from,id_to, type_to)
+  select l.id,l.objidfrom,l.objtypefrom,l.objidto,l.objtypeto from links l
+  where (objTypeFrom = @type and objIdFrom = @id)
+  or (objTypeTo = @type and objIdTo = @id)
+
+
+  if object_id('tempdb..#cur') is not null drop table #cur
   select * into #cur
   from #tab
 if object_id('tempdb..#cur0') is not null drop table #cur0
@@ -102,7 +53,7 @@ if object_id('tempdb..#cur0') is not null drop table #cur0
   truncate table #tab
   truncate table #cur0
 
-print '-----'
+  print '-----'
 WHILE exists (select * from #cur) and @n<@deep+1
 BEGIN
     PRINT cast(@n as varchar(10))+'. '
@@ -110,27 +61,17 @@ BEGIN
  insert into #tab
  select* from #cur
 
-if @straightforward=0
-begin
- set @query='
+
         insert into #cur0 --следующая итерация
-        select m.NodeIDFrom,m.NodeIDTo
-        from [map].['+@link+']m
-        join #cur l on (m.NodeIDFrom=l.id_to or m.NodeIDFrom=l.id_from or m.NodeIDTo=l.id_from or m.NodeIDTo=l.id_to)
-        where cast(m.NodeIDFrom as varchar(100))+''->''+cast(m.NodeIDto as varchar(100)) not in (select cast(id_from as varchar(100))+''->''+cast(id_to as varchar(100))from #tab)
-		'
-end
-else
-begin
-set @query='
-        insert into #cur0 --следующая итерация
-        select m.NodeIDFrom,m.NodeIDTo
-        from [map].['+@link+']m
-        join #cur l on (m.NodeIDFrom=l.id_to /*or m.NodeIDFrom=l.id_from or m.NodeIDTo=l.id_from or m.NodeIDTo=l.id_to*/)
-        where cast(m.NodeIDFrom as varchar(100))+''->''+cast(m.NodeIDto as varchar(100)) not in (select cast(id_from as varchar(100))+''->''+cast(id_to as varchar(100))from #tab)
-		'
-end
-		execute (@query)
+        select distinct m.id,m.objidfrom,m.objtypefrom,m.objidto,m.objtypeto
+        from links m
+        join #cur l on ((m.objidfrom=l.id_to and m.objtypefrom=l.type_to) 
+					 or (m.objidfrom=l.id_from and m.objtypefrom=l.type_from)
+					 or (m.objidto=l.id_from and m.objtypeto=l.type_from)
+					 or (m.objidto=l.id_to and m.objtypeto=l.type_to))
+        where cast(m.objidfrom as varchar(100)) +'|'+cast(m.objtypefrom as varchar(100)) +'->'+cast(m.objidto as varchar(100)) +'|'+cast(m.objtypeto as varchar(100))  
+			not in (select cast(id_from as varchar(100)) +'|'+cast(type_from as varchar(100)) +'->'+cast(id_to as varchar(100)) +'|'+cast(type_to as varchar(100))  from #tab)
+		
 
 		truncate table #cur
 
@@ -143,13 +84,15 @@ end
 
 END
 
-set @query='
-select distinct dfrom.NodeID as nodeFrom,dfrom.ObjectID as idFrom,dfrom.ObjectTypeID as objtypeFrom,dfrom.SystemID as sysFrom,dto.NodeID as nodeTo,dto.ObjectID as idTo,dto.ObjectTypeID as objtypeTo,dto.SystemID as sysTo
-from #tab m
-left join [data].['+@link+'] dfrom on m.id_from=dfrom.NodeID
-left join [data].['+@link+'] dto on m.id_to=dto.NodeID
-'
-execute (@query)
- -- print datediff(ms,@timer,getdate())
+
+  select t.id,t.id_from,t.type_from, isnull(sfrom.description,pfrom.name) as name_from , otfrom.description as type_from_desc,t.id_to,t.type_to, isnull(sto.description,pto.name) as name_to, otTo.description as type_to_desc,l.description   
+  from #tab t
+  left join links l on l.id=t.id
+  left join stories sFrom on sfrom.id=l.objidfrom and l.objtypefrom=19
+  left join stories sTo on sto.id=l.objidto and l.objtypeto=19
+  left join players pFrom on pfrom.id=l.objidfrom and l.objtypefrom=1
+  left join players pTo on pto.id=l.objidto and l.objtypeto=1
+  left join objectTypes otFrom on otFrom.id=t.type_from
+  left join objectTypes otTo on otTo.id=t.type_to
 
 END
