@@ -9,15 +9,14 @@ GO
 -- Create date: 2021-01-28
 -- Description:	удаляет связь
 
---exec dbo.deleteLink 43004, 1, 43005,1,'братья', @res out
+--exec dbo.deleteLink 43004, 'player', 43005,'player', @res out
 -- =============================================
 CREATE PROCEDURE dbo.deleteLink 
 	-- Add the parameters for the stored procedure here
 	@objIdFrom int
-	,@objTypeFrom int
+	,@objTypeFrom varchar(255)
 	,@objIdTo int
-	,@objTypeTo int
-	,@description nvarchar(max)
+	,@objTypeTo varchar(255)
 	,@res int out
 AS
 BEGIN
@@ -25,19 +24,23 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	declare @id_ int
+	declare @id_ int,@objTypeFrom_ int,@objTypeTo_ int
+
+	select @objTypeFrom_=id from objectTypes where name=@objTypeFrom
+	select @objTypeTo_=id from objectTypes where name=@objTypeTo
 
 	select top 1 @id_=id
 		from links
 		where ([objIdFrom]=@objIdFrom
-		and [objTypeFrom]=@objTypeFrom
+		and [objTypeFrom]=@objTypeFrom_
 		and [objIdTo]=@objIdTo
-		and [objTypeTo]=@objTypeTo)
+		and [objTypeTo]=@objTypeTo_)
 		or([objIdFrom]=@objIdTo
-		and [objTypeFrom]=@objTypeTo
+		and [objTypeFrom]=@objTypeTo_
 		and [objIdTo]=@objIdFrom
-		and [objTypeTo]=@objTypeFrom)
+		and [objTypeTo]=@objTypeFrom_)
 
+		select @id_
 
 	CREATE TABLE #MyTempTable  (id int);  
 

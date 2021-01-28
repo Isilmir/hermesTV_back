@@ -15,7 +15,7 @@ GO
 -- =============================================
 Create PROCEDURE [dbo].[getGraph]
 	-- Add the parameters for the stored procedure here
-	@id varchar(255)
+	@id int
 	,@type varchar(255) = null
 	,@deep int = 9
 	--,@straightforward bit = 0
@@ -30,7 +30,9 @@ BEGIN
 ------
 
 
-  DECLARE @id_from int,@id_to int,@n int=1
+  DECLARE @id_from int,@id_to int,@n int=1,@type_ int
+
+  select @type_=id from objectTypes where name=@type
 
 
   if object_id('tempdb..#tab') is not null drop table #tab
@@ -39,8 +41,8 @@ create table #tab (id int,id_from int, type_from int,id_to int, type_to int)
 
 insert into #tab (id,id_from, type_from,id_to, type_to)
   select l.id,l.objidfrom,l.objtypefrom,l.objidto,l.objtypeto from links l
-  where (objTypeFrom = @type and objIdFrom = @id)
-  or (objTypeTo = @type and objIdTo = @id)
+  where (objTypeFrom = @type_ and objIdFrom = @id)
+  or (objTypeTo = @type_ and objIdTo = @id)
 
 
   if object_id('tempdb..#cur') is not null drop table #cur
@@ -85,7 +87,7 @@ BEGIN
 END
 
 
-  select t.id,t.id_from,t.type_from, isnull(sfrom.description,pfrom.name) as name_from , otfrom.description as type_from_desc,t.id_to,t.type_to, isnull(sto.description,pto.name) as name_to, otTo.description as type_to_desc,l.description   
+  select t.id,t.id_from,t.type_from, isnull(sfrom.description,pfrom.name) as name_from , otfrom.name as type_from_desc,t.id_to,t.type_to, isnull(sto.description,pto.name) as name_to, otTo.name as type_to_desc,l.description   
   from #tab t
   left join links l on l.id=t.id
   left join stories sFrom on sfrom.id=l.objidfrom and l.objtypefrom=19

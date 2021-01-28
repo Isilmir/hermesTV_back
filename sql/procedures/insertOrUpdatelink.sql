@@ -7,17 +7,17 @@ GO
 -- =============================================
 -- Author:		Илья Воронков
 -- Create date: 2021-01-28
--- Description:	создает или апдейтит сюжет
+-- Description:	создает или апдейтит связь
 
---exec dbo.insertOrUpdateLink 43004, 1, 43005,1,'братья', @res out
+--exec dbo.insertOrUpdateLink 42863, 'player', 42849,'player','братья', @res out
 -- =============================================
 CREATE PROCEDURE dbo.insertOrUpdateLink 
 	-- Add the parameters for the stored procedure here
 	@objIdFrom int
-	,@objTypeFrom int
+	,@objTypeFrom varchar(255)
 	,@objIdTo int
-	,@objTypeTo int
-	,@description nvarchar(max)
+	,@objTypeTo varchar(255)
+	,@description nvarchar(255)
 	,@res int out
 AS
 BEGIN
@@ -25,18 +25,21 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	declare @id_ int
+	declare @id_ int,@objTypeFrom_ int,@objTypeTo_ int
+
+	select @objTypeFrom_=id from objectTypes where name=@objTypeFrom
+	select @objTypeTo_=id from objectTypes where name=@objTypeTo
 
 	select top 1 @id_=id
 		from links
 		where ([objIdFrom]=@objIdFrom
-		and [objTypeFrom]=@objTypeFrom
+		and [objTypeFrom]=@objTypeFrom_
 		and [objIdTo]=@objIdTo
-		and [objTypeTo]=@objTypeTo)
+		and [objTypeTo]=@objTypeTo_)
 		or([objIdFrom]=@objIdTo
-		and [objTypeFrom]=@objTypeTo
+		and [objTypeFrom]=@objTypeTo_
 		and [objIdTo]=@objIdFrom
-		and [objTypeTo]=@objTypeFrom)
+		and [objTypeTo]=@objTypeFrom_)
 
 
 	CREATE TABLE #MyTempTable  (id int);  
@@ -51,7 +54,7 @@ when matched then
 	description=@description
 when not matched then
 	insert ([objIdFrom],[objTypeFrom],[objIdTo],[objTypeTo],description)
-	values(@objIdFrom,@objTypeFrom,@objIdTo,@objTypeTo,@description)
+	values(@objIdFrom,@objTypeFrom_,@objIdTo,@objTypeTo_,@description)
 	OUTPUT inserted.id INTO #MyTempTable;
 
 	select @res=id from #MyTempTable
