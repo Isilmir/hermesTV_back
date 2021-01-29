@@ -11,7 +11,7 @@ GO
 -- Create date: 2021-01-28
 -- Description:	Процедура выводит полный граф по одной вершине
 -- Пример
--- exec dbo.getGraph 43031, 1, 9
+-- exec dbo.getGraph 43031, 'player', 9
 -- =============================================
 Create PROCEDURE [dbo].[getGraph]
 	-- Add the parameters for the stored procedure here
@@ -33,7 +33,6 @@ BEGIN
   DECLARE @id_from int,@id_to int,@n int=1,@type_ int
 
   select @type_=id from objectTypes where name=@type
-
 
   if object_id('tempdb..#tab') is not null drop table #tab
 create table #tab (id int,id_from int, type_from int,id_to int, type_to int)
@@ -86,14 +85,23 @@ BEGIN
 
 END
 
+	if not exists (select top 1 id from #tab)
+	begin
+		insert into #tab
+		select null,@id,@type_,null,null
+	end
 
   select t.id,t.id_from,t.type_from, isnull(sfrom.description,pfrom.name) as name_from , otfrom.name as type_from_desc,t.id_to,t.type_to, isnull(sto.description,pto.name) as name_to, otTo.name as type_to_desc,l.description   
   from #tab t
   left join links l on l.id=t.id
-  left join stories sFrom on sfrom.id=l.objidfrom and l.objtypefrom=19
-  left join stories sTo on sto.id=l.objidto and l.objtypeto=19
-  left join players pFrom on pfrom.id=l.objidfrom and l.objtypefrom=1
-  left join players pTo on pto.id=l.objidto and l.objtypeto=1
+  left join stories sFrom on sfrom.id=t.id_from--l.objidfrom 
+							and t.type_from=19--l.objtypefrom=19
+  left join stories sTo on sto.id=t.id_to--l.objidto 
+							and t.type_to=19--l.objtypeto=19
+  left join players pFrom on pfrom.id=t.id_from--l.objidfrom 
+							and t.type_from=1--l.objtypefrom=1
+  left join players pTo on pto.id=t.id_to--l.objidto 
+							and t.type_to=1--l.objtypeto=1
   left join objectTypes otFrom on otFrom.id=t.type_from
   left join objectTypes otTo on otTo.id=t.type_to
 

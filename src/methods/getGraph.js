@@ -37,11 +37,11 @@ module.exports = function (conf) {
 				
 		res.send(result.recordset.map(el=>{return {from:{
 													id:el.id_from,
-													objectType:el.type_from,
+													objectType:el.type_from_desc,
 													name:el.name_from
 												 },to:{
 													 id:el.id_to,
-													objectType:el.type_to,
+													objectType:el.type_to_desc,
 													name:el.name_to
 												 },description:el.description}
 											})); 
