@@ -84,8 +84,8 @@ BEGIN
   set @n=@n+1
 
 END
-
-	if not exists (select top 1 id from #tab)
+	
+	if not exists (select top 1 id from #tab) and ((exists(select top 1 id from players where id=@id) and @type='player') or (exists(select top 1 id from stories where id=@id) and @type='story'))
 	begin
 		insert into #tab
 		select null,@id,@type_,null,null
