@@ -7,12 +7,16 @@
 ### 2. 
 Клонировать репозиторий к себе на локальную машину 
 
-``` git clone git@github.com:Isilmir/hermesTV_back.git```
+``` 
+git clone git@github.com:Isilmir/hermesTV_back.git
+```
 
 ### 3. 
 Загрузить в проект зависимости
 
-```npm i```
+```
+npm i
+```
 
 ### 4.
 Добавить переменные среды:
