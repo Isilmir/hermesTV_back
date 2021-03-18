@@ -1,6 +1,6 @@
-CREATE TRIGGER setJson_player
+CREATE TRIGGER setJson_player_upd
 on dbo.players
-AFTER insert
+AFTER update
 as
 
 declare @json nvarchar(max),
@@ -17,12 +17,12 @@ declare @json nvarchar(max),
 ,@password nvarchar(255)
 ,@printForm varchar(max)
 
-DECLARE cur_player CURSOR FOR   
+DECLARE cur_player_upd CURSOR FOR   
 SELECT * from inserted
   
-OPEN cur_player  
+OPEN cur_player_upd  
   
-FETCH NEXT FROM cur_player   
+FETCH NEXT FROM cur_player_upd   
 INTO @id
 ,@name
 ,@equipment
@@ -51,16 +51,8 @@ when not matched then
 	insert (id,typeId,active,qr)
 	values(source.id,(select top 1 id from dbo.objectTypes where name='player'),0,source.json);
 
---	print 'добавляем начальное деяние - '+@name
-MERGE dbo.deeds as target
-USING (select @id,@json) as source (id,json)
-on (target.playerId=source.id)
-when not matched then
-	insert (playerId,honor,description)
-	Values(source.id,0,'Предварительная субъективная оценка Олимпа');
 
-
-    FETCH NEXT FROM cur_player   
+    FETCH NEXT FROM cur_player_upd   
     INTO @id
 ,@name
 ,@equipment
@@ -75,5 +67,5 @@ when not matched then
 ,@printForm
 
 END   
-CLOSE cur_player;  
-DEALLOCATE cur_player;  
+CLOSE cur_player_upd;  
+DEALLOCATE cur_player_upd;  
