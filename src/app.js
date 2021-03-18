@@ -26,6 +26,7 @@ const setOrUpdateLink = require('./methods/setOrUpdateLink.js');
 const deleteLink = require('./methods/deleteLink.js');
 const getStories = require('./methods/getStories.js');
 const getPlayers = require('./methods/getPlayers.js');
+const getPlayers_honor = require('./methods/getPlayers_honor.js');
 const getGraph = require('./methods/getGraph.js');
 const isAdmin = require('./methods/isAdmin.js');
 
@@ -171,7 +172,8 @@ router.post('/setOrUpdateStory',adminAuth(),setOrUpdateStory({sqlConfig:sqlConfi
 router.post('/setOrUpdateLink',adminAuth(),setOrUpdateLink({sqlConfig:sqlConfig}));
 router.post('/deleteLink',adminAuth(),deleteLink({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
-router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));	
+router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
+app.get('/getPlayers/honor',getPlayers_honor({sqlConfig:sqlConfig}));	
 router.post('/getGraph',adminAuth(),getGraph({sqlConfig:sqlConfig}));
 app.get('/isAdmin',isAdmin());
 
