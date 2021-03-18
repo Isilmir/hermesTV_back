@@ -12,6 +12,7 @@ drop table if exists  hermestv..insultLogs
 drop table if exists  hermestv..insultParticipants
 drop table if exists  hermestv..insultParticipantRoles
 drop table if exists  hermestv..insults
+drop table if exists  hermestv..deeds
 drop table if exists  hermestv..players
 drop table if exists  hermestv..squads
 drop table if exists  hermestv..objectTypes
@@ -30,6 +31,7 @@ drop table if exists  hermestv..channelTypes
 drop table if exists  hermestv..heavyWeaponTypes
 drop table if exists  hermestv..stories
 drop table if exists  hermestv..links
+
 
 
 
@@ -320,6 +322,17 @@ id int IDENTITY(1,1)
 ,CONSTRAINT PK_links PRIMARY KEY NONCLUSTERED (id)
 )
 
+create table hermestv..deeds(
+id int IDENTITY(1,1) not null
+, playerId int not null
+, honor int not null
+, description nvarchar(255)
+, date datetime default getdate()
+, CONSTRAINT PK_deeds PRIMARY KEY NONCLUSTERED (id)
+, CONSTRAINT FK_deeds_players FOREIGN KEY (playerId)
+								REFERENCES hermestv..players (id)
+)
+
 ----Наполняем первоначальными данными
 
 --Справочники
@@ -346,7 +359,8 @@ values
 ('pyro','Пиротехника'),
 ('shield','Щит'),
 ('story','Сюжет'),
-('armor','СИБЗ')
+('armor','СИБЗ'),
+('deed','Деяние')
 
 insert into hermestv..states (name,description) 
 values('well','Здоров'),
