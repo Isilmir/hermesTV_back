@@ -13,7 +13,9 @@ module.exports = function (conf) {
 		try{
 			result = await sql.query(`SELECT 
 	  'player' as objectType
-	  ,p.*
+	  ,p.id
+	  ,p.name
+	  ,p.honor
 	  ,dbo.compileJson_player_deeds_func(id) as deeds
   FROM [dbo].[players]p`);
 			//console.dir(result);
@@ -25,7 +27,7 @@ module.exports = function (conf) {
 		sql.on('error',err=>console.log(err));
 		sql.close();
 				
-		res.send(result.recordset.map(el=>{el.resourсes=JSON.parse(el.resourсes);el.equipment=JSON.parse(el.equipment);el.deeds=JSON.parse(el.deeds);el.password='***';return el})); 
+		res.send(result.recordset.map(el=>{el.deeds=JSON.parse(el.deeds).filter(deed=>deed.honor!=0).map(deed=>{deed.honor=deed.honor>0?1:-1;return deed});return el})); 
 
 		return;
 		
