@@ -46,13 +46,14 @@ module.exports = function (conf) {
 		  subject: `${req.body.userId} ${req.body.userName}`,
 		  text: `Печатная форма для персонажа ${req.body.userName}`,
 		  attachments:[
-				{filename:'printform.pdf',content:req.files[0].buffer}
+				{filename:`${req.body.userId}_${req.body.userName}.pdf`,content:req.files[0].buffer}
 			]
 		};
 
 		transporter.sendMail(mailOptions, function(error, info){
 		  if (error) {
 			//console.log(error);
+			res.status(500);
 			res.send(error);
 		  } else {
 			//console.log('Email sent: ' + info.response);
