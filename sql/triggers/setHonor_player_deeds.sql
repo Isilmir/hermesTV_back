@@ -5,6 +5,7 @@ as
 
 declare @honorSum int,@json nvarchar(max),
 @id int,
+@typeId int,
 @playerId int ,
 @honor int,
 @description nvarchar(255),
@@ -17,6 +18,7 @@ OPEN deedscur
   
 FETCH NEXT FROM deedscur   
 INTO @id,
+@typeId,
 @playerId,
 @honor,
 @description,
@@ -35,8 +37,9 @@ group by playerId
 	where id=@playerId
 
 
-    FETCH NEXT FROM deedscur   
-    INTO @id,
+FETCH NEXT FROM deedscur   
+INTO @id,
+@typeId,
 @playerId,
 @honor,
 @description,

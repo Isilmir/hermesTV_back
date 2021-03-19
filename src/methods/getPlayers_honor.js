@@ -16,6 +16,8 @@ module.exports = function (conf) {
 	  ,p.id
 	  ,p.name
 	  ,p.honor
+	  ,(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-7 and getdate())
+	  -(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-14 and getdate()-7) as honorChange
 	  ,dbo.compileJson_player_deeds_func(id) as deeds
   FROM [dbo].[players]p`);
 			//console.dir(result);
