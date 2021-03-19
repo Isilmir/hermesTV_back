@@ -56,8 +56,8 @@ MERGE dbo.deeds as target
 USING (select @id,@json) as source (id,json)
 on (target.playerId=source.id)
 when not matched then
-	insert (playerId,honor,description)
-	Values(source.id,0,'Предварительная субъективная оценка Олимпа');
+	insert (playerId,honor,description,typeId)
+	Values(source.id,0,'Предварительная субъективная оценка Олимпа',(select top 1 id from deedtypes where name='default'));
 
 
     FETCH NEXT FROM cur_player   

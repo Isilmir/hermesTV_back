@@ -26,6 +26,7 @@ drop table if exists  hermestv..heavyWeapons
 drop table if exists  hermestv..humanitaryCards
 drop table if exists  hermestv..bjziChannelTypes
 drop table if exists  hermestv..deathCaseTypes
+drop table if exists  hermestv..deedTypes
 drop table if exists  hermestv..guns
 drop table if exists  hermestv..channelTypes
 drop table if exists  hermestv..heavyWeaponTypes
@@ -322,8 +323,18 @@ id int IDENTITY(1,1)
 ,CONSTRAINT PK_links PRIMARY KEY NONCLUSTERED (id)
 )
 
+create table hermestv..deedTypes(
+id int IDENTITY(1,1) not null
+, name nvarchar(255)
+, description nvarchar(255)
+, defaultHonor int
+, visible bit
+, CONSTRAINT PK_deedTypes PRIMARY KEY NONCLUSTERED (id)
+)
+
 create table hermestv..deeds(
 id int IDENTITY(1,1) not null
+, typeId int not null
 , playerId int not null
 , honor int not null
 , description nvarchar(255)
@@ -331,6 +342,8 @@ id int IDENTITY(1,1) not null
 , CONSTRAINT PK_deeds PRIMARY KEY NONCLUSTERED (id)
 , CONSTRAINT FK_deeds_players FOREIGN KEY (playerId)
 								REFERENCES hermestv..players (id)
+, CONSTRAINT FK_deeds_deedTypes FOREIGN KEY (typeId)
+								REFERENCES hermestv..deedTypes (id)
 )
 
 ----Наполняем первоначальными данными
@@ -402,6 +415,19 @@ insert into hermestv..deathCaseTypes(name,description)
 values('byAlly','похоронил союзник'),
 ('byEmemy','Похоронил враг')
 
+insert into hermestv..deedTypes (name,description,defaultHonor,visible) 
+values('default','Субъективная оценка Олимпа',0,0),
+('video','Публикация видеоролика',10,1),
+('insult','Публичное заявление Обиды',5,1),
+('blasphemy','Хула на богов',-3,1),
+('feat','Подвиг',1,1),
+('foreignBjziFrag','Подношение в Аид вражеского спутника',1,1),
+('foreignPlayerFrag','Подношение в Аид вражеского героя',10,1),
+('mainBjziFrag','Подношение в Аид своего спутника',1,1),
+('mainPlayerFrag','Подношение в Аид своего героя',5,1),
+('feat','Подвиг',1,1),
+('capture','Захват контрольной точки',2,1)
+
 insert into hermestv..gameCycles (startTime,endTime,cycleTypeId) 
 values
 (dateadd(hh,0*4,convert(datetime,'2021-08-13 20:00:00',20)),dateadd(ss,-1,dateadd(hh,1*4,convert(datetime,'2021-08-13 20:00:00',20))),(select top 1 id from hermestv..cycleTypes where name='ceasefire')),
@@ -439,3 +465,16 @@ values
   ,((select top 1 id from players where name='Елена'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Менелай'),(select top 1 id from objecttypes where name='player'),'бывшие супруги')
   ,((select top 1 id from players where name='Гектор'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Парис'),(select top 1 id from objecttypes where name='player'),'братья'),
   ((select top 1 id from players where name='Приам'),(select top 1 id from objecttypes where name='player'),(select top 1 id from players where name='Гектор'),(select top 1 id from objecttypes where name='player'),'отец-сын')
+
+
+    insert into hermestv..deeds(playerId,honor,description,typeId,date)
+  values
+  ('42863',10,'Высказал обиду Елене и Парису',(select top 1 id from deedtypes where name='insult'),'2021-03-11 15:46:34.943'),
+  ('42863',5,'Записал крутой ролик с обращением',(select top 1 id from deedtypes where name='video'),'2021-03-19 15:46:34.943'),
+  ('42863',-3,'Хулил Олимп',(select top 1 id from deedtypes where name='blasphemy'),'2021-03-18 15:46:34.943'),
+  ('42864',5,'Получил ранение на шоу Пусть все горят!',(select top 1 id from deedtypes where name='feat'),'2021-03-11 15:46:34.943'),
+  ('42864',10,'Записал крутой ролик после шоу Пусть все горят!',(select top 1 id from deedtypes where name='video'),'2021-03-19 15:46:34.943'),
+  ('43031',15,'Главный гость на шоу Пусть все горят!',(select top 1 id from deedtypes where name='video'),'2021-03-11 15:46:34.943'),
+  ('43031',5,'Записала ответку Менелаю',(select top 1 id from deedtypes where name='video'),'2021-03-19 15:46:34.943'),
+  ('43030',15,'Главный гость на шоу Пусть все горят!',(select top 1 id from deedtypes where name='video'),'2021-03-11 15:46:34.943'),
+  ('43030',-5,'Записал ролик, обидевший Афину',(select top 1 id from deedtypes where name='video'),'2021-03-19 15:46:34.943')

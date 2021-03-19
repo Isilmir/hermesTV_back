@@ -23,8 +23,9 @@ BEGIN
     DECLARE @res nvarchar(max)
 
     	select @res=isnull((
-		select d.id,'deed' as objectType,d.playerId as [player.id],p.name as [player.name],d.honor,d.description,d.date
+		select d.id,'deed' as objectType,d.typeId as [type.id],dt.name as [type.name],dt.description as [type.description],d.playerId as [player.id],p.name as [player.name],d.honor,d.description,d.date,dt.visible
 		from deeds d
+		left join deedTypes dt on dt.id=d.typeId
 		left join players p on p.id=d.playerId
 		where d.playerid=@id for json path
 		),'[]')
