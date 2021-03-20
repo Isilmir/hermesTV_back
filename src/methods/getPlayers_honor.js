@@ -19,7 +19,8 @@ module.exports = function (conf) {
 	  ,(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-7 and getdate())
 	  -(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-14 and getdate()-7) as honorChange
 	  ,dbo.compileJson_player_deeds_group_by_types_func(id) as deedGroups
-  FROM [dbo].[players]p`);
+  FROM [dbo].[players]p
+  where realName is not null`);
 			//console.dir(result);
 		}catch(e){console.log(e.message)
 			res.status(500);
