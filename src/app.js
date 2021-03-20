@@ -28,6 +28,7 @@ const getStories = require('./methods/getStories.js');
 const getPlayers = require('./methods/getPlayers.js');
 const getPlayers_honor = require('./methods/getPlayers_honor.js');
 const getGraph = require('./methods/getGraph.js');
+const getDeedTypes = require('./methods/getDeedTypes.js');
 const isAdmin = require('./methods/isAdmin.js');
 
 const charactersFull_cache = require('../cache/charactersFull_cache.json')
@@ -173,6 +174,7 @@ router.post('/setOrUpdateLink',adminAuth(),setOrUpdateLink({sqlConfig:sqlConfig}
 router.post('/deleteLink',adminAuth(),deleteLink({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
+router.get('/getDeedTypes',adminAuth(),getDeedTypes({sqlConfig:sqlConfig}));
 app.get('/getPlayers/honor',getPlayers_honor({sqlConfig:sqlConfig}));	
 router.post('/getGraph',adminAuth(),getGraph({sqlConfig:sqlConfig}));
 app.get('/isAdmin',isAdmin());
