@@ -21,11 +21,13 @@ const auth = require('./helpers/auth.js');
 const adminAuth = require('./helpers/adminAuth.js');
 const setOrUpdateBjzi = require('./methods/setOrUpdateBjzi.js');
 const setOrUpdateDeed = require('./methods/setOrUpdateDeed.js');
+const setOrUpdateDeedType = require('./methods/setOrUpdateDeedType.js');
 const getBjzi = require('./methods/getBjzi.js');
 const setOrUpdateStory = require('./methods/setOrUpdateStory.js');
 const setOrUpdateLink = require('./methods/setOrUpdateLink.js');
 const deleteLink = require('./methods/deleteLink.js');
 const deleteDeed = require('./methods/deleteDeed.js');
+const deleteDeedType = require('./methods/deleteDeedType.js');
 const getStories = require('./methods/getStories.js');
 const getPlayers = require('./methods/getPlayers.js');
 const getPlayer = require('./methods/getPlayer.js');
@@ -172,11 +174,13 @@ router.post('/sendMail'
 
 router.post('/setOrUpdateBjzi',setOrUpdateBjzi({sqlConfig:sqlConfig}));	
 router.post('/setOrUpdateDeed',setOrUpdateDeed({sqlConfig:sqlConfig}));
+router.post('/deedTypes',setOrUpdateDeedType({sqlConfig:sqlConfig}));
 router.get('/getBjzi',getBjzi({sqlConfig:sqlConfig}));	
 router.post('/setOrUpdateStory',adminAuth(),setOrUpdateStory({sqlConfig:sqlConfig}));	
 router.post('/setOrUpdateLink',adminAuth(),setOrUpdateLink({sqlConfig:sqlConfig}));
 router.post('/deleteLink',adminAuth(),deleteLink({sqlConfig:sqlConfig}));
 router.post('/deleteDeed',adminAuth(),deleteDeed({sqlConfig:sqlConfig}));
+router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
 router.get('/players/:playerId',adminAuth(),getPlayer({sqlConfig:sqlConfig}));
