@@ -20,6 +20,7 @@ const sendMail = require('./methods/sendMail.js');
 const auth = require('./helpers/auth.js');
 const adminAuth = require('./helpers/adminAuth.js');
 const setOrUpdateBjzi = require('./methods/setOrUpdateBjzi.js');
+const setOrUpdateDeed = require('./methods/setOrUpdateDeed.js');
 const getBjzi = require('./methods/getBjzi.js');
 const setOrUpdateStory = require('./methods/setOrUpdateStory.js');
 const setOrUpdateLink = require('./methods/setOrUpdateLink.js');
@@ -168,6 +169,7 @@ router.post('/sendMail'
 ,sendMail());	
 
 router.post('/setOrUpdateBjzi',setOrUpdateBjzi({sqlConfig:sqlConfig}));	
+router.post('/setOrUpdateDeed',setOrUpdateDeed({sqlConfig:sqlConfig}));
 router.get('/getBjzi',getBjzi({sqlConfig:sqlConfig}));	
 router.post('/setOrUpdateStory',adminAuth(),setOrUpdateStory({sqlConfig:sqlConfig}));	
 router.post('/setOrUpdateLink',adminAuth(),setOrUpdateLink({sqlConfig:sqlConfig}));
