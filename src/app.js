@@ -21,6 +21,7 @@ const auth = require('./helpers/auth.js');
 const adminAuth = require('./helpers/adminAuth.js');
 const setOrUpdateBjzi = require('./methods/setOrUpdateBjzi.js');
 const setOrUpdateDeed = require('./methods/setOrUpdateDeed.js');
+const setDeed_mass = require('./methods/setDeed_mass.js');
 const setOrUpdateDeedType = require('./methods/setOrUpdateDeedType.js');
 const getBjzi = require('./methods/getBjzi.js');
 const setOrUpdateStory = require('./methods/setOrUpdateStory.js');
@@ -174,6 +175,7 @@ router.post('/sendMail'
 
 router.post('/setOrUpdateBjzi',setOrUpdateBjzi({sqlConfig:sqlConfig}));	
 router.post('/setOrUpdateDeed',setOrUpdateDeed({sqlConfig:sqlConfig}));
+router.post('/setDeed/mass',setDeed_mass({sqlConfig:sqlConfig}));
 router.post('/deedTypes',setOrUpdateDeedType({sqlConfig:sqlConfig}));
 router.get('/getBjzi',getBjzi({sqlConfig:sqlConfig}));	
 router.post('/setOrUpdateStory',adminAuth(),setOrUpdateStory({sqlConfig:sqlConfig}));	
