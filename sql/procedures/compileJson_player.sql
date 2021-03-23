@@ -27,18 +27,18 @@ select top 1
 t.id
 ,'player' as objectType
 ,t.name
-,ttt.name as squad
+----,ttt.name as squad
 --,t.name
 --,t.utilized
-,tt.name as side
+----,tt.name as side
 --,t.power 
 --,t.hasRapidFire
 --,t.isTurret
 --,t.utilized
 --,t.name as bjziChannelType 
 from dbo.players t
-join dbo.sides tt on tt.id=t.sideId
-left join dbo.squads ttt on ttt.id=t.squadId
+--join dbo.sides tt on tt.id=t.sideId
+--left join dbo.squads ttt on ttt.id=t.squadId
 --join sides side on side.id=bjzi.sideid
 --join bjziChannelTypes bct on bct.id=bjzi.bjziChannelTypeId 
 where t.id=@id

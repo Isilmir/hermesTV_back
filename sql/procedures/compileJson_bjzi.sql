@@ -23,7 +23,8 @@ BEGIN
 
     -- Insert statements for procedure here
 	select @res=json_query((
-select top 1 bjzi.id,'bjzi' as objectType, bjzi.name,side.name as side , bjzi.description, bjzi.utilized,bct.name as bjziChannelType from bjzi
+select top 1 bjzi.id,'bjzi' as objectType, bjzi.name--,side.name as side , bjzi.description, bjzi.utilized,bct.name as bjziChannelType 
+from bjzi
 join sides side on side.id=bjzi.sideid
 join bjziChannelTypes bct on bct.id=bjzi.bjziChannelTypeId 
 where bjzi.id=@id
