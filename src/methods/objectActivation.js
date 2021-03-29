@@ -9,21 +9,25 @@ module.exports = function (conf) {
 		//await sql.connect(sqlConfig);
 		let pool = await sql.connect(sqlConfig)
 		let result;	
-			//console.log(req)
+			
 		try{
 			result = await pool.request()
-							.input('id',sql.Int, req.params.playerId)
-							.execute('dbo.getPlayer');
+							.input('id',sql.Int, req.body.id)
+							.input('type',sql.NVarChar(255), req.body.type)
+							.input('active',sql.Bit, req.body.active)
+							.output('res',sql.Bit).execute('dbo.objectActivation');
 			console.dir(result);
 		}catch(e){console.log(e.message)
 			res.status(500);
-			res.send(`Ошибка получения персонажа: ${e.message}`); 
+			res.send(`Ошибка обновления спутника: ${e.message}`); 
 		}
 
 		sql.on('error',err=>console.log(err));
 		sql.close();
 				
-		res.send(result.recordset.map(el=>{el.resourсes=JSON.parse(el.resourсes);el.equipment=JSON.parse(el.equipment);el.deeds=JSON.parse(el.deeds);el.password='***';return el})); 
+		res.send({active:result.output.res||req.body.active,
+					type:req.body.type,
+					id:req.body.id}); 
 
 		return;
 		

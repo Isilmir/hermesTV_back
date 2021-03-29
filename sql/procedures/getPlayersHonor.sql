@@ -32,8 +32,11 @@ BEGIN
 	  ,(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-7 and getdate())
 	  ---(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-14 and getdate()-7) 
 	  as honorChange
-	  ,dbo.compileJson_player_deeds_group_by_types_func(id) as deedGroups
+	  ,dbo.compileJson_player_deeds_group_by_types_func(p.id) as deedGroups
   FROM [dbo].[players]p
+  left join objects o on o.id=p.id and o.typeId=1
   where realName is not null
+  and p.sideId!=16333
+  and o.active=1
 END
 GO

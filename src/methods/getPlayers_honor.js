@@ -12,12 +12,12 @@ module.exports = function (conf) {
 			
 		try{
 			result = await pool.request()
-							.input('res',sql.Int, 1)
+							.input('id',sql.Int, 1)
 							.execute('dbo.getPlayersHonor');
 			//console.dir(result);
 		}catch(e){console.log(e.message)
 			res.status(500);
-			res.send(`Ошибка получения персонажей: ${e.message}`); 
+			res.send(`Ошибка получения славы персонажей: ${e.message}`); 
 		}
 
 		sql.on('error',err=>console.log(err));
