@@ -339,6 +339,7 @@ id int IDENTITY(1,1) not null
 , honor int not null
 , description nvarchar(255)
 , date datetime default getdate()
+, heroic bit default 0
 , CONSTRAINT PK_deeds PRIMARY KEY NONCLUSTERED (id)
 , CONSTRAINT FK_deeds_players FOREIGN KEY (playerId)
 								REFERENCES hermestv..players (id)

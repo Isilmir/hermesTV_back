@@ -11,17 +11,9 @@ module.exports = function (conf) {
 		let result;	
 			
 		try{
-			result = await sql.query(`SELECT 
-	  'player' as objectType
-	  ,p.id
-	  ,p.name
-	  ,stateId
-	  ,sideId
-	  ,squadId
-	  ,honor
-	  ,updatedAt
-	  ,realName
-  FROM [dbo].[players]p`);
+			result = await pool.request()
+							.input('res',sql.Int, 1)
+							.execute('dbo.getPlayers');
 			//console.dir(result);
 		}catch(e){console.log(e.message)
 			res.status(500);
