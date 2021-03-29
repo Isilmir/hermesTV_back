@@ -25,7 +25,10 @@ BEGIN
     	select @res=isnull((
 		select 
 dt.name as [name]
-,dt.description as [description]
+,case
+when d.heroic=0 then dt.description 
+else d.description
+end as [description]
 ,case
 when d.honor>0 then 'good'
 else 'bad'
@@ -36,10 +39,16 @@ left join deedTypes dt on dt.id=d.typeId
 left join players p on p.id=d.playerId
 where dt.visible=1
 and d.playerId=@id
-group by dt.name,dt.description,case
+group by dt.name
+,case
+when d.heroic=0 then dt.description 
+else d.description
+end
+,case
 when d.honor>0 then 'good'
 else 'bad'
 end 
+,heroic
 for json path
 		),'[]')
 
