@@ -23,7 +23,7 @@ BEGIN
     DECLARE @res nvarchar(max)
 
     	select @res=isnull((
-		select d.id,'deed' as objectType,d.typeId as [type.id],dt.name as [type.name],dt.description as [type.description],d.honor,d.description,d.date,dt.visible
+		select d.id,'deed' as objectType,d.typeId as [type.id],dt.name as [type.name],dt.description as [type.description],d.honor,d.description,dateadd(hh,3,d.date) as date,dt.visible
 		from deeds d
 		left join deedTypes dt on dt.id=d.typeId
 		left join players p on p.id=d.playerId
