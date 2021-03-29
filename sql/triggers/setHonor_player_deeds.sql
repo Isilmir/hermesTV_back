@@ -8,6 +8,7 @@ declare @honorSum int,@json nvarchar(max),
 @typeId int,
 @playerId int ,
 @honor int,
+@heroic bit,
 @description nvarchar(255),
 @date datetime
 
@@ -22,7 +23,8 @@ INTO @id,
 @playerId,
 @honor,
 @description,
-@date
+@date,
+@heroic
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -43,7 +45,8 @@ INTO @id,
 @playerId,
 @honor,
 @description,
-@date
+@date,
+@heroic
 END   
 CLOSE deedscur;  
 DEALLOCATE deedscur;  
