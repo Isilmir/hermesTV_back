@@ -27,8 +27,10 @@ BEGIN
     select 
 	'player' as objectType
 	,p.* 
+	,o.active
 	,dbo.compileJson_player_deeds_func(@id) as deeds
 	from players p
-	where id=@id
+	left join objects o on o.id=p.id and typeid=1
+	where p.id=@id
 END
 GO

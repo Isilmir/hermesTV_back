@@ -14,7 +14,7 @@ module.exports = function (conf) {
 			result = await pool.request()
 							.input('description',sql.NVarChar(255), req.body.description)
 							.input('typeId',sql.Int, req.body.typeId)
-							.input('players',sql.NVarChar(255), req.body.players)
+							.input('players',sql.NVarChar(sql.MAX), req.body.players)
 							.input('honor',sql.Int, req.body.honor)
 							.output('res',sql.Int).execute('dbo.insertDeed_mass');
 			console.dir(result);
