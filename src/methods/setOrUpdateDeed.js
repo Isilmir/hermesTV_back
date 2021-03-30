@@ -17,7 +17,7 @@ module.exports = function (conf) {
 							.input('typeId',sql.Int, req.body.typeId)
 							.input('playerId',sql.Int, req.body.playerId)
 							.input('honor',sql.Int, req.body.honor)
-							.input('honor',sql.Int, req.body.heroic||false)
+							.input('heroic',sql.Int, req.body.heroic||false)
 							.output('res',sql.Int).execute('dbo.insertOrUpdateDeed');
 			console.dir(result);
 		}catch(e){console.log(e.message)
