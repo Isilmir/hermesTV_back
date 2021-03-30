@@ -18,6 +18,7 @@ CREATE PROCEDURE dbo.insertOrUpdateDeed
 	@typeId int,
 	@playerId int,
 	@honor int,
+	@heroic bit,
 	@res int out
 
 AS
@@ -29,15 +30,16 @@ BEGIN
 	CREATE TABLE #MyTempTable  (id int);  
 
 	MERGE dbo.deeds as target
-USING (select top 1 @id,@description,@typeId,@playerId,@honor) as source (id,description,typeId,playerId,honor)
+USING (select top 1 @id,@description,@typeId,@playerId,@honor,@heroic) as source (id,description,typeId,playerId,honor,heroic)
 on (target.id=isnull(source.id,0))
 when matched then
 	update set 
 	honor=source.honor,
-	description=source.description
+	description=source.description,
+	heroic=source.heroic
 when not matched then
-	insert (typeId,description,playerId,honor)
-	values(source.typeId,source.description,source.playerId,source.honor)
+	insert (typeId,description,playerId,honor,heroic)
+	values(source.typeId,source.description,source.playerId,source.honor,source.heroic)
 	OUTPUT inserted.id INTO #MyTempTable;
 
 	select @res=id from #MyTempTable
