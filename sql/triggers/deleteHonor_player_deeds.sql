@@ -7,10 +7,10 @@ declare @honorSum int,
 @id int,
 @typeId int,
 @playerId int ,
-@honor int,
 @description nvarchar(255),
 @date datetime,
-@heroic bit
+@heroic bit,
+@honor int
 
 DECLARE deeds_del_cur CURSOR FOR   
 SELECT * from deleted
@@ -21,10 +21,10 @@ FETCH NEXT FROM deeds_del_cur
 INTO @id,
 @typeId,
 @playerId,
-@honor,
 @heroic,
 @description,
-@date
+@date,
+@honor
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -43,10 +43,10 @@ group by playerId
     INTO @id,
 @typeId,
 @playerId,
-@honor,
 @description,
 @date,
-@heroic
+@heroic,
+@honor
 END   
 CLOSE deeds_del_cur;  
 DEALLOCATE deeds_del_cur;  
