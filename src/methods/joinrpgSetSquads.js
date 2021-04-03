@@ -1,10 +1,14 @@
 const sql = require('mssql');
+const url = require('url');
 
 module.exports = function (conf) {
       return async function (req,res){ 
 		
 		const sqlConfig = conf.sqlConfig;
 		const getCurSide = conf.getCurSide;
+		
+		let dryrun = url.parse(req.url,true).query.dryrun;
+		dryrun = dryrun=='true'?true:false;
 		
 		let data = conf.charactersFull_cache.reduce((res,cur)=>{
 			let curSide = getCurSide(cur);
@@ -34,6 +38,9 @@ when matched then
 when not matched then
 	insert (id,name,sideId,leaderId)
 	values(source.id,source.name,source.sideId,source.leaderId);`
+		
+		//если нужно проверить корректность запроса без обновления данных
+		if(dryrun){res.send(query);return;};
 		
 		await sql.connect(sqlConfig);
 	try{

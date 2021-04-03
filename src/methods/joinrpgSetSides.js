@@ -1,4 +1,5 @@
 const sql = require('mssql');
+const url = require('url');
 
 function getSideName(side){
 	switch(side.CharacterGroupId){
@@ -19,18 +20,22 @@ function getSideName(side){
 
 module.exports = function (conf) {
       return async function (req,res){ 
-		
+
 		const sqlConfig = conf.sqlConfig;
 		const getCurSide = conf.getCurSide;
 		
-		let data = conf.charactersFull_cache.reduce((res,cur)=>{
+		let dryrun = url.parse(req.url,true).query.dryrun;
+		dryrun = dryrun=='true'?true:false;
+		
+		console.log('dryrun',dryrun)
+		let data = conf.charactersFull_cache.reduce((res1,cur)=>{
 				let curSide = getCurSide(cur);
-				if(res.filter(el=>el.id == curSide.CharacterGroupId).length==0){res.push({
+				if(res1.filter(el=>el.id == curSide.CharacterGroupId).length==0){res1.push({
 					id:curSide.CharacterGroupId,
 					name:getSideName(curSide),
 					description:curSide.CharacterGroupName
 					})}
-				return res;
+				return res1;
 		},[]).map(el=>`(${el.id?el.id:'null'},${el.name?"'"+el.name+"'":'null'},${el.description?"'"+el.description+"'":'null'})`).join(',')
 		
 		let query = 
@@ -51,12 +56,15 @@ when not matched then
 	insert (id,name,description)
 	values(source.id,source.name,source.description);`
 		
+		//если нужно проверить корректность запроса без обновления данных
+		if(dryrun){res.send(query);return;};
+		
 		await sql.connect(sqlConfig);
 	try{
 	const result = await sql.query(query);
 	//console.log(result);
 	}catch(e){console.log(e.message)}
-
+	
 	sql.on('error',err=>console.log(err));
 	sql.close();
 		

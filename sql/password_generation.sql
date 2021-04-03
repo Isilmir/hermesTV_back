@@ -19,7 +19,8 @@
 
  DECLARE cur1 CURSOR FOR   
 SELECT * from players
-  
+where password is null  
+
 OPEN cur1  
   
 FETCH NEXT FROM cur1 
