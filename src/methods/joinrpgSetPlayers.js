@@ -43,7 +43,7 @@ MERGE dbo.players as target
 USING (select *from @tab) as source (id,name,stateId,sideId,squadId,honor,updatedAt,realName,password)
 on (target.id=source.id)
 when matched then
-	update set name=source.name,sideId=source.sideId,stateId=source.stateId,squadId=source.squadId,honor=source.honor,updatedAt=source.updatedAt,realName=source.realName/*,password=source.password*/
+	update set name=source.name,sideId=source.sideId,stateId=source.stateId,squadId=source.squadId/*,honor=source.honor*/,updatedAt=source.updatedAt,realName=source.realName/*,password=source.password*/
 
 when not matched then
 	insert (id,name,stateId,sideId,squadId,honor,updatedAt,realName,password)
