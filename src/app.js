@@ -38,6 +38,8 @@ const getDeedTypes = require('./methods/getDeedTypes.js');
 const getDictionaries = require('./methods/getDictionaries.js');
 const objectActivation = require('./methods/objectActivation.js');
 const isAdmin = require('./methods/isAdmin.js');
+const faces = require('./methods/faces.js');
+const getFace = require('./methods/getFace.js');
 
 const charactersFull_cache = require('../cache/charactersFull_cache.json')
 
@@ -189,6 +191,8 @@ router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
 router.get('/players/:playerId',adminAuth(),getPlayer({sqlConfig:sqlConfig}));
 router.get('/getDeedTypes',adminAuth(),getDeedTypes({sqlConfig:sqlConfig}));
+router.get('/faces',adminAuth(),faces());
+router.get('/faces/:filename',adminAuth(),getFace());
 app.post('/getDictionaries',getDictionaries({sqlConfig:sqlConfig}));
 app.get('/getPlayers/honor',getPlayers_honor({sqlConfig:sqlConfig}));	
 router.post('/getGraph',adminAuth(),getGraph({sqlConfig:sqlConfig}));

@@ -1,10 +1,14 @@
 const sql = require('mssql');
+const url = require('url');
 
 module.exports = function (conf) {
       return async function (req,res){ 
 		
 		const sqlConfig = conf.sqlConfig;
 		const getCurSide = conf.getCurSide;
+		
+		let dryrun = url.parse(req.url,true).query.dryrun;
+		dryrun = dryrun=='true'?true:false;
 		
 		let data = conf.charactersFull_cache.map(el=>{return {
 		id:el.CharacterId,
@@ -39,11 +43,14 @@ MERGE dbo.players as target
 USING (select *from @tab) as source (id,name,stateId,sideId,squadId,honor,updatedAt,realName,password)
 on (target.id=source.id)
 when matched then
-	update set name=source.name,sideId=source.sideId,stateId=source.stateId,squadId=source.squadId,honor=source.honor,updatedAt=source.updatedAt,realName=source.realName,password=source.password
+	update set name=source.name,sideId=source.sideId,stateId=source.stateId,squadId=source.squadId/*,honor=source.honor*/,updatedAt=source.updatedAt,realName=source.realName/*,password=source.password*/
 
 when not matched then
 	insert (id,name,stateId,sideId,squadId,honor,updatedAt,realName,password)
 	values(source.id,source.name,source.stateId,source.sideId,source.squadId,source.honor,source.updatedAt,source.realName,source.password);`
+	
+		//если нужно проверить корректность запроса без обновления данных
+		if(dryrun){res.send(query);return;};
 		
 		await sql.connect(sqlConfig);
 	try{

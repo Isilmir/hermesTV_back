@@ -29,6 +29,7 @@ BEGIN
 	  ,p.id
 	  ,p.name
 	  ,p.honor
+	  ,stateId
 	  ,(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-7 and getdate())
 	  ---(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-14 and getdate()-7) 
 	  as honorChange

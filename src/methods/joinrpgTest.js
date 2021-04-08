@@ -5,7 +5,7 @@ const url = require('url');
 module.exports = function (conf) {
       return async function (req,res){ 
 		//let since = url.parse(req.url,true).query.since;
-		//console.log(since);
+		console.log(process.env.joinrpgToken);
 		
 		let projectId = '642'
 		let sinceDate = url.parse(req.url,true).query.since||'2017-01-01';
