@@ -21,10 +21,10 @@ FETCH NEXT FROM deeds_del_cur
 INTO @id,
 @typeId,
 @playerId,
-@heroic,
+@honor,
 @description,
 @date,
-@honor
+@heroic
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -43,10 +43,10 @@ group by playerId
     INTO @id,
 @typeId,
 @playerId,
+@honor,
 @description,
 @date,
-@heroic,
-@honor
+@heroic
 END   
 CLOSE deeds_del_cur;  
 DEALLOCATE deeds_del_cur;  
