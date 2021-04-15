@@ -32,7 +32,7 @@ drop table if exists  hermestv..channelTypes
 drop table if exists  hermestv..heavyWeaponTypes
 drop table if exists  hermestv..stories
 drop table if exists  hermestv..links
-
+drop table if exists  hermestv..charactersCache
 
 
 
@@ -345,6 +345,13 @@ id int IDENTITY(1,1) not null
 								REFERENCES hermestv..players (id)
 , CONSTRAINT FK_deeds_deedTypes FOREIGN KEY (typeId)
 								REFERENCES hermestv..deedTypes (id)
+)
+
+--отдельная таблица для кэша персонажей
+create table hermestv..charactersCache(
+id int IDENTITY(1,1) not null
+,json nvarchar(max)
+,date datetime default getdate()
 )
 
 ----Наполняем первоначальными данными
