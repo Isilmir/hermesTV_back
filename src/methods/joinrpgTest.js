@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const url = require('url');
+const sql = require('mssql');
 
 module.exports = function (conf) {
       return async function (req,res){ 
@@ -42,11 +43,32 @@ module.exports = function (conf) {
 		//console.log(charactersFull_map)
 		//console.log(charactersFull)
 		
-		fs.writeFile('./cache/charactersFull_cache.json', JSON.stringify(charactersFull), (err) => {
-		  if (err) {
-			console.error(err)
-			return
-		}})
+		//fs.writeFile('./cache/charactersFull_cache.json', JSON.stringify(charactersFull), (err) => {
+		//  if (err) {
+		//	console.error(err)
+		//	return
+		//}})
+		
+		const sqlConfig = conf.sqlConfig;
+
+		//await sql.connect(sqlConfig);
+		let pool = await sql.connect(sqlConfig)
+		let result;	
+			//console.log(req)
+		try{
+			result = await pool.request()
+							.input('json',sql.NVarChar(sql.MAX),JSON.stringify(charactersFull))
+							.execute('dbo.setCharacterCache');
+			//console.dir(result);
+		}catch(e){console.log(e.message)
+			res.status(500);
+			res.send(`Ошибка сохранения кэша персонажей: ${e.message}`); 
+		}
+
+		sql.on('error',err=>console.log(err));
+		sql.close();
+				
+		
 		
 		res.send(charactersFull); 
 		return;

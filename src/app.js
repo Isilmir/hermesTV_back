@@ -40,6 +40,7 @@ const objectActivation = require('./methods/objectActivation.js');
 const isAdmin = require('./methods/isAdmin.js');
 const faces = require('./methods/faces.js');
 const getFace = require('./methods/getFace.js');
+const getLastUpdate = require('./methods/getLastUpdate.js');
 
 const charactersFull_cache = require('../cache/charactersFull_cache.json')
 
@@ -157,7 +158,7 @@ router.post('/pg/activation',async (req,res)=>{
 // 4. Вызвать /joinrpg/setPlayers. Обновится основная таблица игроков.
 
 //http://192.168.0.181:5000/joinrpg/getPlayers?since=2017-01-01
-joinrpgRouter.get('/getPlayers',joinrpgTest());
+joinrpgRouter.get('/getPlayers',joinrpgTest({sqlConfig:sqlConfig}));
 
 joinrpgRouter.get('/setSides',joinrpgSetSides({sqlConfig:sqlConfig,
 											getCurSide:getCurSide,
@@ -197,6 +198,7 @@ app.post('/getDictionaries',getDictionaries({sqlConfig:sqlConfig}));
 app.get('/getPlayers/honor',getPlayers_honor({sqlConfig:sqlConfig}));	
 router.post('/getGraph',adminAuth(),getGraph({sqlConfig:sqlConfig}));
 router.post('/objectActivation',adminAuth(),objectActivation({sqlConfig:sqlConfig}));
+router.get('/getLastUpdate',adminAuth(),getLastUpdate({sqlConfig:sqlConfig}));
 app.get('/isAdmin',isAdmin());
 
 											

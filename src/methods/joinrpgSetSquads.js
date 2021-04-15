@@ -10,7 +10,32 @@ module.exports = function (conf) {
 		let dryrun = url.parse(req.url,true).query.dryrun;
 		dryrun = dryrun=='true'?true:false;
 		
-		let data = conf.charactersFull_cache.reduce((res,cur)=>{
+		let charactersFull_cache;
+		
+		let pool = await sql.connect(sqlConfig)
+		let cache;	
+			//console.log(req)
+		try{
+			cache = await pool.request()
+							.execute('dbo.getCharacterCache');
+			//console.dir(result);
+		}catch(e){console.log(e.message)
+			res.status(500);
+			res.send(`Ошибка получения кэша персонажей: ${e.message}`); 
+		}
+
+		sql.on('error',err=>console.log(err));
+		sql.close();
+		
+		try{
+		charactersFull_cache=JSON.parse(cache.recordset[0].json)
+		}catch(e){
+			res.status(500);
+			res.send(`Ошибка парсинга кэша персонажей: ${e.message}`);
+			return;
+		}
+		
+		let data = charactersFull_cache.reduce((res,cur)=>{
 			let curSide = getCurSide(cur);
 			if(res.filter(el=>el.id == cur.Groups[0].CharacterGroupId).length==0){res.push({
 				id:cur.Groups[0].CharacterGroupId,
@@ -20,6 +45,12 @@ module.exports = function (conf) {
 				})}
 			return res;
 		},[]).map(el=>`(${el.id?el.id:'null'},${el.name?"'"+el.name+"'":'null'},${el.sideId?el.sideId:'null'},${el.leaderId?el.leaderId:'null'})`).join(',')
+		
+		if (!data){
+			res.status(501);
+			res.send('С последнего обновления нет изменений по отрядам'); 
+			return;
+		}
 		
 		let query = 
 `declare @tab table (id int, name nvarchar(255),sideId int, leaderId int)

@@ -10,7 +10,32 @@ module.exports = function (conf) {
 		let dryrun = url.parse(req.url,true).query.dryrun;
 		dryrun = dryrun=='true'?true:false;
 		
-		let data = conf.charactersFull_cache.map(el=>{return {
+		let charactersFull_cache;
+		
+		let pool = await sql.connect(sqlConfig)
+		let cache;	
+			//console.log(req)
+		try{
+			cache = await pool.request()
+							.execute('dbo.getCharacterCache');
+			//console.dir(result);
+		}catch(e){console.log(e.message)
+			res.status(500);
+			res.send(`Ошибка получения кэша персонажей: ${e.message}`); 
+		}
+
+		sql.on('error',err=>console.log(err));
+		sql.close();
+		
+		try{
+		charactersFull_cache=JSON.parse(cache.recordset[0].json)
+		}catch(e){
+			res.status(500);
+			res.send(`Ошибка парсинга кэша персонажей: ${e.message}`);
+			return;
+		}
+		
+		let data = charactersFull_cache.map(el=>{return {
 		id:el.CharacterId,
 		name:el.CharacterName,
 		stateId:1,
@@ -30,6 +55,12 @@ module.exports = function (conf) {
 				  ,${el.updatedAt?"'"+el.updatedAt+"'":'null'}
 				  ,${el.realName?"'"+el.realName+"'":'null'}
 				  ,${el.password?"'"+el.password+"'":'null'})`).join(',')
+		
+		if (!data){
+			res.status(501);
+			res.send('С последнего обновления нет изменений по персонажам'); 
+			return;
+		}
 		
 		let query = 
 `declare @tab table (id int, name varchar(255),stateId int, sideId int, squadId int, honor int, updatedAt datetime, realName nvarchar(255), password nvarchar(255))
