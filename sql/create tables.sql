@@ -276,7 +276,7 @@ playerId int null,
 squadId int null,
 description nvarchar(max),
 utilized bit  default 0,
-bjziChannelTypeId int,
+bjziChannelTypeId int default 1,
 deathCaseId int null,
 printForm varchar(max)
 ,CONSTRAINT PK_bjzi PRIMARY KEY NONCLUSTERED (id)

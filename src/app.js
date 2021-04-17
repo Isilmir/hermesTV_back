@@ -41,6 +41,7 @@ const isAdmin = require('./methods/isAdmin.js');
 const faces = require('./methods/faces.js');
 const getFace = require('./methods/getFace.js');
 const getLastUpdate = require('./methods/getLastUpdate.js');
+const getBjziSingle = require('./methods/getBjziSingle.js');
 
 const charactersFull_cache = require('../cache/charactersFull_cache.json')
 
@@ -191,6 +192,7 @@ router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
 router.get('/players/:playerId',adminAuth(),getPlayer({sqlConfig:sqlConfig}));
+router.get('/bjzi/:bjziId',adminAuth(),getBjziSingle({sqlConfig:sqlConfig}));
 router.get('/getDeedTypes',adminAuth(),getDeedTypes({sqlConfig:sqlConfig}));
 router.get('/faces',adminAuth(),faces());
 router.get('/faces/:filename',adminAuth(),getFace());
