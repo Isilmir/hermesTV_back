@@ -42,6 +42,8 @@ const faces = require('./methods/faces.js');
 const getFace = require('./methods/getFace.js');
 const getLastUpdate = require('./methods/getLastUpdate.js');
 const getBjziSingle = require('./methods/getBjziSingle.js');
+const makeFuneral = require('./methods/makeFuneral.js');
+const makeBjziTransfer = require('./methods/makeBjziTransfer.js');
 
 const charactersFull_cache = require('../cache/charactersFull_cache.json')
 
@@ -188,6 +190,8 @@ router.post('/setOrUpdateStory',adminAuth(),setOrUpdateStory({sqlConfig:sqlConfi
 router.post('/setOrUpdateLink',adminAuth(),setOrUpdateLink({sqlConfig:sqlConfig}));
 router.post('/deleteLink',adminAuth(),deleteLink({sqlConfig:sqlConfig}));
 router.post('/deleteDeed',adminAuth(),deleteDeed({sqlConfig:sqlConfig}));
+router.post('/processing/makeFuneral',adminAuth(),makeFuneral({sqlConfig:sqlConfig}));	
+router.post('/processing/makeBjziTransfer',adminAuth(),makeBjziTransfer({sqlConfig:sqlConfig}));	
 router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
