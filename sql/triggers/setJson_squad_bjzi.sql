@@ -35,13 +35,15 @@ INTO @id,
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
 
+if @squadId is not null
+begin
 exec dbo.compileJson_squad_reserve @squadId,@json out
 --print @json
 
 	update top(1) squads
 	set reserve=@json
 	where id=@squadId
-
+end
 
     FETCH NEXT FROM bjziscur   
     INTO @id,

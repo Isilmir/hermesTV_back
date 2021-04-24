@@ -27,7 +27,7 @@ BEGIN
     select 
 	'bjzi' as objectType
 	,b.id,b.name,b.sideId,b.playerId,b.squadId,b.description,b.utilized,bjziChannelTypeId,deathCaseId
-	,p.name as playerName,p.squadId as playerSquad
+	,p.name as playerName,p.squadId as playerSquad, p.sideId as playerSide
 	,o.active
 	from bjzi b 
 	left join players p on b.playerId=p.id
