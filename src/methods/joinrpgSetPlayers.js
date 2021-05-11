@@ -1,6 +1,16 @@
 const sql = require('mssql');
 const url = require('url');
 
+function generatePassword() {
+    var length = 6,
+        charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
+        retVal = "";
+    for (var i = 0, n = charset.length; i < length; ++i) {
+        retVal += charset.charAt(Math.floor(Math.random() * n));
+    }
+    return retVal;
+}
+
 module.exports = function (conf) {
       return async function (req,res){ 
 		
@@ -35,17 +45,19 @@ module.exports = function (conf) {
 			return;
 		}
 		
-		let data = charactersFull_cache.map(el=>{return {
-		id:el.CharacterId,
-		name:el.CharacterName,
+		let data = charactersFull_cache.map(el=>{
+			//console.log(el);
+			return {
+		id:el.characterId,
+		name:el.characterName,
 		stateId:1,
-		sideId:getCurSide(el).CharacterGroupId,
-		squadId:el.Groups[0].CharacterGroupId,
+		sideId:getCurSide(el).characterGroupId,
+		squadId:el.groups[0].characterGroupId,
 		honor:0,
-		updatedAt:el.UpdatedAt,
-		realName:el.PlayerUserId?el.Fields.filter(field=>field.ProjectFieldId==5525)[0].Value:null,
+		updatedAt:el.updatedAt,
+		realName:el.playerUserId?el.fields.filter(field=>field.projectFieldId==5525)[0].value:null,
 		// тут надо будет указать id реального свойства с паролем
-		password:el.PlayerUserId?(el.Fields.filter(field=>field.ProjectFieldId==55250)[0]?el.Fields.filter(field=>field.ProjectFieldId==55250)[0].Value:null):null
+		password:generatePassword()//el.playerUserId?(el.fields.filter(field=>field.projectFieldId==55250)[0]?el.fields.filter(field=>field.projectFieldId==55250)[0].value:null):null
 	}}).map(el=>`(${el.id?el.id:'null'}
 				  ,${el.name?"'"+el.name+"'":'null'}
 				  ,${el.stateId?el.stateId:'null'}

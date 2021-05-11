@@ -221,5 +221,5 @@ app.listen(PORT,()=>console.log(`Listening on port ${PORT}`))
 //app.listen(process.env.PORT || 8081); 
 
 function getCurSide(cur){
-	return cur.AllGroups.filter(el=>el.CharacterGroupId!=cur.Groups[0].CharacterGroupId&&el.CharacterGroupId!=14905)[0]||cur.AllGroups.filter(el=>el.CharacterGroupId!=14905)[0];
+	return cur.allGroups.filter(el=>el.characterGroupId!=cur.groups[0].characterGroupId&&el.characterGroupId!=14905)[0]||cur.allGroups.filter(el=>el.characterGroupId!=14905)[0];
 }
