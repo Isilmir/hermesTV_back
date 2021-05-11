@@ -37,10 +37,10 @@ module.exports = function (conf) {
 		
 		let data = charactersFull_cache.reduce((res,cur)=>{
 			let curSide = getCurSide(cur);
-			if(res.filter(el=>el.id == cur.Groups[0].CharacterGroupId).length==0){res.push({
-				id:cur.Groups[0].CharacterGroupId,
-				name:cur.Groups[0].CharacterGroupName,
-				sideId:curSide.CharacterGroupId,
+			if(res.filter(el=>el.id == cur.groups[0].characterGroupId).length==0){res.push({
+				id:cur.groups[0].characterGroupId,
+				name:cur.groups[0].characterGroupName,
+				sideId:curSide.characterGroupId,
 				leaderId:null
 				})}
 			return res;

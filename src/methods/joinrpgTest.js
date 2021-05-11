@@ -21,10 +21,12 @@ module.exports = function (conf) {
 			}) ).json();
 		
 		console.log(new Date(),`начинаем обработку персонажей через for`);
+		//console.log(characters)
 		let charactersFull=[];
 		for(let i=0;i < characters.length; i++){
-			console.log(new Date(),`for. начало обработки ${characters[i].CharacterId}`);
-			let data = await (await fetch(`https://joinrpg.ru/${characters[i].CharacterLink}`,{
+			console.log(characters[i]);
+			console.log(new Date(),`for. начало обработки ${characters[i].characterId}`);
+			let data = await (await fetch(`https://joinrpg.ru${characters[i].characterLink}`,{
 			method:'GET',
 			headers:{
 			'Accept':'application/json',
@@ -32,9 +34,9 @@ module.exports = function (conf) {
 					}
 				}
 			) ).json();
-			data.CharacterLink = characters[i].CharacterLink;
+			data.CharacterLink = characters[i].characterLink;
 			//console.log(data);
-			console.log(new Date(),`for. конец обработки ${characters[i].CharacterId}`);
+			console.log(new Date(),`for. конец обработки ${characters[i].characterId}`);
 			charactersFull.push(data);
 		}
 		
@@ -59,7 +61,7 @@ module.exports = function (conf) {
 			result = await pool.request()
 							.input('json',sql.NVarChar(sql.MAX),JSON.stringify(charactersFull))
 							.execute('dbo.setCharacterCache');
-			//console.dir(result);
+			console.dir(result);
 		}catch(e){console.log(e.message)
 			res.status(500);
 			res.send(`Ошибка сохранения кэша персонажей: ${e.message}`); 
