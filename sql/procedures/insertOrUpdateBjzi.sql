@@ -35,11 +35,11 @@ on (target.id=isnull(source.id,0))
 when matched then
 	update set 
 	name=source.name,
-	description=source.description,	
-	squadId=source.squadId
+	description=source.description	
+	--squadId=source.squadId
 when not matched then
-	insert (name,description,playerId,squadId,sideId,bjziChannelTypeId)
-	values(source.name,source.description,source.playerId,source.squadId,source.sideId,isnull(source.bjziChannelTypeId,1))
+	insert (name,description,playerId/*,squadId*/,sideId,bjziChannelTypeId)
+	values(source.name,source.description,source.playerId/*,source.squadId*/,source.sideId,isnull(source.bjziChannelTypeId,1))
 	OUTPUT inserted.id INTO #MyTempTable;
 
 	select @res=id from #MyTempTable

@@ -33,6 +33,7 @@ end as [description]
 when d.honor>0 then 'good'
 else 'bad'
 end as degree
+,heroic
 ,count(*) as count
 from deeds d
 left join deedTypes dt on dt.id=d.typeId
