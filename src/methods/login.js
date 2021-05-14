@@ -9,9 +9,15 @@ module.exports = function (conf) {
 		//let since = url.parse(req.url,true).query.since;
 		//console.log(since);
 	//console.log(req.body);
+	
+		let pool = await sql.connect(conf.sqlConfig)
 		let result;
 		try{
-		await sql.connect(conf.sqlConfig);
+			result = await pool.request()
+							.input('id',sql.Int,req.body.user)
+							.execute('dbo.doLogin');
+			//console.dir(result);
+/*		await sql.connect(conf.sqlConfig);
 		// исправить запрос чтобы не было инъекции
 		result = await sql.query(`SELECT TOP 1 p.[name]
       ,p.[equipment]
@@ -25,7 +31,7 @@ module.exports = function (conf) {
   FROM [players]p
   join sides si on si.id=p.sideId
   join squads sq on sq.id=p.squadId
-  where p.id='${req.body.user}'`);
+  where p.id='${req.body.user}'`);*/
 		}catch(e){
 			res.status(500);
 			res.send(e.message); 
@@ -42,7 +48,7 @@ module.exports = function (conf) {
 		let password = result.recordset[0].password;
 		//console.log(password,req.body.password);
 		if(password==req.body.password){
-			let token = jwt.sign({user:req.body.user,isAdmin:result.recordset[0]['sideId']==16333?true:false},'password')
+			let token = jwt.sign({user:req.body.user,isAdmin:req.body.user==100083/*result.recordset[0]['sideId']==16333*/?true:false},'password')
 			//let decoded = jwt.verify(token,'password');
 			//console.log('влогине',decoded);
 						//await sql.connect(conf.sqlConfig);
