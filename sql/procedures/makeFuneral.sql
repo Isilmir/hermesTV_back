@@ -11,7 +11,8 @@ GO
 -- Create Date: 2020-04-20
 -- Description: производит похороны героя или спутника:
 --              1. Добавляет деяние тому кто сдает тело
---              2. Переводит сданное тело в статус 
+--				2. Добавляет ачивку Смерть телу героя
+--              3. Переводит сданное тело в статус мертв
 
 -- exec dbo.makeFuneral 43636,'player',43634,'player'
 -- =============================================
@@ -118,6 +119,21 @@ BEGIN TRANSACTION
         RAISERROR (@errmsg, 16, 1)
         RETURN;
 	END CATCH
+
+	-- добавляем ачивку "смерть" телу героя
+	if @objectType_OBJECT='player'
+	begin
+		BEGIN TRY
+			exec dbo.insertOrUpdateDeed null, '',45,@id_OBJECT, 0,0, @deedRes out
+		END TRY
+		BEGIN CATCH
+			IF @@trancount > 0 ROLLBACK TRANSACTION
+			set @errmsg = error_message()  
+			RAISERROR (@errmsg, 16, 1)
+			RETURN;
+		END CATCH
+	end
+
 	-- перевести объект в статус Мертв
 	BEGIN TRY
 		--raiserror('тестируем ошибку и откат транзакции',18,5)
