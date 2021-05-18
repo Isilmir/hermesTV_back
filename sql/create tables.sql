@@ -278,7 +278,8 @@ description nvarchar(max),
 utilized bit  default 0,
 bjziChannelTypeId int default 1,
 deathCaseId int null,
-printForm varchar(max)
+printForm varchar(max),
+isPlayer bit default 0
 ,CONSTRAINT PK_bjzi PRIMARY KEY NONCLUSTERED (id)
 ,CONSTRAINT FK_bjzi_bjziChannelTypes FOREIGN KEY (bjziChannelTypeId)
 								REFERENCES hermestv..bjziChannelTypes (id)
