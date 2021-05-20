@@ -35,6 +35,7 @@ else 'bad'
 end as degree
 ,heroic
 ,count(*) as count
+,max(date) as date
 from deeds d
 left join deedTypes dt on dt.id=d.typeId
 left join players p on p.id=d.playerId
@@ -50,6 +51,7 @@ when d.honor>0 then 'good'
 else 'bad'
 end 
 ,heroic
+order by max(date) desc
 for json path
 		),'[]')
 
