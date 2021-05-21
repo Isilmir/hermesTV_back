@@ -5,35 +5,35 @@ as
 
 declare 
 @id int,
-@name nvarchar(255),
-@sideId int,
+--@name nvarchar(255),
+--@sideId int,
 @playerId int,
 @squadId int,
-@description nvarchar(max),
-@utilized bit,
-@bjziChannelTypeId int,
-@deathCaseId int,
-@printform varchar(max),
+--@description nvarchar(max),
+--@utilized bit,
+--@bjziChannelTypeId int,
+--@deathCaseId int,
+--@printform varchar(max),
 @players_json nvarchar(max),
 @squads_json nvarchar(max)
 
 
 DECLARE bjzi_del_cur CURSOR FOR   
-SELECT * from deleted
+SELECT id,playerId,squadId from deleted
   
 OPEN bjzi_del_cur  
   
 FETCH NEXT FROM bjzi_del_cur   
 INTO @id,
-@name,
-@sideId,
+--@name,
+--@sideId,
 @playerId ,
-@squadId ,
-@description ,
-@utilized ,
-@bjziChannelTypeId ,
-@deathCaseId ,
-@printform
+@squadId 
+--@description ,
+--@utilized ,
+--@bjziChannelTypeId ,
+--@deathCaseId ,
+--@printform
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -57,15 +57,15 @@ BEGIN
 
     FETCH NEXT FROM bjzi_del_cur   
     INTO @id,
-@name,
-@sideId,
+--@name,
+--@sideId,
 @playerId ,
-@squadId ,
-@description ,
-@utilized ,
-@bjziChannelTypeId ,
-@deathCaseId ,
-@printform
+@squadId 
+--@description ,
+--@utilized ,
+--@bjziChannelTypeId ,
+--@deathCaseId ,
+--@printform
 END   
 CLOSE bjzi_del_cur;  
 DEALLOCATE bjzi_del_cur;  

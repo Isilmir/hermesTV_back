@@ -11,16 +11,18 @@ GO
 -- Create Date: 2020-04-20
 -- Description: производит похороны геро€ или спутника:
 --              1. ƒобавл€ет де€ние тому кто сдает тело
---              2. ѕереводит сданное тело в статус 
+--				2. ƒобавл€ет ачивку —мерть телу геро€
+--              3. ѕереводит сданное тело в статус мертв
 
--- exec dbo.makeFuneral 43636,'player',43634,'player'
+-- exec dbo.makeFuneral 43636,'player',43634,'player',0
 -- =============================================
 CREATE PROCEDURE dbo.makeFuneral
 (
     @id_SUBJECT int, --id того кто сдает
 	@objectType_SUBJECT varchar(255), -- тип того кто сдает
 	@id_OBJECT int, --id того кого сдают
-	@objectType_OBJECT varchar(255) -- тип того кого сдают
+	@objectType_OBJECT varchar(255), -- тип того кого сдают
+	@expired bit = 0-- если похороны просрочены то герой не получает славы
 )
 AS
 BEGIN
@@ -82,7 +84,7 @@ BEGIN
 
 	--select @id_SUBJECT as [@id_SUBJECT],@objectType_SUBJECT as[@objectType_SUBJECT],@id_SUBJECT_p as [@id_SUBJECT_p],@objectType_SUBJECT_p as [@objectType_SUBJECT_p],@side_SUBJECT as[@side_SUBJECT],@id_OBJECT as[@id_OBJECT],@objectType_OBJECT as [@objectType_OBJECT],@side_OBJECT as [@side_OBJECT],@state_OBJECT as [@state_OBJECT]
 	
-	select @deedType = id, @deedHonor = defaultHonor,@deathCase = case when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
+	select @deedType = id, @deedHonor = case when @expired = 1 then 0 else defaultHonor end,@deathCase = case when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
 	from dbo.deedTypes
 	where name=case
 		when @objectType_OBJECT='player' then 'bodyhero'
@@ -118,6 +120,21 @@ BEGIN TRANSACTION
         RAISERROR (@errmsg, 16, 1)
         RETURN;
 	END CATCH
+
+	-- добавл€ем ачивку "смерть" телу геро€
+	if @objectType_OBJECT='player'
+	begin
+		BEGIN TRY
+			exec dbo.insertOrUpdateDeed null, '',45,@id_OBJECT, 0,0, @deedRes out
+		END TRY
+		BEGIN CATCH
+			IF @@trancount > 0 ROLLBACK TRANSACTION
+			set @errmsg = error_message()  
+			RAISERROR (@errmsg, 16, 1)
+			RETURN;
+		END CATCH
+	end
+
 	-- перевести объект в статус ћертв
 	BEGIN TRY
 		--raiserror('тестируем ошибку и откат транзакции',18,5)

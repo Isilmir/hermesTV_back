@@ -4,33 +4,33 @@ AFTER insert,update
 as
 
 declare @json nvarchar(max),
-@id int,
-@name nvarchar(255),
-@sideId int ,
-@playerId int ,
-@squadId int ,
-@description nvarchar(max),
-@utilized bit ,
-@bjziChannelTypeId int,
-@deathCaseId int ,
-@printform varchar(max)
+--@id int,
+--@name nvarchar(255),
+--@sideId int ,
+--@playerId int ,
+@squadId int 
+--@description nvarchar(max),
+--@utilized bit ,
+--@bjziChannelTypeId int,
+--@deathCaseId int ,
+--@printform varchar(max)
 
 DECLARE bjziscur CURSOR FOR   
-SELECT * from inserted
+SELECT squadId from inserted
   
 OPEN bjziscur  
   
 FETCH NEXT FROM bjziscur   
-INTO @id,
-@name,
-@sideId  ,
-@playerId  ,
-@squadId  ,
-@description ,
-@utilized  ,
-@bjziChannelTypeId ,
-@deathCaseId ,
-@printform
+INTO --@id,
+--@name,
+--@sideId  ,
+--@playerId  ,
+@squadId  
+--@description ,
+--@utilized  ,
+--@bjziChannelTypeId ,
+--@deathCaseId ,
+--@printform
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -46,16 +46,16 @@ exec dbo.compileJson_squad_reserve @squadId,@json out
 end
 
     FETCH NEXT FROM bjziscur   
-    INTO @id,
-@name,
-@sideId  ,
-@playerId  ,
-@squadId  ,
-@description ,
-@utilized  ,
-@bjziChannelTypeId, 
-@deathCaseId ,
-@printform
+    INTO --@id,
+--@name,
+--@sideId  ,
+--@playerId  ,
+@squadId  
+--@description ,
+--@utilized  ,
+--@bjziChannelTypeId, 
+--@deathCaseId ,
+--@printform
 END   
 CLOSE bjziscur;  
 DEALLOCATE bjziscur;  

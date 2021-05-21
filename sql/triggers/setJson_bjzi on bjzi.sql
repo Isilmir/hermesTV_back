@@ -4,34 +4,34 @@ AFTER insert,update
 as
 
 declare @json nvarchar(max),
-@id int,
-@name nvarchar(255),
-@sideId int,
-@playerId int,
-@squadId int,
-@description nvarchar(max),
-@utilized bit,
-@bjziChannelTypeId int,
-@deathCaseId int,
-@printform varchar(max)
+@id int
+--@name nvarchar(255),
+--@sideId int,
+--@playerId int,
+--@squadId int,
+--@description nvarchar(max),
+--@utilized bit,
+--@bjziChannelTypeId int,
+--@deathCaseId int,
+--@printform varchar(max)
 
 
 DECLARE bjzi_cur CURSOR FOR   
-SELECT * from inserted
+SELECT id from inserted
   
 OPEN bjzi_cur  
   
 FETCH NEXT FROM bjzi_cur   
-INTO @id,
-@name,
-@sideId,
-@playerId ,
-@squadId ,
-@description ,
-@utilized ,
-@bjziChannelTypeId ,
-@deathCaseId   ,
-@printform
+INTO @id
+--@name,
+--@sideId,
+--@playerId ,
+--@squadId ,
+--@description ,
+--@utilized ,
+--@bjziChannelTypeId ,
+--@deathCaseId   ,
+--@printform
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -49,16 +49,16 @@ when not matched then
 
 
     FETCH NEXT FROM bjzi_cur   
-    INTO @id,
-@name,
-@sideId,
-@playerId ,
-@squadId ,
-@description ,
-@utilized ,
-@bjziChannelTypeId ,
-@deathCaseId  ,
-@printform
+    INTO @id
+--@name,
+--@sideId,
+--@playerId ,
+--@squadId ,
+--@description ,
+--@utilized ,
+--@bjziChannelTypeId ,
+--@deathCaseId  ,
+--@printform
 END   
 CLOSE bjzi_cur;  
 DEALLOCATE bjzi_cur;  

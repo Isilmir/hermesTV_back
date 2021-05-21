@@ -15,6 +15,7 @@ CREATE FUNCTION dbo.compileJson_player_deeds_group_by_types_func
 (
     -- Add the parameters for the function here
     	@id int
+		,@userId int = null
 )
 RETURNS nvarchar(max)
 AS
@@ -35,9 +36,12 @@ else 'bad'
 end as degree
 ,heroic
 ,count(*) as count
+,max(date) as date
+,m.id as messageId
 from deeds d
 left join deedTypes dt on dt.id=d.typeId
 left join players p on p.id=d.playerId
+left join messages m on m.deedId=d.id and d.playerId=@userId
 where dt.visible=1
 and d.playerId=@id
 group by dt.name
@@ -50,6 +54,8 @@ when d.honor>0 then 'good'
 else 'bad'
 end 
 ,heroic
+,m.id
+order by max(date) desc
 for json path
 		),'[]')
 
