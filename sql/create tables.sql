@@ -12,6 +12,7 @@ drop table if exists  hermestv..insultLogs
 drop table if exists  hermestv..insultParticipants
 drop table if exists  hermestv..insultParticipantRoles
 drop table if exists  hermestv..insults
+drop table if exists  hermestv..messages
 drop table if exists  hermestv..deeds
 drop table if exists  hermestv..players
 drop table if exists  hermestv..squads
@@ -353,6 +354,15 @@ create table hermestv..charactersCache(
 id int IDENTITY(1,1) not null
 ,json nvarchar(max)
 ,date datetime default getdate()
+)
+
+create table hermestv..messages(
+id int IDENTITY(1,1) not null
+,deedId int not null unique
+,description nvarchar(max)
+,CONSTRAINT PK_messages PRIMARY KEY NONCLUSTERED (id)
+,CONSTRAINT FK_messages_deeds FOREIGN KEY (deedId)
+								REFERENCES hermestv..deeds (id)
 )
 
 ----Наполняем первоначальными данными
