@@ -392,7 +392,8 @@ values
 ('shield','Щит'),
 ('story','Сюжет'),
 ('armor','СИБЗ'),
-('deed','Деяние')
+('deed','Деяние'),
+('message','Сообщение')
 
 insert into hermestv..states (name,description) 
 values('well','Здоров'),
