@@ -9,7 +9,7 @@ GO
 -- Create date: 2021-03-21
 -- Description:	создает или апдейтит деяние
 
---exec dbo.insertOrUpdateDeed null, 'Сделал заявление',1,44559, 1, @res out
+--exec dbo.insertOrUpdateDeed null, 'Сделал заявление',1,44559, 1,'#FFFFFF', @res out
 -- =============================================
 CREATE PROCEDURE dbo.insertOrUpdateDeed 
 	-- Add the parameters for the stored procedure here
@@ -19,6 +19,7 @@ CREATE PROCEDURE dbo.insertOrUpdateDeed
 	@playerId int,
 	@honor int,
 	@heroic bit,
+	@color varchar(7),
 	@res int out
 
 AS
@@ -30,16 +31,17 @@ BEGIN
 	CREATE TABLE #MyTempTable  (id int);  
 
 	MERGE dbo.deeds as target
-USING (select top 1 @id,@description,@typeId,@playerId,@honor,@heroic) as source (id,description,typeId,playerId,honor,heroic)
+USING (select top 1 @id,@description,@typeId,@playerId,@honor,@heroic,@color) as source (id,description,typeId,playerId,honor,heroic,color)
 on (target.id=isnull(source.id,0))
 when matched then
 	update set 
 	honor=source.honor,
 	description=source.description,
-	heroic=source.heroic
+	heroic=source.heroic,
+	color=source.color
 when not matched then
-	insert (typeId,description,playerId,honor,heroic)
-	values(source.typeId,source.description,source.playerId,source.honor,source.heroic)
+	insert (typeId,description,playerId,honor,heroic,color)
+	values(source.typeId,source.description,source.playerId,source.honor,source.heroic,source.color)
 	OUTPUT inserted.id INTO #MyTempTable;
 
 	select @res=id from #MyTempTable

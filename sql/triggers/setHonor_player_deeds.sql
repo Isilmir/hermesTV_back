@@ -5,26 +5,26 @@ as
 
 declare @honorSum int,@json nvarchar(max),
 @id int,
-@typeId int,
-@playerId int ,
-@honor int,
-@heroic bit,
-@description nvarchar(255),
-@date datetime
+--@typeId int,
+@playerId int 
+--@honor int,
+--@heroic bit,
+--@description nvarchar(255),
+--@date datetime
 
 DECLARE deedscur CURSOR FOR   
-SELECT * from inserted
+SELECT id,playerId from inserted
   
 OPEN deedscur  
   
 FETCH NEXT FROM deedscur   
 INTO @id,
-@typeId,
-@playerId,
-@honor,
-@description,
-@date,
-@heroic
+--@typeId,
+@playerId
+--@honor,
+--@description,
+--@date,
+--@heroic
   
 WHILE @@FETCH_STATUS = 0  
 BEGIN  
@@ -41,12 +41,12 @@ group by playerId
 
 FETCH NEXT FROM deedscur   
 INTO @id,
-@typeId,
-@playerId,
-@honor,
-@description,
-@date,
-@heroic
+--@typeId,
+@playerId
+--@honor,
+--@description,
+--@date,
+--@heroic
 END   
 CLOSE deedscur;  
 DEALLOCATE deedscur;  
