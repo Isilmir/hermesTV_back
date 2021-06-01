@@ -49,6 +49,8 @@ const getMessage = require('./methods/getMessage.js');
 const getMessages = require('./methods/getMessages.js');
 const makeFuneral = require('./methods/makeFuneral.js');
 const makeBjziTransfer = require('./methods/makeBjziTransfer.js');
+const makeReinforcementsAwaiting = require('./methods/makeReinforcementsAwaiting.js');
+const makeReinforcementsArrived = require('./methods/makeReinforcementsArrived.js');
 
 const charactersFull_cache = require('../cache/charactersFull_cache.json')
 
@@ -201,6 +203,8 @@ router.post('/deleteDeed',adminAuth(),deleteDeed({sqlConfig:sqlConfig}));
 router.post('/deleteMessage',adminAuth(),deleteMessage({sqlConfig:sqlConfig}));
 router.post('/processing/makeFuneral',adminAuth(),makeFuneral({sqlConfig:sqlConfig}));	
 router.post('/processing/makeBjziTransfer',adminAuth(),makeBjziTransfer({sqlConfig:sqlConfig}));	
+router.post('/processing/makeReinforcementsAwaiting',adminAuth(),makeReinforcementsAwaiting({sqlConfig:sqlConfig}));	
+router.post('/processing/makeReinforcementsArrived',adminAuth(),makeReinforcementsArrived({sqlConfig:sqlConfig}));
 router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
