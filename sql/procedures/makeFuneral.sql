@@ -112,7 +112,7 @@ BEGIN
 BEGIN TRANSACTION
 	-- добавить деяние субъету
 	BEGIN TRY
-		exec dbo.insertOrUpdateDeed null, @deedDesc,@deedType,@id_SUBJECT_p, @deedHonor,0, @deedRes out
+		exec dbo.insertOrUpdateDeed null, @deedDesc,@deedType,@id_SUBJECT_p, @deedHonor,0,null, @deedRes out
 	END TRY
 	BEGIN CATCH
 		IF @@trancount > 0 ROLLBACK TRANSACTION
@@ -125,7 +125,7 @@ BEGIN TRANSACTION
 	if @objectType_OBJECT='player'
 	begin
 		BEGIN TRY
-			exec dbo.insertOrUpdateDeed null, '',45,@id_OBJECT, 0,0, @deedRes out
+			exec dbo.insertOrUpdateDeed null, '',45,@id_OBJECT, 0,0,null, @deedRes out
 		END TRY
 		BEGIN CATCH
 			IF @@trancount > 0 ROLLBACK TRANSACTION

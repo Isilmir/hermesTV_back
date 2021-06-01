@@ -38,6 +38,7 @@ end as degree
 ,count(*) as count
 ,max(date) as date
 ,m.id as messageId
+,color
 from deeds d
 left join deedTypes dt on dt.id=d.typeId
 left join players p on p.id=d.playerId
@@ -55,6 +56,7 @@ else 'bad'
 end 
 ,heroic
 ,m.id
+,color
 order by max(date) desc
 for json path
 		),'[]')
