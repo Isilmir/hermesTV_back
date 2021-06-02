@@ -41,6 +41,7 @@ BEGIN
   where realname is not null 
   and o.active=1
   and p.stateId!=3
+  and not exists (select top 1 id from deeds d where d.playerid=p.id and d.typeId=50)
   order by honor desc
 
 END
