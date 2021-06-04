@@ -10,7 +10,11 @@ module.exports = function (conf) {
 	try{
 	file = await fs.readFile(`./src/faces/${sex}/${req.params.filename}`);
 	//console.log(result);
-	}catch(e){console.warn('\x1b[31m%s\x1b[0m',e.message)}
+	}catch(e){//console.warn('\x1b[31m%s\x1b[0m',e.message);
+		res.status(404);
+				res.send('Фото не найдено'); 
+				return;
+	}
 	//console.log(file);
 
 	//sql.close();

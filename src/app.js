@@ -189,6 +189,9 @@ router.post('/sendMail'
 ,sendMail());	
 
 router.post('/setOrUpdateBjzi',setOrUpdateBjzi({sqlConfig:sqlConfig}));	
+router.get('/faces',faces());
+router.get('/faces/:filename',getFace());
+
 router.post('/setOrUpdateDeed',adminAuth(),setOrUpdateDeed({sqlConfig:sqlConfig}));
 router.post('/setOrUpdateMessage',adminAuth(),setOrUpdateMessage({sqlConfig:sqlConfig}));
 router.post('/setDeed/mass',adminAuth(),setDeed_mass({sqlConfig:sqlConfig}));
@@ -211,8 +214,7 @@ router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
 router.get('/players/:playerId',adminAuth(),getPlayer({sqlConfig:sqlConfig}));
 router.get('/bjzi/:bjziId',adminAuth(),getBjziSingle({sqlConfig:sqlConfig}));
 router.get('/getDeedTypes',adminAuth(),getDeedTypes({sqlConfig:sqlConfig}));
-router.get('/faces',adminAuth(),faces());
-router.get('/faces/:filename',adminAuth(),getFace());
+
 app.post('/getDictionaries',getDictionaries({sqlConfig:sqlConfig}));
 app.get('/getPlayers/honor',preAuth(),getPlayers_honor({sqlConfig:sqlConfig}));	
 router.post('/getGraph',adminAuth(),getGraph({sqlConfig:sqlConfig}));
