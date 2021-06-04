@@ -9,6 +9,7 @@ module.exports = function (conf) {
 		//let since = url.parse(req.url,true).query.since;
 		//console.log(since);
 	//console.log(req.body);
+		let cert = fs.readFileSync('./src/rsa/publickey.pem');
 		let result={};
 		if(req.headers['authorization']){
 			const token = req.headers['authorization'].split(' ')[1]
@@ -17,7 +18,7 @@ module.exports = function (conf) {
 				data = await jwt.verify(req.headers['authorization'].split(' ')[1],cert,{ algorithms: ['RS256'] }/*'password'*/);
 			}catch(e){
 				res.status(403);
-				res.send('Ошибка авторизации'); 
+				res.send('Ошибка авторизации1'); 
 				return;
 			}
 			const isAdmin = data.isAdmin;
@@ -26,7 +27,7 @@ module.exports = function (conf) {
 			res.send(result); 
 		}else{
 			res.status(403);
-			res.send('Ошибка авторизации'); 
+			res.send('Ошибка авторизации2'); 
 			return;
 		}
 		
