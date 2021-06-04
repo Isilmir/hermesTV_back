@@ -34,6 +34,7 @@ drop table if exists  hermestv..heavyWeaponTypes
 drop table if exists  hermestv..stories
 drop table if exists  hermestv..links
 drop table if exists  hermestv..charactersCache
+drop table if exists  hermestv..keyValueStorage
 
 
 
@@ -364,6 +365,15 @@ id int IDENTITY(1,1) not null
 ,CONSTRAINT PK_messages PRIMARY KEY NONCLUSTERED (id)
 ,CONSTRAINT FK_messages_deeds FOREIGN KEY (deedId)
 								REFERENCES hermestv..deeds (id)
+)
+
+create table hermestv..keyValueStorage(
+id int IDENTITY(1,1) not null
+, storage nvarchar(255)
+, key_ nvarchar(255)
+, value nvarchar(max)
+, valueType nvarchar(255)
+, CONSTRAINT PK_keyValueStorage PRIMARY KEY NONCLUSTERED (id)
 )
 
 ----Наполняем первоначальными данными

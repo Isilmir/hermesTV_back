@@ -24,7 +24,7 @@ BEGIN
     SET NOCOUNT ON
 
     -- Insert statements for procedure here
-   SELECT TOP 1 p.[name]
+   SELECT TOP 1000 p.[name]
       ,p.[equipment]
       ,p.[resourñes]
       ,p.[sideId]
@@ -33,6 +33,7 @@ BEGIN
 	  ,sq.[name] as squadName
       ,isnull(p.[honor],0) as honor
       ,p.[password]
+	  ,isnull((select value from keyvalueStorage where storage='permission' and key_=p.id for json path),'[]') as permissions
   FROM [players]p
   join sides si on si.id=p.sideId
   join squads sq on sq.id=p.squadId
