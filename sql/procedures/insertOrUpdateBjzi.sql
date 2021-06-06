@@ -25,6 +25,16 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
+	declare @actualOwner int
+
+	select top 1 @actualOwner=playerId from bjzi where id=@id
+
+	if isnull(@actualOwner,@playerId)!=@playerId
+	begin
+		raiserror('Нельзя изменять чужих спутников!',18,5)
+		RETURN;
+	end
+
 	CREATE TABLE #MyTempTable  (id int);  
 
 	MERGE dbo.bjzi as target
