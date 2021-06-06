@@ -14,7 +14,7 @@ module.exports = function (conf) {
 			result = await pool.request()
 							.input('id',sql.Int, req.params.playerId)
 							.execute('dbo.getPlayer');
-			console.dir(result);
+			//console.dir(result);
 		}catch(e){console.log(e.message)
 			res.status(500);
 			res.send(`Ошибка получения персонажа: ${e.message}`); 

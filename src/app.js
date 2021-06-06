@@ -17,9 +17,6 @@ const joinrpgSetSquads = require('./methods/joinrpgSetSquads.js');
 const joinrpgSetPlayers = require('./methods/joinrpgSetPlayers.js');
 const login = require('./methods/login.js');
 const sendMail = require('./methods/sendMail.js');
-const auth = require('./helpers/auth.js');
-const preAuth = require('./helpers/preAuth.js');
-const adminAuth = require('./helpers/adminAuth.js');
 const setOrUpdateBjzi = require('./methods/setOrUpdateBjzi.js');
 const setOrUpdateDeed = require('./methods/setOrUpdateDeed.js');
 const setOrUpdateMessage = require('./methods/setOrUpdateMessage.js');
@@ -51,6 +48,11 @@ const makeFuneral = require('./methods/makeFuneral.js');
 const makeBjziTransfer = require('./methods/makeBjziTransfer.js');
 const makeReinforcementsAwaiting = require('./methods/makeReinforcementsAwaiting.js');
 const makeReinforcementsArrived = require('./methods/makeReinforcementsArrived.js');
+
+const auth = require('./helpers/auth.js');
+const preAuth = require('./helpers/preAuth.js');
+const adminAuth = require('./helpers/adminAuth.js');
+const authWithPermissions = require('./helpers/authWithPermissions.js');
 
 const charactersFull_cache = require('../cache/charactersFull_cache.json')
 
@@ -127,7 +129,7 @@ router.get('/testAzure',async (req,res)=>{
 	res.send(result.recordsets[0]);
 })
 
-router.post('/test-action',async (req,res)=>{
+router.post('/test-action',authWithPermissions(null,['test-action']),adminAuth(),async (req,res)=>{
 	
 	await sql.connect(sqlConfig);
 	
@@ -204,15 +206,15 @@ router.post('/setOrUpdateLink',adminAuth(),setOrUpdateLink({sqlConfig:sqlConfig}
 router.post('/deleteLink',adminAuth(),deleteLink({sqlConfig:sqlConfig}));
 router.post('/deleteDeed',adminAuth(),deleteDeed({sqlConfig:sqlConfig}));
 router.post('/deleteMessage',adminAuth(),deleteMessage({sqlConfig:sqlConfig}));
-router.post('/processing/makeFuneral',adminAuth(),makeFuneral({sqlConfig:sqlConfig}));	
-router.post('/processing/makeBjziTransfer',adminAuth(),makeBjziTransfer({sqlConfig:sqlConfig}));	
+router.post('/processing/makeFuneral',authWithPermissions(null,['makeFuneral'])/*,adminAuth()*/,makeFuneral({sqlConfig:sqlConfig}));	
+router.post('/processing/makeBjziTransfer',authWithPermissions(null,['makeBjziTransfer'])/*,adminAuth()*/,makeBjziTransfer({sqlConfig:sqlConfig}));	
 router.post('/processing/makeReinforcementsAwaiting',adminAuth(),makeReinforcementsAwaiting({sqlConfig:sqlConfig}));	
-router.post('/processing/makeReinforcementsArrived',adminAuth(),makeReinforcementsArrived({sqlConfig:sqlConfig}));
+router.post('/processing/makeReinforcementsArrived',authWithPermissions(null,['makeReinforcementsArrived'])/*,adminAuth()*/,makeReinforcementsArrived({sqlConfig:sqlConfig}));
 router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
-router.get('/players/:playerId',adminAuth(),getPlayer({sqlConfig:sqlConfig}));
-router.get('/bjzi/:bjziId',adminAuth(),getBjziSingle({sqlConfig:sqlConfig}));
+router.get('/players/:playerId',authWithPermissions(null,['scanObject'])/*,adminAuth()*/,getPlayer({sqlConfig:sqlConfig}));
+router.get('/bjzi/:bjziId',authWithPermissions(null,['scanObject'])/*,adminAuth()*/,getBjziSingle({sqlConfig:sqlConfig}));
 router.get('/getDeedTypes',adminAuth(),getDeedTypes({sqlConfig:sqlConfig}));
 
 app.post('/getDictionaries',getDictionaries({sqlConfig:sqlConfig}));
