@@ -26,7 +26,7 @@ BEGIN
     -- Insert statements for procedure here
     select 
 	'bjzi' as objectType
-	,b.id,b.name,b.sideId,b.playerId,b.squadId,b.description,b.utilized,bjziChannelTypeId,deathCaseId
+	,b.id,b.name,b.sideId,b.playerId,b.squadId,b.description,b.utilized,bjziChannelTypeId,deathCaseId,isPlayer
 	,p.name as playerName,p.squadId as playerSquad, p.sideId as playerSide
 	,o.active
 	from bjzi b 
