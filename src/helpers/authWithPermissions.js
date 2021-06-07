@@ -23,6 +23,8 @@ module.exports = function (conf,permissions) {
 			
 			//console.log('user permissions: ',userPermissions)
 			
+			//console.log('isAdmin: ',isAdmin)
+			
 			let permission = permissions.filter(methodPermission=>{
 														//console.log('methodPermission - ',methodPermission)
 														return userPermissions.filter(userPermission=>{

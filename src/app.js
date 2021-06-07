@@ -46,6 +46,7 @@ const getMessage = require('./methods/getMessage.js');
 const getMessages = require('./methods/getMessages.js');
 const makeFuneral = require('./methods/makeFuneral.js');
 const makeBjziTransfer = require('./methods/makeBjziTransfer.js');
+const makeNewPlayerFromBjzi = require('./methods/makeNewPlayerFromBjzi.js');
 const makeReinforcementsAwaiting = require('./methods/makeReinforcementsAwaiting.js');
 const makeReinforcementsArrived = require('./methods/makeReinforcementsArrived.js');
 
@@ -210,6 +211,7 @@ router.post('/processing/makeFuneral',authWithPermissions(null,['makeFuneral'])/
 router.post('/processing/makeBjziTransfer',authWithPermissions(null,['makeBjziTransfer'])/*,adminAuth()*/,makeBjziTransfer({sqlConfig:sqlConfig}));	
 router.post('/processing/makeReinforcementsAwaiting',adminAuth(),makeReinforcementsAwaiting({sqlConfig:sqlConfig}));	
 router.post('/processing/makeReinforcementsArrived',authWithPermissions(null,['makeReinforcementsArrived'])/*,adminAuth()*/,makeReinforcementsArrived({sqlConfig:sqlConfig}));
+router.post('/processing/makeNewPlayerFromBjzi',authWithPermissions(null,['makeNewPlayerFromBjzi'])/*,adminAuth()*/,makeNewPlayerFromBjzi({sqlConfig:sqlConfig}));
 router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
