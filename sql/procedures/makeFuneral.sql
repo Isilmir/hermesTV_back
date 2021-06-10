@@ -33,16 +33,24 @@ BEGIN
 	declare @query nvarchar(max)
 	,@side_SUBJECT int
 	,@side_OBJECT int
+	,@squad_OBJECT int
 	,@id_SUBJECT_p int
 	,@objectType_SUBJECT_p varchar(255) 
 	,@deedType int
 	,@deedHonor int
 	,@deedDesc nvarchar(255)
+	,@deathDeedDesc nvarchar(255)
 	,@state_OBJECT int
 	,@deedRes int
 	,@deathCase int
+	,@honorCoeff float
+	,@bonusHonor int
+	,@resultHonor int
 
 	DECLARE @errmsg nvarchar(max)
+
+	-- определяем коэффициент славы от трупа
+	select top 1 @honorCoeff=cast(value as float) from keyValueStorage where storage='config' and key_='player_funeral_honor_bonus'  
 
 	set @objectType_SUBJECT_p='player'
     -- Определить тип деяния
@@ -63,17 +71,37 @@ BEGIN
 	end
 
 	---- Определяем сторону игрока, сдающего тело
-		select @side_SUBJECT=sideId from dbo.players where id=@id_SUBJECT_p
+		select @side_SUBJECT=sideId ,
+		@deathDeedDesc=case 
+		when @expired=0 then 
+'Этот герой мертв.
+
+Доставлен в Храм Аида героем '+name+'. 
+
+// Аид и Персефона подтверждают обретение достойного посмертия'
+		else 
+'Этот герой мертв.
+
+// Тело не было доставлено в Храм Аида в установленные сроки 
+// Обретение достойного посмертия согласно стандартному соглашению полиса Charon Inc. невозможно'
+		end
+		from dbo.players where id=@id_SUBJECT_p
 
 
 	---- Определяем сторону сдаваемого тела
 	if @objectType_OBJECT='player'
 	begin
-		select @side_OBJECT=sideId, @state_OBJECT=stateId,@deedDesc=name+' ('+cast(id as varchar(255))+')' from dbo.players where id=@id_OBJECT
+		select @side_OBJECT=sideId, @state_OBJECT=stateId,@squad_OBJECT=squadId
+		,@deedDesc=
+'Доставил в храм Аида тело героя '+name+' 
+
+// Дополнительно обретено Славы за знатность павшего героя:  '+cast(floor(@honorCoeff*honor) as varchar)
+,@bonusHonor=case when cast(floor(@honorCoeff*honor) as int)>0 then cast(floor(@honorCoeff*honor) as int) else 0 end 
+		from dbo.players where id=@id_OBJECT
 	end
 	else if @objectType_OBJECT='bjzi'
 	begin
-		select @side_OBJECT=p.sideId, @state_OBJECT=b.utilized,@deedDesc=b.name+' ('+cast(b.id as varchar(255))+')'  from dbo.bjzi b left join dbo.players p on p.id=b.playerid where b.id=@id_OBJECT
+		select @side_OBJECT=p.sideId,@squad_OBJECT=p.squadId, @state_OBJECT=b.utilized,@deedDesc=b.name+' ('+cast(b.id as varchar(255))+')'  from dbo.bjzi b left join dbo.players p on p.id=b.playerid where b.id=@id_OBJECT
 	end
 	else
 	begin
@@ -89,7 +117,11 @@ BEGIN
 	where name=case
 		when @objectType_OBJECT='player' then 'bodyhero'
 		when @objectType_OBJECT='bjzi' and @side_SUBJECT=@side_OBJECT then 'bodyally'
-		when @objectType_OBJECT='bjzi' and @side_SUBJECT!=@side_OBJECT then 'bodyenemy'
+		when @objectType_OBJECT='bjzi' and @side_SUBJECT!=@side_OBJECT then case 
+																			when @side_OBJECT=15680 then 'bodyPeacekeeper' 
+																			when @squad_OBJECT=100000 then 'bodyAresMerc'
+																			else 'bodyenemy'
+																			end
 		else null
 	end
 
@@ -108,24 +140,28 @@ BEGIN
 		RETURN;
 	end
 
+	set @resultHonor=@deedHonor--+isnull(@bonusHonor,0)
 
 BEGIN TRANSACTION
 	-- добавить деяние субъету
-	BEGIN TRY
-		exec dbo.insertOrUpdateDeed null, @deedDesc,@deedType,@id_SUBJECT_p, @deedHonor,0,null, @deedRes out
-	END TRY
-	BEGIN CATCH
-		IF @@trancount > 0 ROLLBACK TRANSACTION
-		set @errmsg = error_message()  
-        RAISERROR (@errmsg, 16, 1)
-        RETURN;
-	END CATCH
+	if @expired = 0 -- не проставляем деяние при просроченном фраге
+	begin
+		BEGIN TRY
+			exec dbo.insertOrUpdateDeed null, @deedDesc,@deedType,@id_SUBJECT_p, @resultHonor,0,null, @deedRes out
+		END TRY
+		BEGIN CATCH
+			IF @@trancount > 0 ROLLBACK TRANSACTION
+			set @errmsg = error_message()  
+			RAISERROR (@errmsg, 16, 1)
+			RETURN;
+		END CATCH
+	end
 
 	-- добавляем ачивку "смерть" телу героя
 	if @objectType_OBJECT='player'
 	begin
 		BEGIN TRY
-			exec dbo.insertOrUpdateDeed null, '',45,@id_OBJECT, 0,0,null, @deedRes out
+			exec dbo.insertOrUpdateDeed null, @deathDeedDesc,45,@id_OBJECT, 0,0,null, @deedRes out
 		END TRY
 		BEGIN CATCH
 			IF @@trancount > 0 ROLLBACK TRANSACTION
