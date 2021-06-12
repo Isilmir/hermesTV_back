@@ -59,7 +59,7 @@ module.exports = function (conf) {
 		// тут надо будет указать id реального свойства с паролем
 		password:generatePassword()//el.playerUserId?(el.fields.filter(field=>field.projectFieldId==55250)[0]?el.fields.filter(field=>field.projectFieldId==55250)[0].value:null):null
 	}}).map(el=>`(${el.id?el.id:'null'}
-				  ,${el.name?"'"+el.name+"'":'null'}
+				  ,${el.name?"N'"+el.name+"'":'null'}
 				  ,${el.stateId?el.stateId:'null'}
 				  ,${el.sideId?el.sideId:'null'}
 				  ,${el.squadId?el.squadId:'null'}
