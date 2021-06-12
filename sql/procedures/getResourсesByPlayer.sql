@@ -14,7 +14,7 @@ GO
 CREATE PROCEDURE dbo.getResourñesByPlayer 
 	-- Add the parameters for the stored procedure here
 	@playerId int,
-	@res varchar(max) out
+	@res nvarchar(max) out
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from

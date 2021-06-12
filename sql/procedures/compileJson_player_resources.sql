@@ -28,7 +28,7 @@ from bjzi b
 left join sides s on s.id=b.sideId
 left join squads sq on sq.id=b.squadId
 left join bjziChannelTypes bct on bct.id=b.bjziChannelTypeId
-where playerid=@id and isPlayer!=1 for json path
+where playerid=@id and isnull(isPlayer,0)!=1 for json path
 ),'[]')
 
 END

@@ -31,12 +31,36 @@ module.exports = function (conf) {
 		//	console.log(fields);
 		//	console.log(files.attach);
 		//  });
+		
+		let uri=`https://oauth2.googleapis.com/token`;
+		let authData;
+		let token;
+		try{
+			authData = await (await fetch(uri,{
+				method:'POST',
+				body:`grant_type=refresh_token&client_id=944637236789-ed6mmeod4psnmf2j9c27ltu858uoukns.apps.googleusercontent.com&client_secret=9eyEoMlNKP-pSpn5b5ZFUAkO&access_type=offline&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&refresh_token=1%2F%2F0cKQ7gvAX6H_pCgYIARAAGAwSNwF-L9Irh7vF8KzJmGD0hf4yCft7aav_jFUyVkLPpZwRNUsl3M946B3gCdWOtPhEgwQhZVW2CyE`,
+				headers:{
+				'Content-Type':'application/x-www-form-urlencoded'
+				}
+				}) ).json();
+		}catch(e){
+			res.status(500);
+			res.send(e);
+			return;
+		}
+		token=authData.access_token;
+		//console.log(token);
 
 		let transporter = nodemailer.createTransport({
 		  service: 'gmail',
-		  auth: {
-			user: 'hermes.tv.troy@gmail.com',
-			pass: '!Q2w3e4r'
+		//  auth: {
+		//	user: 'hermes.tv.troy@gmail.com',
+		//	pass: '!Q2w3e4r'
+		//  }
+		  auth:{
+			    type: 'OAuth2',
+				user: 'hermes.tv.troy@gmail.com',
+				accessToken: token
 		  }
 		});
 

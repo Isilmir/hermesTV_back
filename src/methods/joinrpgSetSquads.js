@@ -44,7 +44,7 @@ module.exports = function (conf) {
 				leaderId:null
 				})}
 			return res;
-		},[]).map(el=>`(${el.id?el.id:'null'},${el.name?"'"+el.name+"'":'null'},${el.sideId?el.sideId:'null'},${el.leaderId?el.leaderId:'null'})`).join(',')
+		},[]).map(el=>`(${el.id?el.id:'null'},${el.name?"N'"+el.name+"'":'null'},${el.sideId?el.sideId:'null'},${el.leaderId?el.leaderId:'null'})`).join(',')
 		
 		if (!data){
 			res.status(501);
