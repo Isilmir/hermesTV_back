@@ -373,6 +373,7 @@ id int IDENTITY(1,1) not null
 , key_ nvarchar(255)
 , value nvarchar(max)
 , valueType nvarchar(255)
+, description nvarchar(max)
 , CONSTRAINT PK_keyValueStorage PRIMARY KEY NONCLUSTERED (id)
 )
 
