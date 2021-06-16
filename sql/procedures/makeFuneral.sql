@@ -50,7 +50,7 @@ BEGIN
 	DECLARE @errmsg nvarchar(max)
 
 	-- определяем коэффициент славы от трупа
-	select top 1 @honorCoeff=cast(value as float) from keyValueStorage where storage='config' and key_='player_funeral_honor_bonus'  
+	select top 1 @honorCoeff=cast(value as float) from keyValueStorage where storage='honor' and key_='player_funeral_honor_bonus'  
 
 	set @objectType_SUBJECT_p='player'
     -- Определить тип деяния
