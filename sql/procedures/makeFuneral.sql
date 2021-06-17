@@ -181,7 +181,7 @@ BEGIN TRANSACTION
 			where id=@id_OBJECT
 		end
 
-		if @objectType_OBJECT='bjzi'
+		if @objectType_OBJECT='bjzi' and @squad_OBJECT!=100000 -- не умерщвляем клонов чвк арес
 		begin
 			update top(1) dbo.bjzi
 			set utilized=1
