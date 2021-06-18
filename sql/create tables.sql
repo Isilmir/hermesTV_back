@@ -445,7 +445,8 @@ values('native','Уже есть на начало игры'),
 
 insert into hermestv..deathCaseTypes(name,description)
 values('byAlly','похоронил союзник'),
-('byEmemy','Похоронил враг')
+('byEmemy','Похоронил враг'),
+('utilized','тело не было похоронено в срок')
 
 insert into hermestv..deedTypes (name,description,defaultHonor,visible) 
 values('default','Субъективная оценка Олимпа',0,0),
