@@ -31,6 +31,9 @@ drop table if exists  hermestv..deedTypes
 drop table if exists  hermestv..guns
 drop table if exists  hermestv..channelTypes
 drop table if exists  hermestv..heavyWeaponTypes
+drop table if exists  hermestv..warProgress
+drop table if exists  hermestv..checkpoints
+drop table if exists  hermestv..checkpointStates
 drop table if exists  hermestv..stories
 drop table if exists  hermestv..links
 drop table if exists  hermestv..charactersCache
@@ -270,6 +273,42 @@ id int IDENTITY(1,1) not null
 , CONSTRAINT PK_deathCaseTypes PRIMARY KEY NONCLUSTERED (id)
 )
 
+--
+create table hermestv..checkpointStates(
+id int IDENTITY(1,1) not null
+, name nvarchar(255)
+, description nvarchar(255)
+, CONSTRAINT PK_checkpointStates PRIMARY KEY NONCLUSTERED (id)
+)
+
+create table hermestv..checkpoints(
+id int IDENTITY(1,1) not null
+, name nvarchar(255)
+, stateId int
+, CONSTRAINT PK_checkpoints PRIMARY KEY NONCLUSTERED (id)
+,CONSTRAINT FK_checkpointStates_checkpointStates FOREIGN KEY (stateId)
+								REFERENCES hermestv..checkpointStates (id)
+)
+
+create table hermestv..warProgress(
+id int IDENTITY(1,1) not null
+,cycleId int not null
+,checkpointId int not null
+,checkpointStateId int not null
+,squadId int not null 
+,isHonorGiven bit  default 0
+, CONSTRAINT PK_warProgress PRIMARY KEY NONCLUSTERED (id)
+,CONSTRAINT FK_warProgress_checkpointStates FOREIGN KEY (checkpointStateId)
+								REFERENCES hermestv..checkpointStates (id)
+,CONSTRAINT FK_warProgress_gameCycles FOREIGN KEY (cycleId)
+								REFERENCES hermestv..gameCycles (id)
+,CONSTRAINT FK_warProgress_checkpoints FOREIGN KEY (checkpointId)
+								REFERENCES hermestv..checkpoints (id)
+,CONSTRAINT FK_warProgress_squads FOREIGN KEY (squadId)
+								REFERENCES hermestv..squads (id)
+,CONSTRAINT AK_cell UNIQUE (cycleId, checkpointId)
+)
+
 create table hermestv..bjzi(
 id int IDENTITY(1,1),
 name nvarchar(255),
@@ -384,7 +423,7 @@ id int IDENTITY(1,1) not null
 
 
 insert into hermestv..objectTypes (name,description) 
-values
+values 
 ('player','Игрок'),
 ('gameCycle','Игровой цикл'),
 ('resource','Ресурс'),
@@ -405,7 +444,8 @@ values
 ('story','Сюжет'),
 ('armor','СИБЗ'),
 ('deed','Деяние'),
-('message','Сообщение')
+('message','Сообщение'),
+('checkpoint','Стратегическая точка')
 
 insert into hermestv..states (name,description) 
 values('well','Здоров'),
@@ -445,7 +485,8 @@ values('native','Уже есть на начало игры'),
 
 insert into hermestv..deathCaseTypes(name,description)
 values('byAlly','похоронил союзник'),
-('byEmemy','Похоронил враг')
+('byEmemy','Похоронил враг'),
+('utilized','тело не было похоронено в срок')
 
 insert into hermestv..deedTypes (name,description,defaultHonor,visible) 
 values('default','Субъективная оценка Олимпа',0,0),
@@ -459,6 +500,25 @@ values('default','Субъективная оценка Олимпа',0,0),
 ('mainPlayerFrag','Подношение в Аид своего героя',5,1),
 ('feat','Подвиг',1,1),
 ('capture','Захват контрольной точки',2,1)
+
+--
+insert into hermestv..checkpointStates (name,description) 
+values('STAND','Удерживается Троянцами'),
+('FIGHT','Может быть захвачена Троянцами или Ахейцамии'),
+('LOST','Удерживается Ахейцами')
+
+insert into hermestv..checkpoints (name,stateId) 
+values
+('точка 1',3),
+('точка 2',3),
+('точка 3',3),
+('точка 4',3),
+('точка 5',2),
+('точка 6',2),
+('точка 7',1),
+('точка 8',1),
+('точка 9',1),
+('точка 10',1)
 
 insert into hermestv..gameCycles (startTime,endTime,cycleTypeId) 
 values

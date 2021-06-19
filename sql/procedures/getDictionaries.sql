@@ -128,6 +128,42 @@ end
 for json path
 		),'[]')
 end
+	if not exists (select top 1 * from openjson(@dicts)) or exists (select top 1 * from openjson(@dicts) where value='cycleTypes')
+	begin
+		insert into #res
+      select 'cycleTypes',isnull((
+		select 
+* from [dbo].[cycleTypes]
+for json path
+		),'[]')
+end
+	if not exists (select top 1 * from openjson(@dicts)) or exists (select top 1 * from openjson(@dicts) where value='gameCycles')
+	begin
+		insert into #res
+      select 'gameCycles',isnull((
+		select 
+* from [dbo].[gameCycles]
+for json path
+		),'[]')
+end
+	if not exists (select top 1 * from openjson(@dicts)) or exists (select top 1 * from openjson(@dicts) where value='checkpointStates')
+	begin
+		insert into #res
+      select 'checkpointStates',isnull((
+		select 
+* from [dbo].[checkpointStates]
+for json path
+		),'[]')
+end
+	if not exists (select top 1 * from openjson(@dicts)) or exists (select top 1 * from openjson(@dicts) where value='checkpoints')
+	begin
+		insert into #res
+      select 'checkpoints',isnull((
+		select 
+* from [dbo].[checkpoints]
+for json path
+		),'[]')
+end
 		select * from #res
 
 drop table #res

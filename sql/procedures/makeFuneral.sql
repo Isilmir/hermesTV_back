@@ -112,7 +112,7 @@ BEGIN
 
 	--select @id_SUBJECT as [@id_SUBJECT],@objectType_SUBJECT as[@objectType_SUBJECT],@id_SUBJECT_p as [@id_SUBJECT_p],@objectType_SUBJECT_p as [@objectType_SUBJECT_p],@side_SUBJECT as[@side_SUBJECT],@id_OBJECT as[@id_OBJECT],@objectType_OBJECT as [@objectType_OBJECT],@side_OBJECT as [@side_OBJECT],@state_OBJECT as [@state_OBJECT]
 	
-	select @deedType = id, @deedHonor = case when @expired = 1 then 0 else defaultHonor end,@deathCase = case when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
+	select @deedType = id, @deedHonor = case when @expired = 1 then 0 else defaultHonor end,@deathCase = case when @expired=1 then 3 when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
 	from dbo.deedTypes
 	where name=case
 		when @objectType_OBJECT='player' then 'bodyhero'
@@ -181,7 +181,7 @@ BEGIN TRANSACTION
 			where id=@id_OBJECT
 		end
 
-		if @objectType_OBJECT='bjzi'
+		if @objectType_OBJECT='bjzi' and @squad_OBJECT!=100000 -- не умерщвляем клонов чвк арес
 		begin
 			update top(1) dbo.bjzi
 			set utilized=1
