@@ -10,7 +10,7 @@ GO
 -- Description:	добавляет информацию об удержании контрольной точки
 
 --declare @res int
---exec dbo.insertOrUpdateWarProgress 1,1,1, 14907,1, @res out
+--exec dbo.insertOrUpdateWarProgress 1,1,1, 14907, @res out
 --select @res
 -- =============================================
 CREATE PROCEDURE dbo.insertOrUpdateWarProgress
@@ -20,7 +20,7 @@ CREATE PROCEDURE dbo.insertOrUpdateWarProgress
 	@checkpointId int,
 	--@checkpointStateId int,
 	@squadId int,
-	@isHonorGiven int = 0,
+	--@isHonorGiven int = 0,
 	@res int out
 
 AS
@@ -29,6 +29,10 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 	--
+
+	--можно только
+	--set @isHonorGiven = 0
+
 	CREATE TABLE #MyTempTable  (id int);  
 
 	-- проверяем, что точка в правильном статусе
@@ -74,15 +78,15 @@ BEGIN
 
 
 	MERGE dbo.warProgress as target
-USING (select top 1 @id,@cycleId,@checkpointId,@actualCheckpointState,@squadId,@isHonorGiven) as source (id,cycleId,checkpointId,checkpointStateId,squadId,isHonorGiven)
+USING (select top 1 @id,@cycleId,@checkpointId,@actualCheckpointState,@squadId/*,@isHonorGiven*/) as source (id,cycleId,checkpointId,checkpointStateId,squadId/*,isHonorGiven*/)
 on (target.id=isnull(source.id,0))
 when matched then
 	update set 
 	cycleId=source.cycleId,
 	checkpointId=source.checkpointId,
 	checkpointStateId=source.checkpointStateId,
-	squadId=source.squadId,
-	isHonorGiven=source.isHonorGiven
+	squadId=source.squadId--,
+	--isHonorGiven=source.isHonorGiven
 when not matched then
 	insert (cycleId,checkpointId,checkpointStateId,squadId)
 	values(source.cycleId,source.checkpointId,source.checkpointStateId,source.squadId)
