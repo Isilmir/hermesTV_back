@@ -39,13 +39,22 @@ BEGIN
 	select top(1) @deedHonor=cast(defaultHonor as float) from deedTypes where id=35
 
 	-- считаем сколько славы получит один игрок
-	select top(1) @honorToSet=cast(floor(@deedHonor/count(*)) as int) from players where squadId=@squadId
+	select top(1) @honorToSet=cast(floor(@deedHonor/count(*)) as int) 
+	from players p
+	left join objects o on o.id=p.id and o.typeId=1
+	where p.squadId=@squadId
+	and p.stateId!=3
+	and o.active=1
 	
 
 	-- начисляем славу
 BEGIN TRANSACTION
 	DECLARE warProgress_setHonor_cur CURSOR FOR   
-	SELECT id from players where squadId=@squadId
+	SELECT p.id from players p
+	left join objects o on o.id=p.id and o.typeId=1
+	where p.squadId=@squadId
+	and p.stateId!=3
+	and o.active=1
   
 	OPEN warProgress_setHonor_cur  
   
