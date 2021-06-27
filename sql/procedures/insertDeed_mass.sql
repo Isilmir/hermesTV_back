@@ -17,6 +17,7 @@ CREATE PROCEDURE dbo.insertDeed_mass
 	@typeId int,
 	@players nvarchar(max),
 	@honor int,
+	@heroic bit = 0,
 	@res int out
 
 AS
@@ -27,9 +28,9 @@ BEGIN
 
 	CREATE TABLE #MyTempTable  (id int);  
 
-	insert into dbo.deeds(typeId,description,playerId,honor)
+	insert into dbo.deeds(typeId,description,playerId,honor,heroic)
 	OUTPUT inserted.id INTO #MyTempTable
-	select @typeId,@description,json_value(value,'$.id'),@honor from openjson( JSON_QUERY(@players))
+	select @typeId,@description,json_value(value,'$.id'),@honor,@heroic from openjson( JSON_QUERY(@players))
 
 
 	select id from #MyTempTable
