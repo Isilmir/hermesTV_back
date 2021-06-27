@@ -16,6 +16,7 @@ module.exports = function (conf) {
 							.input('typeId',sql.Int, req.body.typeId)
 							.input('players',sql.NVarChar(sql.MAX), req.body.players)
 							.input('honor',sql.Int, req.body.honor)
+							.input('heroic',sql.Bit, req.body.heroic)
 							.output('res',sql.Int).execute('dbo.insertDeed_mass');
 			console.dir(result);
 		}catch(e){console.log(e.message)

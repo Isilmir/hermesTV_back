@@ -25,9 +25,11 @@ BEGIN
 
     -- Insert statements for procedure here
 	SELECT TOP 1 
-      cast(cast([updatedAt] as date) as varchar(100)) as date
-  FROM [dbo].[players]
-  where sideid!=16333
-  order by updatedAt desc
+      cast(cast([date] as date) as varchar(100)) as date
+	  from charactersCache
+	  order by date desc
+  --FROM [dbo].[players]
+  --where sideid!=16333
+  --order by updatedAt desc
 END
 GO

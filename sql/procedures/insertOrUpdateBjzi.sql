@@ -25,13 +25,21 @@ BEGIN
 	-- interfering with SELECT statements.
 	SET NOCOUNT ON;
 
-	declare @actualOwner int
+	declare @actualOwner int, @bjziCount int
 
 	select top 1 @actualOwner=playerId from bjzi where id=@id
+
+	select top 1 @bjziCount=count(*) from bjzi where playerid=@playerId and isplayer!=1
 
 	if isnull(@actualOwner,@playerId)!=@playerId
 	begin
 		raiserror('Нельзя изменять чужих спутников!',18,5)
+		RETURN;
+	end
+
+	if @bjziCount>=10 and @id is null
+	begin
+		raiserror('Уже добавлены все спутники! Обновите страницу!',18,5)
 		RETURN;
 	end
 

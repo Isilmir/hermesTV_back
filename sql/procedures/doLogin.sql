@@ -35,8 +35,8 @@ BEGIN
       ,p.[password]
 	  ,isnull((select value from keyvalueStorage where storage='permission' and key_=p.id for json path),'[]') as permissions
   FROM [players]p
-  join sides si on si.id=p.sideId
-  join squads sq on sq.id=p.squadId
+  left join sides si on si.id=p.sideId
+  left join squads sq on sq.id=p.squadId
   where p.id=@id
 
 END
