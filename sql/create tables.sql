@@ -5,6 +5,7 @@
 USE hermestv
 
 -- ƒропаем таблицы чтобы пересоздать начисто
+drop table if exists  hermestv..transactions
 drop table if exists  hermestv..bjzi
 drop table if exists  hermestv..guns
 drop table if exists  hermestv..objects
@@ -414,6 +415,20 @@ id int IDENTITY(1,1) not null
 , valueType nvarchar(255)
 , description nvarchar(max)
 , CONSTRAINT PK_keyValueStorage PRIMARY KEY NONCLUSTERED (id)
+)
+
+create table hermestv..transactions(
+id int IDENTITY(1,1) not null
+, playerId int not null
+, god nvarchar(255) not null
+, resource nvarchar(255) not null
+, quantity int not null 
+, gold int not null
+, description nvarchar(255)
+, date datetime default getdate()
+, CONSTRAINT PK_transactions PRIMARY KEY NONCLUSTERED (id)
+, CONSTRAINT FK_transactions_players FOREIGN KEY (playerId)
+								REFERENCES hermestv..players (id)
 )
 
 ----Ќаполн€ем первоначальными данными
