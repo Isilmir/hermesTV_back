@@ -25,7 +25,7 @@ module.exports = function (conf) {
 		sql.close();
 				
 		//console.log(result.recordset[0]);		
-		res.send(result.recordset.map(el=>{el.deedGroups=JSON.parse(el.deedGroups)/*.filter(deed=>deed.type.name!='default').map(deed=>{deed.honor=deed.honor>0?1:-1;return deed})*/;return el;})); 
+		res.send(result.recordset.map(el=>{el.deedGroups=JSON.parse(el.deedGroups);el.transactions=JSON.parse(el.transactions);/*.filter(deed=>deed.type.name!='default').map(deed=>{deed.honor=deed.honor>0?1:-1;return deed})*/;return el;})); 
 
 		return;
 		
