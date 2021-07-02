@@ -41,5 +41,8 @@ BEGIN
   left join dbo.objects o on o.id=p.id and o.typeId=1
   left join sides s on s.id=p.sideid
   left join squads sq on sq.id=p.squadid
+  where 1=1
+  and p.sideId!=16333
+  and p.realName is not null
 END
 GO

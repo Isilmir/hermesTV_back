@@ -29,7 +29,14 @@ BEGIN
 	,p.* 
 	,o.active
 	,dbo.compileJson_player_deeds_func(@id) as deeds
-	,isnull((select * from transactions where playerid=p.id for json path),'[]') as transactions 
+	,isnull((select [id]
+      ,[playerId]
+      ,[god]
+      ,[resource]
+      ,[quantity]
+      ,[gold]
+      ,[description]
+      ,dateadd(hh,3,date)as date from transactions where playerid=p.id for json path),'[]') as transactions 
 	from players p
 	left join objects o on o.id=p.id and typeid=1
 	where p.id=@id
