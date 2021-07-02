@@ -22,6 +22,10 @@ module.exports = function (conf) {
 			res.send(`Ошибка получения спутника: ${e.message}`); 
 			return;
 		}
+		if(!result.recordset[0]){
+			res.send(result.recordset); 
+			return;
+		}
 		if(result.recordset[0].isPlayer){
 			try{
 				player = await pool.request()

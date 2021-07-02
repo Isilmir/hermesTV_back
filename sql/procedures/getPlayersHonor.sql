@@ -36,7 +36,7 @@ BEGIN
 	  ---(select top 1 isnull(sum(honor),0) from deeds where playerid=p.id and date between getdate()-14 and getdate()-7) 
 	  as honorChange
 	  ,dbo.compileJson_player_deeds_group_by_types_func(p.id,@id) as deedGroups
-	  ,isnull((select id,god,resource,quantity,description,date from transactions where playerid=p.id for json path),'[]') as transactions 
+	  ,isnull((select id,god,resource,quantity,description,dateadd(hh,3,date)as date from transactions where playerid=p.id for json path),'[]') as transactions 
   FROM [dbo].[players]p
   left join objects o on o.id=p.id and o.typeId=1
   where realName is not null

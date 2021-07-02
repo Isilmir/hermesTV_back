@@ -23,7 +23,7 @@ BEGIN
     -- interfering with SELECT statements.
     SET NOCOUNT ON
 
-	declare @nowCycle int, @nowCycleType int
+	declare @nowCycle int, @nowCycleType int,@UC_leader varchar(255),@DBS_leader varchar(255)
 
 	create table #deeds (id int,objectType varchar(255),deedTypeId int,deedTypeName nvarchar(255),description nvarchar(max),date datetime)
 	create table #restrictions (resource varchar(255))
@@ -38,6 +38,9 @@ BEGIN
 	select @nowCycle=(select isnull((select top 1 id from gameCycles where dateadd(hh,3,getdate()) between startTime and endTime),case when getdate()<(select top 1 min(startTime) from gameCycles)then 0 else 17 end))
 
 	select @nowCycleType=isnull((select top 1 cycleTypeId from gameCycles where dateadd(hh,3,getdate()) between startTime and endTime),1)
+
+	select @UC_leader=value from keyValueStorage where storage='economy' and key_='UC_leader'
+	select @DBS_leader=value from keyValueStorage where storage='economy' and key_='DBS_leader'
 
 	--select * from #deeds
 
@@ -63,19 +66,19 @@ BEGIN
 		select resource from (values('humanitary'))as list(resource)
 	end
 
-	if @id!=44558 or exists(select top 1 resource from #transactions where cycleId=@nowCycle and resource='Гуманитарка командиру UC')
+	if @id!=@UC_leader or exists(select top 1 resource from #transactions where cycleId=@nowCycle and resource='Гуманитарка командиру UC')
 	begin
 		insert into #restrictions
 		select resource from (values('humanitary_all'))as list(resource)
 	end
 
-	if @id!=44564 or @nowCycleType=1 or exists(select top 1 resource from #transactions where cycleId=@nowCycle and resource='Гуманитарка командиру DBS (война)')
+	if @id!=@DBS_leader or @nowCycleType=1 or exists(select top 1 resource from #transactions where cycleId=@nowCycle and resource='Гуманитарка командиру DBS (война)')
 	begin
 		insert into #restrictions
 		select resource from (values('humanitary_war'))as list(resource)
 	end
 
-	if @id!=44564 or @nowCycleType=2 or exists(select top 1 resource from #transactions where cycleId=@nowCycle and resource='Гуманитарка командиру DBS (перемирие)')
+	if @id!=@DBS_leader or @nowCycleType=2 or exists(select top 1 resource from #transactions where cycleId=@nowCycle and resource='Гуманитарка командиру DBS (перемирие)')
 	begin
 		insert into #restrictions
 		select resource from (values('humanitary_peace'))as list(resource)
@@ -115,7 +118,7 @@ left join keyvaluestorage god on god.storage='gods' and god.key_=substring(eco.s
 where eco.storage like 'economy:%'
 and eco.key_ not in (select resource from #restrictions)
 
-	select * from #deeds where deedTypeId in (36,37,38,39,67,54,53,52,51,50)
+	select * from #deeds where deedTypeId in (36,37,38,39,67,54,53,52,51,50,57)
 
 drop table #restrictions
 drop table #deeds
