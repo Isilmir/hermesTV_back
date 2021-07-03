@@ -58,6 +58,7 @@ const makeBjziTransfer = require('./methods/makeBjziTransfer.js');
 const makeNewPlayerFromBjzi = require('./methods/makeNewPlayerFromBjzi.js');
 const makeReinforcementsAwaiting = require('./methods/makeReinforcementsAwaiting.js');
 const makeReinforcementsArrived = require('./methods/makeReinforcementsArrived.js');
+const changePlayerSquad = require('./methods/changePlayerSquad.js');
 
 const auth = require('./helpers/auth.js');
 const preAuth = require('./helpers/preAuth.js');
@@ -206,6 +207,7 @@ router.get('/faces/:filename',getFace());
 
 router.post('/setOrUpdateDeed',adminAuth(),setOrUpdateDeed({sqlConfig:sqlConfig}));
 router.post('/setOrUpdateTransaction',authWithPermissions(null,['setOrUpdateTransaction']),setOrUpdateTransaction({sqlConfig:sqlConfig}));
+router.post('/changePlayerSquad',authWithPermissions(null,['changePlayerSquad']),changePlayerSquad({sqlConfig:sqlConfig}));
 router.post('/setOrUpdateConfig',adminAuth(),setOrUpdateConfig({sqlConfig:sqlConfig}));
 router.post('/setOrUpdateMessage',adminAuth(),setOrUpdateMessage({sqlConfig:sqlConfig}));
 router.post('/setOrUpdateWarProgress',authWithPermissions(null,['setOrUpdateWarProgress']),setOrUpdateWarProgress({sqlConfig:sqlConfig}));

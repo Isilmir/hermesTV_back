@@ -23,5 +23,6 @@ BEGIN
 
     -- Insert statements for procedure here
     select * from deedTypes
+	order by id
 END
 GO
