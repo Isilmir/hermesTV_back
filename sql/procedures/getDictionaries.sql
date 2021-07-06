@@ -49,10 +49,12 @@ BEGIN
 	end
 	if not exists (select top 1 * from openjson(@dicts)) or exists (select top 1 * from openjson(@dicts) where value='squads')
 	begin
+
+
 		insert into #res
       select 'squads',isnull((
 		select 
-id,name,sideId from squads
+id,name,sideId from (select * from squads union select null,'без отряда',null,'[]','[]',null,0) squads
 for json path
 		),'[]')
 	end
