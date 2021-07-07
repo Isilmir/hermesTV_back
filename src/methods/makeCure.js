@@ -12,7 +12,7 @@ module.exports = function (conf) {
 			console.log(req.body)
 		try{
 			result = await pool.request()
-							.input('id_SUBJECT',sql.Int, req.body.doctor)
+							.input('id_SUBJECT',sql.Int, req.user)
 							.input('id_OBJECT',sql.Int, req.body.patient)
 							.input('objectType_OBJECT',sql.NVarChar(255), req.body.patientType)
 							.execute('dbo.makeCure');
