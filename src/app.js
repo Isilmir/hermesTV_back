@@ -60,6 +60,7 @@ const makeReinforcementsAwaiting = require('./methods/makeReinforcementsAwaiting
 const makeReinforcementsArrived = require('./methods/makeReinforcementsArrived.js');
 const changePlayerSquad = require('./methods/changePlayerSquad.js');
 const makeCure = require('./methods/makeCure.js');
+const makeRegistration = require('./methods/makeRegistration.js');
 
 const auth = require('./helpers/auth.js');
 const preAuth = require('./helpers/preAuth.js');
@@ -234,6 +235,8 @@ router.post('/processing/makeReinforcementsAwaiting',adminAuth(),makeReinforceme
 router.post('/processing/makeReinforcementsArrived',authWithPermissions(null,['makeReinforcementsArrived'])/*,adminAuth()*/,makeReinforcementsArrived({sqlConfig:sqlConfig}));
 router.post('/processing/makeNewPlayerFromBjzi',authWithPermissions(null,['makeNewPlayerFromBjzi'])/*,adminAuth()*/,makeNewPlayerFromBjzi({sqlConfig:sqlConfig}));
 router.post('/processing/makeCure',authWithPermissions(null,['makeCure']),makeCure({sqlConfig:sqlConfig}));
+router.post('/processing/makeRegistration',authWithPermissions(null,['makeRegistration']),makeRegistration({sqlConfig:sqlConfig}));
+
 router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));

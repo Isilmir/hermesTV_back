@@ -72,7 +72,9 @@ BEGIN
 	end
 	else if @objectType_OBJECT='bjzi'
 	begin
-		select @id_OBJECT_p=p.id,@side_OBJECT=p.sideId,@squad_OBJECT=p.squadId, @state_OBJECT=b.utilized,@deedDesc='Вылечил спутника '+b.name+' (командир - '+p.name+')'  from dbo.bjzi b left join dbo.players p on p.id=b.playerid where b.id=@id_OBJECT
+		select @id_OBJECT_p=p.id,@side_OBJECT=p.sideId,@squad_OBJECT=p.squadId, @state_OBJECT=b.utilized,@deedDesc='Вылечил спутника '+b.name+' (командир - '+p.name+')'  
+		,@healedDeedDesc=@healedDeedDesc+' (спутник '+b.name+')'
+		from dbo.bjzi b left join dbo.players p on p.id=b.playerid where b.id=@id_OBJECT
 	end
 	else
 	begin
