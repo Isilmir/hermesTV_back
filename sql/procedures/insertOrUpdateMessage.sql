@@ -49,7 +49,7 @@ BEGIN TRANSACTION
 	--создать деяние
 	BEGIN TRY
 
-		exec dbo.insertOrUpdateDeed @deedId, @deedDescription,@typeId,@playerId, @honor, @heroic,@deedId out
+		exec dbo.insertOrUpdateDeed @deedId, @deedDescription,@typeId,@playerId, @honor, @heroic,'#7733dd',@deedId out
 	END TRY
 	BEGIN CATCH
 			IF @@trancount > 0 ROLLBACK TRANSACTION
