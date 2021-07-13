@@ -74,6 +74,12 @@ BEGIN
 		RETURN;
 	end
 
+	if @id is null
+	begin
+		select @id=warprogressid from #tab where checkpointId=@checkpointId and cycleId=@cycleId
+	end
+
+
 	drop table #tab
 
 
