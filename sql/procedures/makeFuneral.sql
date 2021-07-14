@@ -22,7 +22,8 @@ CREATE PROCEDURE dbo.makeFuneral
 	@objectType_SUBJECT varchar(255), -- тип того кто сдает
 	@id_OBJECT int, --id того кого сдают
 	@objectType_OBJECT varchar(255), -- тип того кого сдают
-	@expired bit = 0-- если похороны просрочены то герой не получает славы
+	@expired bit = 0,-- если похороны просрочены то герой не получает славы
+	@bad bit = 0 -- если похороны проведены некачественно
 )
 AS
 BEGIN
@@ -51,6 +52,11 @@ BEGIN
 
 	-- определ€ем коэффициент славы от трупа
 	select top 1 @honorCoeff=cast(value as float) from keyValueStorage where storage='honor' and key_='player_funeral_honor_bonus'  
+
+	if @bad = 1
+	begin
+		set @honorCoeff = 0
+	end
 
 	set @objectType_SUBJECT_p='player'
     -- ќпределить тип де€ни€
@@ -83,7 +89,7 @@ BEGIN
 'Ётот герой мертв.
 
 // “ело не было доставлено в ’рам јида в установленные сроки 
-// ќбретение достойного посмерти€ согласно стандартному соглашению полиса Charon Inc. невозможно'
+// ќбретение достойного посмерти€ согласно стандартному соглашению полиса Charon Ins. невозможно'
 		end
 		from dbo.players where id=@id_SUBJECT_p
 
@@ -96,6 +102,9 @@ BEGIN
 'ƒоставил в храм јида тело геро€ '+name+' 
 
 // ƒополнительно обретено —лавы за знатность павшего геро€:  '+cast(floor(@honorCoeff*honor) as varchar)
++ case when @bad = 1 then '
+
+// !! ѕохороны проведены без должного почтени€ !!' else '' end
 ,@bonusHonor=case when cast(floor(@honorCoeff*honor) as int)>0 then cast(floor(@honorCoeff*honor) as int) else 0 end 
 		from dbo.players where id=@id_OBJECT
 	end
@@ -112,7 +121,7 @@ BEGIN
 
 	--select @id_SUBJECT as [@id_SUBJECT],@objectType_SUBJECT as[@objectType_SUBJECT],@id_SUBJECT_p as [@id_SUBJECT_p],@objectType_SUBJECT_p as [@objectType_SUBJECT_p],@side_SUBJECT as[@side_SUBJECT],@id_OBJECT as[@id_OBJECT],@objectType_OBJECT as [@objectType_OBJECT],@side_OBJECT as [@side_OBJECT],@state_OBJECT as [@state_OBJECT]
 	
-	select @deedType = id, @deedHonor = case when @expired = 1 then 0 else defaultHonor end,@deathCase = case when @expired=1 then 3 when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
+	select @deedType = id, @deedHonor = case when @expired = 1 then 0 when @bad = 1 then 0 else defaultHonor end,@deathCase = case when @expired=1 then 3 when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
 	from dbo.deedTypes
 	where name=case
 		when @objectType_OBJECT='player' then 'bodyhero'
