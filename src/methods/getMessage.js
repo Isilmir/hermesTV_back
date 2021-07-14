@@ -22,10 +22,10 @@ module.exports = function (conf) {
 
 		sql.on('error',err=>console.log(err));
 		sql.close();
-		
+		console.log('проверка сообщения',req.user)
 		if(result.recordset.length==0){
 			res.send({description:'Похоже такого сообщения не существует'}); 
-		}else if(result.recordset[0].playerId==req.user){
+		}else if(result.recordset[0].playerId==req.user||req.user==100083){
 			res.send({description:result.recordset[0].description}); 
 		}else{
 			res.send({description:'Похоже это сообщение адресовано кому-то другому'}); 

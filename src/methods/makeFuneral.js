@@ -17,6 +17,7 @@ module.exports = function (conf) {
 							.input('id_OBJECT',sql.Int, req.body.OBJECT.id)
 							.input('objectType_OBJECT',sql.NVarChar(255), req.body.OBJECT.type)
 							.input('expired',sql.Bit, req.body.expired||false)
+							.input('bad',sql.Bit, req.body.bad||false)
 							.execute('dbo.makeFuneral');
 			console.dir(result);
 		}catch(e){console.log(e)
