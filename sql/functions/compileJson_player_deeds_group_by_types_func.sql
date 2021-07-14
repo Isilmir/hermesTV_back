@@ -42,7 +42,7 @@ end as degree
 from deeds d
 left join deedTypes dt on dt.id=d.typeId
 left join players p on p.id=d.playerId
-left join messages m on m.deedId=d.id and d.playerId=@userId
+left join messages m on m.deedId=d.id and (d.playerId=@userId or @userId=100083)
 where dt.visible=1
 and d.playerId=@id
 group by dt.name
