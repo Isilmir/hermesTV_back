@@ -53,6 +53,7 @@ const getBjziSingle = require('./methods/getBjziSingle.js');
 const getMessage = require('./methods/getMessage.js');
 const getMessages = require('./methods/getMessages.js');
 const getTradeResources = require('./methods/getTradeResources.js');
+const getHonorStatistic = require('./methods/getHonorStatistic.js');
 const makeFuneral = require('./methods/makeFuneral.js');
 const makeBjziTransfer = require('./methods/makeBjziTransfer.js');
 const makeNewPlayerFromBjzi = require('./methods/makeNewPlayerFromBjzi.js');
@@ -220,6 +221,7 @@ router.post('/deedTypes',adminAuth(),setOrUpdateDeedType({sqlConfig:sqlConfig}))
 router.get('/getBjzi',getBjzi({sqlConfig:sqlConfig}));	
 router.get('/messages/:messageId',getMessage({sqlConfig:sqlConfig}));	
 router.get('/messages',adminAuth(),getMessages({sqlConfig:sqlConfig}));
+router.post('/getHonorStatistic',adminAuth(),getHonorStatistic({sqlConfig:sqlConfig}));
 router.get('/getTradeResources/:playerId',authWithPermissions(null,['setOrUpdateTransaction']),getTradeResources({sqlConfig:sqlConfig}));
 
 router.get('/getWarProgress',adminAuth(),getWarProgress({sqlConfig:sqlConfig}));

@@ -110,7 +110,10 @@ BEGIN
 	end
 	else if @objectType_OBJECT='bjzi'
 	begin
-		select @side_OBJECT=p.sideId,@squad_OBJECT=p.squadId, @state_OBJECT=b.utilized,@deedDesc=b.name+' ('+cast(b.id as varchar(255))+')'  from dbo.bjzi b left join dbo.players p on p.id=b.playerid where b.id=@id_OBJECT
+		select @side_OBJECT=p.sideId,@squad_OBJECT=p.squadId, @state_OBJECT=b.utilized,@deedDesc=b.name+' ('+cast(b.id as varchar(255))+')'  
+		+ case when @bad = 1 then '
+// !! ѕохороны проведены без должного почтени€ !!' else '' end
+		from dbo.bjzi b left join dbo.players p on p.id=b.playerid where b.id=@id_OBJECT
 	end
 	else
 	begin
