@@ -39,7 +39,8 @@ BEGIN
 	  ,isnull((select id,god,resource,quantity,description,dateadd(hh,3,date)as date from transactions where playerid=p.id for json path),'[]') as transactions 
   FROM [dbo].[players]p
   left join objects o on o.id=p.id and o.typeId=1
-  where realName is not null
+  where 1=1 
+  --and realName is not null
   and p.sideId!=16333
   and o.active=1
 END

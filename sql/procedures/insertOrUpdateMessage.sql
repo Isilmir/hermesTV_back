@@ -20,7 +20,7 @@ CREATE PROCEDURE dbo.insertOrUpdateMessage
 	@typeId int = 58,
 	@honor int = 0,
 	@heroic bit = 0,
-	@description nvarchar(255),
+	@description nvarchar(max),
 	@playerId int,
 	@res int out
 
