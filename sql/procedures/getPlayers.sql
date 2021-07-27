@@ -43,6 +43,6 @@ BEGIN
   left join squads sq on sq.id=p.squadid
   where 1=1
   and p.sideId!=16333
-  and p.realName is not null
+  --and p.realName is not null
 END
 GO
