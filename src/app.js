@@ -37,6 +37,7 @@ const deleteDeedType = require('./methods/deleteDeedType.js');
 const deleteTransaction = require('./methods/deleteTransaction.js');
 const getStories = require('./methods/getStories.js');
 const getPlayers = require('./methods/getPlayers.js');
+const getPlayers_for_printform = require('./methods/getPlayers_for_printform.js');
 const getPlayer = require('./methods/getPlayer.js');
 const getPlayers_honor = require('./methods/getPlayers_honor.js');
 const getGraph = require('./methods/getGraph.js');
@@ -242,6 +243,7 @@ router.post('/processing/makeRegistration',authWithPermissions(null,['makeRegist
 router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	
 router.get('/getPlayers',adminAuth(),getPlayers({sqlConfig:sqlConfig}));
+router.get('/getPlayers_for_printform',adminAuth(),getPlayers_for_printform({sqlConfig:sqlConfig}));
 router.get('/players/:playerId',authWithPermissions(null,['scanObject'])/*,adminAuth()*/,getPlayer({sqlConfig:sqlConfig}));
 router.get('/bjzi/:bjziId',authWithPermissions(null,['scanObject'])/*,adminAuth()*/,getBjziSingle({sqlConfig:sqlConfig}));
 router.get('/getDeedTypes',adminAuth(),getDeedTypes({sqlConfig:sqlConfig}));
