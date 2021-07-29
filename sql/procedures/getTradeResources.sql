@@ -118,7 +118,7 @@ left join keyvaluestorage god on god.storage='gods' and god.key_=substring(eco.s
 where eco.storage like 'economy:%'
 and eco.key_ not in (select resource from #restrictions)
 
-	select * from #deeds where deedTypeId in (36,37,38,39,67,54,53,52,51,50,57)
+	select * from #deeds where deedTypeId in (36,37,38,39,67,54,53,52,51,50,57,78)
 
 drop table #restrictions
 drop table #deeds
