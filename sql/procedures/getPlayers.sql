@@ -36,6 +36,7 @@ BEGIN
 	  ,p.honor
 	  ,p.updatedAt
 	  ,p.realName
+	  ,p.password
 	  ,o.active
   FROM [dbo].[players]p
   left join dbo.objects o on o.id=p.id and o.typeId=1
