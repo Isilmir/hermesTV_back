@@ -62,6 +62,7 @@ dt.description
 ,dt.id
 ,(select count(distinct pp.id) from deeds dp join players pp on pp.id=dp.playerid join objects op on op.id=pp.id and op.typeId=1 where op.active=1 and pp.realName is not null and dp.date between '''+convert(nvarchar(100),@start,23)+N''' and '''+convert(nvarchar(100),@end,23)+N''' and dp.typeid=d.typeid) as users_all /*всего игроков у кого есть это деяние*/
 ,count(*)over(partition by dt.id) as deeds_count /*количество деяний с данным типом*/
+,sum(d.honor)over() as deeds_sum_total /*сумма славы всего по выбранным деяниям*/
 ,sum(d.honor)over(partition by dt.id) as deeds_sum /*сумма славы всего по данному типу*/
 ,avg(d.honor)over(partition by dt.id) as avg_honor_by_deed /*среднее значение славы по типу на одно деяние*/
 ,sum(d.honor)over(partition by dt.id)/(select count(distinct pp.id) from deeds dp join players pp on pp.id=dp.playerid join objects op on op.id=pp.id and op.typeId=1 where op.active=1 and pp.realName is not null and dp.date between '''+convert(nvarchar(100),@start,23)+N''' and '''+convert(nvarchar(100),@end,23)+N''' and dp.typeid=d.typeid) as avg_honor_by_player /*среднее значение славы по типу деяния на одного персонажа*/
