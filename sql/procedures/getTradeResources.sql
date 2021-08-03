@@ -23,7 +23,7 @@ BEGIN
     -- interfering with SELECT statements.
     SET NOCOUNT ON
 
-	declare @nowCycle int, @nowCycleType int,@UC_leader varchar(255),@DBS_leader varchar(255)
+	declare @nowCycle int, @nowCycleType int,@UC_leader varchar(255),@DBS_leader varchar(255),@playerHonor int
 
 	create table #deeds (id int,objectType varchar(255),deedTypeId int,deedTypeName nvarchar(255),description nvarchar(max),date datetime)
 	create table #restrictions (resource varchar(255))
@@ -41,6 +41,7 @@ BEGIN
 
 	select @UC_leader=value from keyValueStorage where storage='economy' and key_='UC_leader'
 	select @DBS_leader=value from keyValueStorage where storage='economy' and key_='DBS_leader'
+	select @playerHonor=honor from players where id=@id
 
 	--select * from #deeds
 
@@ -82,6 +83,18 @@ BEGIN
 	begin
 		insert into #restrictions
 		select resource from (values('humanitary_peace'))as list(resource)
+	end
+
+	if @playerHonor<1000
+	begin
+		insert into #restrictions
+		select resource from (values('policy_gold'))as list(resource)
+	end
+
+	if not exists(select top 1 resource from #transactions where resource='Золотой полис')
+	begin
+		insert into #restrictions
+		select resource from (values('policy_platinum'))as list(resource)
 	end
 
 	if exists(select top 1 deedTypeId from #deeds where deedTypeId=53)
