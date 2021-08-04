@@ -31,7 +31,7 @@ BEGIN
 	  ,si.[description] as sideName
       ,p.[squadId]
 	  ,sq.[name] as squadName
-      ,isnull(p.[honor],0) as honor
+      --,isnull(p.[honor],0) as honor
       ,p.[password]
 	  ,isnull((select value from keyvalueStorage where storage='permission' and key_=p.id for json path),'[]') as permissions
   FROM [players]p
