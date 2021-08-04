@@ -63,6 +63,8 @@ const makeReinforcementsArrived = require('./methods/makeReinforcementsArrived.j
 const changePlayerSquad = require('./methods/changePlayerSquad.js');
 const makeCure = require('./methods/makeCure.js');
 const makeRegistration = require('./methods/makeRegistration.js');
+const makeBless = require('./methods/makeBless.js');
+const getBlesses = require('./methods/getBlesses.js');
 
 const auth = require('./helpers/auth.js');
 const preAuth = require('./helpers/preAuth.js');
@@ -224,6 +226,8 @@ router.get('/messages/:messageId',getMessage({sqlConfig:sqlConfig}));
 router.get('/messages',adminAuth(),getMessages({sqlConfig:sqlConfig}));
 router.post('/getHonorStatistic',adminAuth(),getHonorStatistic({sqlConfig:sqlConfig}));
 router.get('/getTradeResources/:playerId',authWithPermissions(null,['setOrUpdateTransaction']),getTradeResources({sqlConfig:sqlConfig}));
+router.get('/getBlesses',authWithPermissions(null,['makeBless']),getBlesses({sqlConfig:sqlConfig}));
+
 
 router.get('/getWarProgress',adminAuth(),getWarProgress({sqlConfig:sqlConfig}));
 router.post('/setOrUpdateStory',adminAuth(),setOrUpdateStory({sqlConfig:sqlConfig}));	
@@ -239,6 +243,7 @@ router.post('/processing/makeReinforcementsArrived',authWithPermissions(null,['m
 router.post('/processing/makeNewPlayerFromBjzi',authWithPermissions(null,['makeNewPlayerFromBjzi'])/*,adminAuth()*/,makeNewPlayerFromBjzi({sqlConfig:sqlConfig}));
 router.post('/processing/makeCure',authWithPermissions(null,['makeCure']),makeCure({sqlConfig:sqlConfig}));
 router.post('/processing/makeRegistration',authWithPermissions(null,['makeRegistration']),makeRegistration({sqlConfig:sqlConfig}));
+router.post('/processing/makeBless',authWithPermissions(null,['makeBless']),makeBless({sqlConfig:sqlConfig}));
 
 router.delete('/deedTypes',adminAuth(),deleteDeedType({sqlConfig:sqlConfig}));
 router.get('/getStories',adminAuth(),getStories({sqlConfig:sqlConfig}));	

@@ -91,7 +91,7 @@ BEGIN
 		select resource from (values('policy_gold'))as list(resource)
 	end
 
-	if not exists(select top 1 resource from #transactions where resource='Золотой полис')
+	if not exists(select top 1 resource from #transactions where resource='Золотой полис (годовое покрытие)')
 	begin
 		insert into #restrictions
 		select resource from (values('policy_platinum'))as list(resource)
