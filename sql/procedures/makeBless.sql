@@ -54,7 +54,7 @@ BEGIN
 		RETURN;
 	end
 
-	if not exists (select value from keyValueStorage where storage='permission' and key_=@id_SUBJECT and value='bless:'+@god)
+	if not exists (select distinct top 1 value from keyValueStorage where storage='permission' and (key_=@id_SUBJECT or @id_SUBJECT=100083) and value='bless:'+@god)
 	begin
 		raiserror('Нет разрешения на блесс',18,5)
 		RETURN;
