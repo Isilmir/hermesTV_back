@@ -30,7 +30,7 @@ BEGIN
 	--create table #transactions (resource varchar(255),cycleId int, cycleTypeId int)
 	
 	--insert into #deeds
-	select d.id,'deed',d.typeId,dt.name,d.description,d.date from deeds d left join deedTypes dt on dt.id=d.typeId where d.playerId=@id and d.typeId in (61,62)
+	select d.id,'deed' as objectType,d.typeId as deedTypeId,dt.name as deedTypeName,d.description,d.date from deeds d left join deedTypes dt on dt.id=d.typeId where d.playerId=@id and d.typeId in (61,62)
 
 --	insert into #transactions
 --	select resource,isnull((select top 1 id from gameCycles where dateadd(hh,3,date) between startTime and endTime),case when getdate()<(select top 1 min(startTime) from gameCycles)then 0 else 17 end),isnull((select top 1 cycleTypeId from gameCycles where dateadd(hh,3,date) between startTime and endTime),1) from transactions where playerId=@id

@@ -60,7 +60,7 @@ module.exports = function (conf) {
 		let password = result.recordset[0].password;
 		//console.log(password,req.body.password);
 		if(password==req.body.password){
-			let token = jwt.sign({user:req.body.user,exp: Math.floor(Date.now() / 1000) + (60*60*24),isAdmin:req.body.user==100083/*result.recordset[0]['sideId']==16333*/?true:false, permissions:JSON.parse(result.recordset[0]['permissions']).map(el=>el.value)},privateKey,{ algorithm: 'RS256'}/*,'password'*/)
+			let token = jwt.sign({user:req.body.user,exp: Math.floor(Date.now() / 1000) + (60*60*24*7),isAdmin:req.body.user==100083/*result.recordset[0]['sideId']==16333*/?true:false, permissions:JSON.parse(result.recordset[0]['permissions']).map(el=>el.value)},privateKey,{ algorithm: 'RS256'}/*,'password'*/)
 			//let decoded = jwt.verify(token,'password');
 			//console.log('влогине',decoded);
 						//await sql.connect(conf.sqlConfig);
