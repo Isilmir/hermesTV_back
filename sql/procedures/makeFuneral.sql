@@ -47,6 +47,7 @@ BEGIN
 	,@honorCoeff float
 	,@bonusHonor int
 	,@resultHonor int
+	,@heroic int
 
 	DECLARE @errmsg nvarchar(max)
 
@@ -124,7 +125,7 @@ BEGIN
 
 	--select @id_SUBJECT as [@id_SUBJECT],@objectType_SUBJECT as[@objectType_SUBJECT],@id_SUBJECT_p as [@id_SUBJECT_p],@objectType_SUBJECT_p as [@objectType_SUBJECT_p],@side_SUBJECT as[@side_SUBJECT],@id_OBJECT as[@id_OBJECT],@objectType_OBJECT as [@objectType_OBJECT],@side_OBJECT as [@side_OBJECT],@state_OBJECT as [@state_OBJECT]
 	
-	select @deedType = id, @deedHonor = case when @expired = 1 then 0 when @bad = 1 then 0 else defaultHonor end,@deathCase = case when @expired=1 then 3 when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
+	select @deedType = id,@heroic=case when id=33 then 1 else 0 end, @deedHonor = case when @expired = 1 then 0 when @bad = 1 then 0 else defaultHonor end,@deathCase = case when @expired=1 then 3 when name='bodyally' then 1 when name='bodyenemy' then 2 else null end 
 	from dbo.deedTypes
 	where name=case
 		when @objectType_OBJECT='player' then 'bodyhero'
@@ -152,14 +153,14 @@ BEGIN
 		RETURN;
 	end
 
-	set @resultHonor=@deedHonor--+isnull(@bonusHonor,0)
+	set @resultHonor=@deedHonor+isnull(@bonusHonor,0)
 
 BEGIN TRANSACTION
 	-- добавить деяние субъету
 	if @expired = 0 -- не проставляем деяние при просроченном фраге
 	begin
 		BEGIN TRY
-			exec dbo.insertOrUpdateDeed null, @deedDesc,@deedType,@id_SUBJECT_p, @resultHonor,0,null, @deedRes out
+			exec dbo.insertOrUpdateDeed null, @deedDesc,@deedType,@id_SUBJECT_p, @resultHonor,@heroic,null, @deedRes out
 		END TRY
 		BEGIN CATCH
 			IF @@trancount > 0 ROLLBACK TRANSACTION

@@ -24,8 +24,8 @@ BEGIN
     SET NOCOUNT ON
 
 	SELECT distinct 
-	  kvs.description
-	  ,substring(kvs.value,len('bless:')+1,len(kvs.value)) as god
+	  --kvs.description,
+	  substring(kvs.value,len('bless:')+1,len(kvs.value)) as god
 	 ,blesses.value as blessCount
 	 ,gods.value as godName
   FROM [dbo].[keyValueStorage]kvs
@@ -34,7 +34,7 @@ BEGIN
   where kvs.storage='permission'
   and (kvs.key_=@id or @id=100083)
   and kvs.value like 'bless:%'
-  order by 4
+  order by 3
 
 END
 GO
