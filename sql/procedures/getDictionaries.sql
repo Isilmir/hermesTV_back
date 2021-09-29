@@ -54,7 +54,7 @@ BEGIN
 		insert into #res
       select 'squads',isnull((
 		select 
-id,name,sideId from (select * from squads union select null,'без отряда',null,'[]','[]',null,0) squads
+id,name,sideId from (select * from squads where id not in (14931,14933,14936,14962,14966,15372,15373,15680) union select null,'без отряда',null,'[]','[]',null,0) squads
 for json path
 		),'[]')
 	end
